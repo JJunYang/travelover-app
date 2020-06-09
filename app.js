@@ -36,26 +36,80 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
+passport.use(
+  new LocalStrategy(
+    // { usernameField: "email", passwordFiled: "password" },
+    User.authenticate()
+  )
+);
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use(function (req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 //Routes
+//register
 app.post("/register", (req, res) => {
+  console.log(req.body);
+
   var newUser = new User({
     username: req.body.username,
     email: req.body.email,
   });
   User.register(newUser, req.body.password, (err, user) => {
     if (err) {
-      console.log(err);
-      res.send("failed");
+      console.log(err.message);
+      return res.status(500).json({ message: err || "somthing wrong" });
     }
-    passport.authenticate("local")(req, res, () => {
-      res.send("success");
+    req.logIn(user, function (error) {
+      return res.json(user);
     });
   });
 });
+
+//login
+// app.post(
+//   "/login",
+//   passport.authenticate("local", {
+//     failureRedirect: "/login",
+//     successRedirect: "/",
+//   }),
+//   (req, res) => {}
+// );
+
+app.post("/login", function (req, res, next) {
+  passport.authenticate("local", function (error, user, info) {
+    if (error) {
+      return res.status(500).json({
+        message: "Something wrong happend to server",
+      });
+    }
+    req.logIn(user, function (error) {
+      if (error) {
+        return res.status(404).json({
+          message: "Incorrect username or password",
+        });
+      }
+      res.json(user);
+    });
+  })(req, res, next);
+});
+
+app.get("/api", isLoggedIn, (req, res) => {
+  res.json({
+    message: "hello",
+  });
+});
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  return res.json({ message: "loggin first" });
+}
 
 //Serve listen
 var PORT = process.env.PORT | 4000;

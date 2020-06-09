@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Register from "./component/register";
 import Login from "./component/login";
 import NavComponent from "./component/nav";
+import Home from "./component/home";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Router>
         <NavComponent />
         <Switch>
+          <Route path="/" exact component={Home}/>
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
         </Switch>
