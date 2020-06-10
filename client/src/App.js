@@ -6,6 +6,7 @@ import Register from "./component/register";
 import Login from "./component/login";
 import NavComponent from "./component/nav";
 import Home from "./component/home";
+import TicketPage from "./component/ticket/ticketPage";
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
       <Router forceRefresh={true}>
         <NavComponent />
         <Switch>
-          <Route path="/" exact component={Home}/>
+          <Route path="/" exact component={Home} />
+          <Route path="/home" exact component={Home} />
+          <Route path="/tickets" exact component={TicketPage} />
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
         </Switch>
