@@ -3,28 +3,30 @@ import axios from "axios";
 
 export default class Login extends Component {
   state = {
-    username: "",
+    email: "",
     password: "",
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    const { username, password } = this.state;
+    const { email, password } = this.state;
     axios({
       url: "/login",
       method: "POST",
       data: {
-        username,
+        email,
         password,
       },
     })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
+        // localStorage.setItem("user", res.data);
+        localStorage.setItem("userName", res.data.username);
       })
       .then((response) => {
         this.props.history.push("/");
       })
       .catch((error) => {
-        console.log(error.response.data);
+        console.log(error.response.data.message);
       });
   };
   handleChange = async (e) => {
@@ -47,7 +49,7 @@ export default class Login extends Component {
                 <input
                   type="text"
                   id="email"
-                  name="username"
+                  name="email"
                   className="form-control"
                   placeholder="Enter Email"
                   onChange={this.handleChange}

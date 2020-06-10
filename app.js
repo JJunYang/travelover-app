@@ -13,6 +13,7 @@ mongoose
   .connect(process.env.DB_CONNECT, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true,
   })
   .then(() => {
     console.log("MongoDB Connected");
@@ -36,12 +37,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(
-  new LocalStrategy(
-    // { usernameField: "email", passwordFiled: "password" },
-    User.authenticate()
-  )
-);
+// passport.use(new LocalStrategy(User.authenticate()));
+passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -61,24 +58,22 @@ app.post("/register", (req, res) => {
   });
   User.register(newUser, req.body.password, (err, user) => {
     if (err) {
-      console.log(err.message);
-      return res.status(500).json({ message: err || "somthing wrong" });
+      if (err.name === "UserExistsError") {
+        return res.status(400).json({ message: err.message });
+      } else if (err.name === "MongoError") {
+        return res
+          .status(400)
+          .json({ message: "Your email has been registered!" });
+      }
+      return res
+        .status(500)
+        .json({ message: err || "somthing wrong with server" });
     }
     req.logIn(user, function (error) {
       return res.json(user);
     });
   });
 });
-
-//login
-// app.post(
-//   "/login",
-//   passport.authenticate("local", {
-//     failureRedirect: "/login",
-//     successRedirect: "/",
-//   }),
-//   (req, res) => {}
-// );
 
 app.post("/login", function (req, res, next) {
   passport.authenticate("local", function (error, user, info) {
@@ -101,7 +96,13 @@ app.post("/login", function (req, res, next) {
 app.get("/api", isLoggedIn, (req, res) => {
   res.json({
     message: "hello",
+    user: req.user,
   });
+});
+
+app.get("/logout", (req, res) => {
+  req.logout();
+  res.json({ message: "success logout" });
 });
 
 function isLoggedIn(req, res, next) {

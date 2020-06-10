@@ -10,7 +10,7 @@ import Home from "./component/home";
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router forceRefresh={true}>
         <NavComponent />
         <Switch>
           <Route path="/" exact component={Home}/>

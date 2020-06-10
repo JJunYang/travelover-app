@@ -20,13 +20,13 @@ export default class Register extends Component {
       },
     })
       .then((res) => {
-        console.log(res);
+        localStorage.setItem("userName", res.data.username);
       })
       .then((response) => {
         this.props.history.push("/login");
       })
       .catch((error) => {
-        console.log(error.message);
+        console.log(error.response.data.message);
       });
   };
   handleChange = async (e) => {
