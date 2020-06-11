@@ -33,6 +33,7 @@ app.use(
     secret: "I Love Husky",
     resave: false,
     saveUninitialized: false,
+    cookie: { maxAge: 24 * 60 * 60 * 1000 },
   })
 );
 app.use(passport.initialize());

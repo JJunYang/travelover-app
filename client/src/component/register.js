@@ -21,6 +21,7 @@ export default class Register extends Component {
     })
       .then((res) => {
         localStorage.setItem("userName", res.data.username);
+        localStorage.setItem("userID", res.data._id);
       })
       .then((response) => {
         this.props.history.push("/login");
