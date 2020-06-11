@@ -73,8 +73,9 @@ class Paypal_Flight extends Component {
                   {
                     method: "put",
                   }
-                );
-                this.props.history.push("/tickets");
+                ).then(() => {
+                  this.props.history.push("/tickets");
+                });
               }}
               options={{
                 clientId:
