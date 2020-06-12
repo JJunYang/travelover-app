@@ -13,6 +13,8 @@ import Bus from "./component/ticket/bus";
 import Paypal_Bus from "./component/paypal/paypal_bus";
 import Hotel from "./component/ticket/hotel";
 import Paypal_Hotel from "./component/paypal/paypal_hotel";
+import TravelGuide from "./component/travelGuide/travelGuide";
+import TravelGuideDetails from "./component/travelGuide/travelGuideDetail";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/home" exact component={Home} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/register" exact component={Register} />
           <Route path="/tickets" exact component={TicketPage} />
           <Route path="/tickets/flight" exact component={Flight} />
           <Route path="/tickets/bus" exact component={Bus} />
@@ -37,8 +41,13 @@ function App() {
             exact
             component={Paypal_Hotel}
           />
-          <Route path="/login" exact component={Login} />
-          <Route path="/register" exact component={Register} />
+
+          <Route path="/travelGuides" exact component={TravelGuide} />
+          <Route
+            path="/travelGuides/details/:_id"
+            exact
+            component={TravelGuideDetails}
+          />
         </Switch>
       </Router>
     </div>

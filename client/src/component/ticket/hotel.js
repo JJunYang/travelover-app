@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Carousel, Row, Col } from "react-bootstrap";
-import moment from "moment";
 import axios from "axios";
 
 export default class Hotel extends Component {

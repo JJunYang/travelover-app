@@ -26,7 +26,7 @@ export default class NavComponent extends Component {
             <Nav className="mr-auto">
               <Nav.Link href="/home">Home</Nav.Link>
               <Nav.Link href="/tickets">Ticket</Nav.Link>
-              <Nav.Link href="/travelGuideline">TravelGuide</Nav.Link>
+              <Nav.Link href="/travelGuides">TravelGuide</Nav.Link>
               <Nav.Link href="/grouptour">GroupTour</Nav.Link>
               <Nav.Link href="/society">Society</Nav.Link>
               {localStorage.getItem("userName") === null ||
