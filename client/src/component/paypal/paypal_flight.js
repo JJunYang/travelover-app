@@ -54,18 +54,6 @@ class Paypal_Flight extends Component {
                 alert(
                   "Transaction completed by " + details.payer.name.given_name
                 );
-
-                // axios({
-                //   url: "/flight",
-                //   method: "PUT",
-                //   data: {
-                //     userID: localStorage.getItem("userID"),
-                //     flightFrom: this.props.match.params.from,
-                //     flightTo: this.props.match.params.to,
-                //     flightDate: this.props.match.params.date,
-                //     flightPrice: this.props.match.params.price,
-                //   },
-                // });
                 fetch(
                   `/tickets/flight/${localStorage.getItem("userID")}/${
                     this.state.flight._id

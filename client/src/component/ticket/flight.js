@@ -147,11 +147,8 @@ export default class Flight extends Component {
                     <td>{result.to}</td>
                     <td>{moment(result.date).format("YYYY-MM-DD HH:mm:ss")}</td>
                     <td>{result.price}</td>
-                    {localStorage.getItem("userName") === "" ||
-                    localStorage.getItem("userName") === null ? (
-                      ""
-                    ) : (
-                      <td>
+                    <td>
+                      {localStorage.getItem("userName") ? (
                         <Link to={`/tickets/flight/paypal/${result._id}`}>
                           <button
                             type="button"
@@ -161,8 +158,10 @@ export default class Flight extends Component {
                             Buy Ticket
                           </button>
                         </Link>
-                      </td>
-                    )}
+                      ) : (
+                        ""
+                      )}
+                    </td>
                   </tr>
                 );
               })}
