@@ -13,6 +13,10 @@ const UserSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
+  hotelList: {
+    type: Array,
+    default: [],
+  },
 });
 
 UserSchema.plugin(passportLocalMongoose, { usernameField: "email" });

@@ -111,7 +111,7 @@ router.get("/bus/:_id", async (req, res) => {
   res.json(foundBus);
 });
 
-//Book flight
+//Book bus
 router.put("/bus/:userId/:busId", async (req, res) => {
   try {
     const user = await User.findById(req.params.userId);
@@ -146,6 +146,27 @@ router.post("/hotel", isLoggedIn, async (req, res) => {
 router.get("/hotel", async (req, res) => {
   const foundHotels = await Hotel.find();
   res.json(foundHotels);
+});
+
+//Find hotel by id
+router.get("/hotel/:_id", async (req, res) => {
+  const _id = req.params._id;
+  const foundHotel = await Hotel.findById(_id);
+  res.json(foundHotel);
+});
+
+//Book hotel
+router.put("/hotel/:userId/:hotelId", async (req, res) => {
+
+  try {
+    const user = await User.findById(req.params.userId);
+    const hotel = await Hotel.findById(req.params.hotelId);
+    user.hotelList.push(hotel);
+    await user.save();
+    res.sendStatus(204);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 function isLoggedIn(req, res, next) {

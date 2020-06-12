@@ -16,6 +16,10 @@ const HotelSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  image:{
+    type:[],
+    default:[]
+  }
 });
 
 module.exports = mongoose.model("Hotel", HotelSchema);
