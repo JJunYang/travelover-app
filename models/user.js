@@ -9,6 +9,10 @@ const UserSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
+  busList: {
+    type: Array,
+    default: [],
+  },
 });
 
 UserSchema.plugin(passportLocalMongoose, { usernameField: "email" });

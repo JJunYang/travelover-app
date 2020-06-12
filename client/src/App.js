@@ -9,6 +9,8 @@ import Home from "./component/home";
 import TicketPage from "./component/ticket/ticketPage";
 import Flight from "./component/ticket/flight";
 import Paypal_Flight from "./component/paypal/paypal_flight";
+import Bus from "./component/ticket/bus";
+import Paypal_Bus from "./component/paypal/paypal_bus";
 
 function App() {
   return (
@@ -20,11 +22,13 @@ function App() {
           <Route path="/home" exact component={Home} />
           <Route path="/tickets" exact component={TicketPage} />
           <Route path="/tickets/flight" exact component={Flight} />
+          <Route path="/tickets/bus" exact component={Bus} />
           <Route
             path="/tickets/flight/paypal/:_id"
             exact
             component={Paypal_Flight}
           />
+          <Route path="/tickets/bus/paypal/:_id" exact component={Paypal_Bus} />
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
         </Switch>

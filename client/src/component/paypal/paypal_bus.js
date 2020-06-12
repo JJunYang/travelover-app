@@ -3,11 +3,11 @@ import { PayPalButton } from "react-paypal-button-v2";
 import axios from "axios";
 import moment from "moment";
 
-class Paypal_Flight extends Component {
+class Paypal_Bus extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      flight: { _id: "", from: "", to: "", flightId: "", date: "", price: "" },
+      bus: { _id: "", from: "", to: "", busId: "", date: "", price: "" },
     };
     this.fetchData();
   }
@@ -17,12 +17,12 @@ class Paypal_Flight extends Component {
     console.log(_id);
 
     await axios({
-      url: `/tickets/flight/${_id}`,
+      url: `/tickets/bus/${_id}`,
       method: "GET",
     }).then((res) => {
-      this.setState({ flight: res.data });
+      this.setState({ bus: res.data });
     });
-    console.log(this.state.flight);
+    console.log(this.state.bus);
   };
 
   render() {
@@ -39,27 +39,27 @@ class Paypal_Flight extends Component {
         >
           <div className="card mb-3">
             <h5 className="card-title">From:</h5>
-            <p className="card-title">{this.state.flight.from}</p>
+            <p className="card-title">{this.state.bus.from}</p>
             <h5 className="card-title">To:</h5>
-            <p className="card-title">{this.state.flight.to}</p>
+            <p className="card-title">{this.state.bus.to}</p>
             <h5 className="card-title">Date and Time:</h5>
             <p className="card-title">
-              {moment(this.state.flight.date).format("YYYY-MM-DD HH:mm:ss")}
+              {moment(this.state.bus.date).format("YYYY-MM-DD HH:mm:ss")}
             </p>
             <h5 className="card-title">Total amount:</h5>
             <h5 className="card-text" style={{ color: "gold" }}>
-              ${this.state.flight.price}
+              ${this.state.bus.price}
             </h5>
             <PayPalButton
-              amount={this.state.flight.price}
+              amount={this.state.bus.price}
               // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
               onSuccess={(details, data) => {
                 alert(
                   "Transaction completed by " + details.payer.name.given_name
                 );
                 fetch(
-                  `/tickets/flight/${localStorage.getItem("userID")}/${
-                    this.state.flight._id
+                  `/tickets/bus/${localStorage.getItem("userID")}/${
+                    this.state.bus._id
                   }`,
                   {
                     method: "put",
@@ -80,4 +80,4 @@ class Paypal_Flight extends Component {
     );
   }
 }
-export default Paypal_Flight;
+export default Paypal_Bus;

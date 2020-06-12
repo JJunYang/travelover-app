@@ -43,12 +43,14 @@ router.get("/flight", async (req, res) => {
     res.json(data);
   }
 });
+
 //Find flight by id
 router.get("/flight/:_id", async (req, res) => {
   const _id = req.params._id;
   const foundFlight = await Flight.findById(_id);
   res.json(foundFlight);
 });
+
 //Book flight
 router.put("/flight/:userId/:flightId", async (req, res) => {
   try {
@@ -79,6 +81,46 @@ router.post("/bus", async (req, res) => {
     res.sendStatus(200);
   } catch (error) {
     res.status(400).json(error);
+  }
+});
+
+//find bus
+router.get("/bus", async (req, res) => {
+  const from = req.query.from;
+  const to = req.query.to;
+
+  if (from === "" && to === "") {
+    const data = await Bus.find();
+    res.json(data);
+  } else if (from === "") {
+    const data = await Bus.find({ to: to });
+    res.json(data);
+  } else if (to === "") {
+    const data = await Bus.find({ from: from });
+    res.json(data);
+  } else {
+    const data = await Bus.find({ from: from, to: to });
+    res.json(data);
+  }
+});
+
+//Find bus by id
+router.get("/bus/:_id", async (req, res) => {
+  const _id = req.params._id;
+  const foundBus = await Bus.findById(_id);
+  res.json(foundBus);
+});
+
+//Book flight
+router.put("/bus/:userId/:busId", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    const bus = await Bus.findById(req.params.busId);
+    user.busList.push(bus);
+    await user.save();
+    res.sendStatus(204);
+  } catch (error) {
+    console.log(error);
   }
 });
 
