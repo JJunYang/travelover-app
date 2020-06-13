@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Alert, Badge, Form, Button } from "react-bootstrap";
 import moment from "moment";
 import Toggle from "react-toggle";
+import "react-toggle/style.css";
 import axios from "axios";
 
 export default class TopicDetail extends Component {
@@ -50,13 +51,16 @@ export default class TopicDetail extends Component {
   postAnswer = () => {
     if (this.state.answer.trim().length < 1) {
       alert("Your answer cannot be empty.");
-    } else if (localStorage.getItem("userID").length < 1) {
+    } else if (
+      localStorage.getItem("userName") === null ||
+      localStorage.getItem("userName") === ""
+    ) {
       alert("Your need to log in to post your answer!");
       this.props.history.push("/login");
     } else {
       let answerValue = {
         userId: localStorage.getItem("userID"),
-        userName:localStorage.getItem("userName"),
+        userName: localStorage.getItem("userName"),
         comment: this.state.answer,
       };
       axios({
@@ -65,13 +69,18 @@ export default class TopicDetail extends Component {
         data: answerValue,
       })
         .then((res) => {
-          alert("Answer posted successfully!");
           this.props.history.push("/society");
         })
         .catch((error) => {
           console.error(error);
         });
     }
+  };
+
+  toggleAnswer = () => {
+    if (this.state.display === "block") {
+      this.setState({ display: "none" });
+    } else this.setState({ display: "block" });
   };
 
   render() {
