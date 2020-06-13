@@ -15,6 +15,7 @@ import Hotel from "./component/ticket/hotel";
 import Paypal_Hotel from "./component/paypal/paypal_hotel";
 import TravelGuide from "./component/travelGuide/travelGuide";
 import TravelGuideDetails from "./component/travelGuide/travelGuideDetail";
+import GroupTour from "./component/groupTour/groupTour";
 
 function App() {
   return (
@@ -48,6 +49,8 @@ function App() {
             exact
             component={TravelGuideDetails}
           />
+
+          <Route path="/groupTours" exact component={GroupTour} />
         </Switch>
       </Router>
     </div>
