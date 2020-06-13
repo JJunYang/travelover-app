@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const GroupTour = require("../models/groupTour");
+const User = require("../models/user");
 
 //Get all groupTours
 router.get("/", async (req, res) => {
@@ -23,6 +24,18 @@ router.post("/create", async (req, res) => {
     });
     newGrouptour.save();
     res.send(200);
+  }
+});
+
+router.put("/:userId/:tourId", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    const groupTour = await GroupTour.findById(req.params.tourId);
+    user.groupTourList.push(groupTour);
+    await user.save();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
   }
 });
 

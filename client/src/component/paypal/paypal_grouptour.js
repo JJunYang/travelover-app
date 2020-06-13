@@ -12,6 +12,10 @@ export default class Paypal_GroupTour extends Component {
       .then((res) => {
         this.setState({ tourDetail: res.data });
       })
+      .then(() => {
+        console.log(this.state);
+      })
+
       .catch((error) => {
         console.log(error);
       });
@@ -35,7 +39,7 @@ export default class Paypal_GroupTour extends Component {
             <p className="card-title">{this.state.tourDetail.date}</p>
             <h5 className="card-title">Total amount:</h5>
             <h5 className="card-text" style={{ color: "gold" }}>
-              {this.state.tourDetail.price}
+              ${this.state.tourDetail.price}
             </h5>
             <PayPalButton
               amount={this.state.tourDetail.price}
@@ -46,14 +50,15 @@ export default class Paypal_GroupTour extends Component {
                 );
 
                 fetch(
-                  `http://localhost:4000/booktour/${localStorage.getItem(
-                    "userName"
-                  )}/${this.state.tourDetail._id}`,
+                  `/groupTours/${localStorage.getItem("userID")}/${
+                    this.state.tourDetail._id
+                  }`,
                   {
                     method: "put",
                   }
-                );
-                this.props.history.push("/grouptour");
+                ).then(() => {
+                  this.props.history.push("/groupTours");
+                });
               }}
               options={{
                 clientId:
