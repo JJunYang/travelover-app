@@ -21,6 +21,7 @@ import Paypal_GroupTour from "./component/paypal/paypal_grouptour";
 import Society from "./component/society/society";
 import postTopic from "./component/society/postTopic";
 import TopicDetail from "./component/society/topicDetail";
+import PersonalCenter from "./component/personalCenter/personalCenter";
 
 function App() {
   return (
@@ -70,6 +71,7 @@ function App() {
             exact
             component={TopicDetail}
           />
+          <Route path="/personalcenter" exact component={PersonalCenter} />
         </Switch>
       </Router>
     </div>
