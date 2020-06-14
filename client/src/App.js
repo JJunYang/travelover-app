@@ -22,12 +22,14 @@ import Society from "./component/society/society";
 import postTopic from "./component/society/postTopic";
 import TopicDetail from "./component/society/topicDetail";
 import PersonalCenter from "./component/personalCenter/personalCenter";
+import Footer from "./component/footer";
 
 function App() {
   return (
     <div className="App">
       <Router forceRefresh={true}>
         <NavComponent />
+        <br /> <br />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/home" exact component={Home} />
@@ -73,6 +75,7 @@ function App() {
           />
           <Route path="/personalcenter" exact component={PersonalCenter} />
         </Switch>
+        <Footer />
       </Router>
     </div>
   );
