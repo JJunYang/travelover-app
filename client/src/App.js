@@ -18,9 +18,9 @@ import TravelGuideDetails from "./component/travelGuide/travelGuideDetail";
 import GroupTour from "./component/groupTour/groupTour";
 import GroupTourDetail from "./component/groupTour/groupTourDetail";
 import Paypal_GroupTour from "./component/paypal/paypal_grouptour";
-import Society from "./component/society/society";
-import postTopic from "./component/society/postTopic";
-import TopicDetail from "./component/society/topicDetail";
+import Blog from "./component/blog/blog";
+import postTopic from "./component/blog/postTopic";
+import TopicDetail from "./component/blog/topicDetail";
 import PersonalCenter from "./component/personalCenter/personalCenter";
 import Footer from "./component/footer";
 
@@ -66,7 +66,7 @@ function App() {
             component={Paypal_GroupTour}
           />
 
-          <Route path="/society" exact component={Society} />
+          <Route path="/society" exact component={Blog} />
           <Route path="/society/postTopic" exact component={postTopic} />
           <Route
             path="/society/topicDetail/:_id"

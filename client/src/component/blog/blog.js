@@ -3,7 +3,7 @@ import { Alert, Jumbotron, Badge } from "react-bootstrap";
 import moment from "moment";
 import axios from "axios";
 
-export default class Society extends Component {
+export default class Blog extends Component {
   state = {
     topicList: [],
   };
