@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Register from "./component/register";
 import Login from "./component/login";
 import NavComponent from "./component/nav";
-import Home from "./component/home";
+import Home from "./component/home/home";
 import TicketPage from "./component/ticket/ticketPage";
 import Flight from "./component/ticket/flight";
 import Paypal_Flight from "./component/paypal/paypal_flight";
@@ -29,7 +29,7 @@ function App() {
     <div className="App">
       <Router forceRefresh={true}>
         <NavComponent />
-        <br /> <br />
+        {/* <br /> <br/> */}
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/home" exact component={Home} />
@@ -75,8 +75,8 @@ function App() {
           />
           <Route path="/personalcenter" exact component={PersonalCenter} />
         </Switch>
-        <Footer />
       </Router>
+      <Footer />
     </div>
   );
 }

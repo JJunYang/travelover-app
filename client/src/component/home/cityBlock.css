@@ -1,0 +1,37 @@
+#home-cityBlock {
+  font-family: "Roboto Mono", monospace;
+}
+.cardCity {
+  border: none;
+  height: 100%;
+  width: 100%;
+}
+.colCity {
+  color: white;
+  max-height: 360px;
+  max-width: 260px;
+
+  /* padding: 0; */
+}
+
+.card-city-title{
+    font-size: 0.9em;
+}
+.card-city-name{
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.card-city-placeNums{
+    font-size: 0.8em;
+    letter-spacing: -1px;
+}
+.home-card-img {
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 13px;
+  height: 100%;
+  width: 100%;
+}
+.country {
+  position: absolute;
+  bottom: 1.5em;
+}

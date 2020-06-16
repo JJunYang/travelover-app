@@ -18,7 +18,7 @@ export default class NavComponent extends Component {
   };
   render() {
     return (
-      <Container style={{ marginBottom: "20px" }}>
+      <Container style={{ marginBottom: "55px" }}>
         <Navbar bg="dark" variant="dark" fixed="top" expand="lg">
           <Navbar.Brand href="/home">GoTravel</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -28,7 +28,7 @@ export default class NavComponent extends Component {
               <Nav.Link href="/tickets">Ticket</Nav.Link>
               <Nav.Link href="/travelGuides">TravelGuide</Nav.Link>
               <Nav.Link href="/groupTours">GroupTour</Nav.Link>
-              <Nav.Link href="/society">Society</Nav.Link>
+              <Nav.Link href="/society">Blog</Nav.Link>
               {localStorage.getItem("userName") === null ||
               localStorage.getItem("userName") === "" ? (
                 ""

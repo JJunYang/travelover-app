@@ -4,7 +4,7 @@ import Image from "react-bootstrap/Image";
 export default class Footer extends Component {
   render() {
     return (
-      <div
+      <footer
         id="footer"
         className="jumbotron text-center"
         style={{ marginBottom: "0", marginTop: "50px" }}
@@ -115,7 +115,7 @@ export default class Footer extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </footer>
     );
   }
 }
