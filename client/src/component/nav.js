@@ -20,7 +20,8 @@ export default class NavComponent extends Component {
     return (
       <Container style={{ marginBottom: "55px" }}>
         <Navbar bg="dark" variant="dark" fixed="top" expand="lg">
-          <Navbar.Brand href="/home">GoTravel</Navbar.Brand>
+          <Navbar.Brand href="/home">Travelover</Navbar.Brand>
+          <span style={{color:"grey"}}>|</span>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">

@@ -6,14 +6,13 @@ export default class CityBlock extends Component {
   render() {
     return (
       <Container id="home-cityBlock">
-        <div>
           <h2>Popularities</h2>
           <Row>
             <Col className="colCity col-md-3 col-6">
               <Card className="cardCity">
                 <Card.Img
                   className="home-card-img"
-                  src={`https://images.unsplash.com/photo-1493997181344-712f2f19d87a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
+                  src={`https://images.unsplash.com/photo-1522850959516-58f958dde2c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
                   alt="Card image"
                 />
                 <Card.ImgOverlay>
@@ -51,7 +50,9 @@ export default class CityBlock extends Component {
                   alt="Card image"
                 />
                 <Card.ImgOverlay>
-                  <Card.Title className="card-city-title">UNITED STATES</Card.Title>
+                  <Card.Title className="card-city-title">
+                    UNITED STATES
+                  </Card.Title>
                   <Card.Text className="country">
                     <span className="card-city-name">Boston</span>
                     <br />
@@ -68,7 +69,9 @@ export default class CityBlock extends Component {
                   alt="Card image"
                 />
                 <Card.ImgOverlay>
-                  <Card.Title className="card-city-title">UNITED STATES</Card.Title>
+                  <Card.Title className="card-city-title">
+                    UNITED STATES
+                  </Card.Title>
                   <Card.Text className="country">
                     <span className="card-city-name">New York</span>
                     <br />
@@ -76,7 +79,7 @@ export default class CityBlock extends Component {
                   </Card.Text>
                 </Card.ImgOverlay>
               </Card>
-            </Col>      
+            </Col>
             <Col className="colCity col-md-3 col-6">
               <Card className="cardCity">
                 <Card.Img
@@ -85,7 +88,9 @@ export default class CityBlock extends Component {
                   alt="Card image"
                 />
                 <Card.ImgOverlay>
-                  <Card.Title className="card-city-title">UNITED KINGDOM</Card.Title>
+                  <Card.Title className="card-city-title">
+                    UNITED KINGDOM
+                  </Card.Title>
                   <Card.Text className="country">
                     <span className="card-city-name">London</span>
                     <br />
@@ -145,9 +150,7 @@ export default class CityBlock extends Component {
                 </Card.ImgOverlay>
               </Card>
             </Col>
-            
           </Row>
-        </div>
       </Container>
     );
   }
