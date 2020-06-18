@@ -1,151 +1,75 @@
 import React, { Component } from "react";
+import "./ticketPage.css";
 import { Link } from "react-router-dom";
-import { Card, Button, Row, Col } from "react-bootstrap";
+import { Card, Button, Row, Col, Container } from "react-bootstrap";
 
 export default class TicketPage extends Component {
   render() {
     return (
-      <div
-        id="main"
-        style={{ paddingTop: "3%", paddingLeft: "10%", paddingRight: "10%" }}
-      >
-        <h1>Tickets and Hotel</h1>
+      <Container id="ticketPage">
+        <h2>Tickets and Hotel</h2>
         <hr></hr>
         <div id="flight">
-          <Row style={{ paddingTop: "3%" }}>
+          <Row>
             <Col>
-              <h2>Flight</h2>
+              <h3>Flight</h3>
             </Col>
-            <Col style={{ textAlign: "right", paddingRight: "5%" }}>
+            <Col className="ticket-col-btn-book">
               <Link to={`/tickets/flight`}>
-                <Button variant="primary">Book Tickets</Button>
+                <Button variant="primary">Search More</Button>
               </Link>
             </Col>
           </Row>
-          <Row style={{ paddingTop: "3%" }}>
-            <Col>
-              <Card style={{ width: "15rem" }}>
+          <Row className="ticket-row-list">
+            <Col className="ticket-col col-6 col-md-3">
+              <Card className="ticket-card">
                 <Card.Img
                   variant="top"
-                  src={process.env.PUBLIC_URL + "/image/domestic_1.jpg"}
-                  style={{ width: "100%", height: "200px" }}
+                  className="ticket-card-img"
+                  src={`https://images.unsplash.com/photo-1495201050688-bee4686329be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
                 />
                 <Card.Body>
-                  <Card.Title>Domestic</Card.Title>
-                  <Card.Text>Start from $100</Card.Text>
-                  {/*<Link to={`/tickets/flight`}><Button variant="primary">Book Tickets</Button></Link>*/}
+                  <Card.Title className="ticket-card-title">Domestic</Card.Title>
+                  <Card.Text className="ticket-card-text">Start from $100</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
-            <Col>
-              <Card style={{ width: "15rem" }}>
+            <Col className="ticket-col col-6 col-md-3">
+              <Card className="ticket-card">
                 <Card.Img
                   variant="top"
-                  src={process.env.PUBLIC_URL + "/image/europe_1.jpg"}
-                  style={{ width: "100%", height: "200px" }}
+                  className="ticket-card-img"
+                  src={`https://images.unsplash.com/photo-1566170821470-8c760077e748?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
                 />
                 <Card.Body>
-                  <Card.Title>Europe</Card.Title>
-                  <Card.Text>Start from $1000</Card.Text>
-                  {/*<Link to={`/tickets/flight`}><Button variant="primary">Book Tickets</Button></Link>*/}
+                  <Card.Title className="ticket-card-title">Europe</Card.Title>
+                  <Card.Text className="ticket-card-text">Start from $1000</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
-            <Col>
-              <Card style={{ width: "15rem" }}>
+            <Col className="ticket-col col-6 col-md-3">
+              <Card className="ticket-card">
                 <Card.Img
                   variant="top"
-                  src={process.env.PUBLIC_URL + "/image/australia_1.jpg"}
-                  style={{ width: "100%", height: "200px" }}
+                  className="ticket-card-img"
+                  src={`https://images.unsplash.com/photo-1561031601-ad07da1ce656?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
                 />
                 <Card.Body>
-                  <Card.Title>Australia</Card.Title>
-                  <Card.Text>Start from $600</Card.Text>
-                  {/*<Link to={`/tickets/flight`}><Button variant="primary">Book Tickets</Button></Link>*/}
+                  <Card.Title className="ticket-card-title">Australia</Card.Title>
+                  <Card.Text className="ticket-card-text">Start from $600</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
-            <Col>
-              <Card style={{ width: "15rem" }}>
+            <Col className="ticket-col col-6 col-md-3">
+              <Card className="ticket-card">
                 <Card.Img
                   variant="top"
-                  src={process.env.PUBLIC_URL + "/image/asia_1.jpg"}
-                  style={{ width: "100%", height: "200px" }}
+                  className="ticket-card-img"
+                  src={`https://images.unsplash.com/photo-1555085634-91624f601d49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
                 />
                 <Card.Body>
-                  <Card.Title>Asia</Card.Title>
-                  <Card.Text>Start from $800</Card.Text>
-                  {/*<Link to={`/tickets/flight`}><Button variant="primary">Book Tickets</Button></Link>*/}
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </div>
-        <div id="bus">
-          <Row style={{ paddingTop: "3%" }}>
-            <Col>
-              <h2>Bus</h2>
-            </Col>
-            <Col style={{ textAlign: "right", paddingRight: "5%" }}>
-              <Link to={`/tickets/bus`}>
-                <Button variant="primary">Book Tickets</Button>
-              </Link>
-            </Col>
-          </Row>
-          <Row style={{ paddingTop: "3%" }}>
-            <Col>
-              <Card style={{ width: "15rem" }}>
-                <Card.Img
-                  variant="top"
-                  src={process.env.PUBLIC_URL + "/image/newyork.jpg"}
-                  style={{ width: "100%", height: "200px" }}
-                />
-                <Card.Body>
-                  <Card.Title>New York</Card.Title>
-                  <Card.Text>Start from $10</Card.Text>
-                  {/*<Link to={`/tickets/bus`}><Button variant="primary">Book Tickets</Button></Link>*/}
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col>
-              <Card style={{ width: "15rem" }}>
-                <Card.Img
-                  variant="top"
-                  src={process.env.PUBLIC_URL + "/image/miami.jpg"}
-                  style={{ width: "100%", height: "200px" }}
-                />
-                <Card.Body>
-                  <Card.Title>Miami</Card.Title>
-                  <Card.Text>Start from $30</Card.Text>
-                  {/*<Link to={`/tickets/bus`}><Button variant="primary">Book Tickets</Button></Link>*/}
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col>
-              <Card style={{ width: "15rem" }}>
-                <Card.Img
-                  variant="top"
-                  src={process.env.PUBLIC_URL + "/image/california.jpg"}
-                  style={{ width: "100%", height: "200px" }}
-                />
-                <Card.Body>
-                  <Card.Title>California</Card.Title>
-                  <Card.Text>Start from $40</Card.Text>
-                  {/*<Link to={`/tickets/bus`}><Button variant="primary">Book Tickets</Button></Link>*/}
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col>
-              <Card style={{ width: "15rem" }}>
-                <Card.Img
-                  variant="top"
-                  src={process.env.PUBLIC_URL + "/image/boston.jpg"}
-                  style={{ width: "100%", height: "200px" }}
-                />
-                <Card.Body>
-                  <Card.Title>Boston</Card.Title>
-                  <Card.Text>Start from $20</Card.Text>
-                  {/*<Link to={`/tickets/bus`}><Button variant="primary">Book Tickets</Button></Link>*/}
+                  <Card.Title className="ticket-card-title">Asia</Card.Title>
+                  <Card.Text className="ticket-card-text">Start from $800</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -221,7 +145,7 @@ export default class TicketPage extends Component {
             </Col>
           </Row>
         </div>
-      </div>
+      </Container>
     );
   }
 }

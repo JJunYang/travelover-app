@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Flight = require("../models/flight");
-const Bus = require("../models/bus");
 const Hotel = require("../models/hotel");
 const User = require("../models/user");
 
@@ -64,65 +63,65 @@ router.put("/flight/:userId/:flightId", async (req, res) => {
   }
 });
 
-//Add New Bus
-router.post("/bus", async (req, res) => {
-  //console.log(req.body);
-  const { busId, from, to, date, price } = req.body;
+// //Add New Bus
+// router.post("/bus", async (req, res) => {
+//   //console.log(req.body);
+//   const { busId, from, to, date, price } = req.body;
 
-  try {
-    var newBus = new Bus({
-      busId: busId,
-      from: from,
-      to: to,
-      date: date,
-      price: price,
-    });
-    await newBus.save();
-    res.sendStatus(200);
-  } catch (error) {
-    res.status(400).json(error);
-  }
-});
+//   try {
+//     var newBus = new Bus({
+//       busId: busId,
+//       from: from,
+//       to: to,
+//       date: date,
+//       price: price,
+//     });
+//     await newBus.save();
+//     res.sendStatus(200);
+//   } catch (error) {
+//     res.status(400).json(error);
+//   }
+// });
 
-//find bus
-router.get("/bus", async (req, res) => {
-  const from = req.query.from;
-  const to = req.query.to;
+// //find bus
+// router.get("/bus", async (req, res) => {
+//   const from = req.query.from;
+//   const to = req.query.to;
 
-  if (from === "" && to === "") {
-    const data = await Bus.find();
-    res.json(data);
-  } else if (from === "") {
-    const data = await Bus.find({ to: to });
-    res.json(data);
-  } else if (to === "") {
-    const data = await Bus.find({ from: from });
-    res.json(data);
-  } else {
-    const data = await Bus.find({ from: from, to: to });
-    res.json(data);
-  }
-});
+//   if (from === "" && to === "") {
+//     const data = await Bus.find();
+//     res.json(data);
+//   } else if (from === "") {
+//     const data = await Bus.find({ to: to });
+//     res.json(data);
+//   } else if (to === "") {
+//     const data = await Bus.find({ from: from });
+//     res.json(data);
+//   } else {
+//     const data = await Bus.find({ from: from, to: to });
+//     res.json(data);
+//   }
+// });
 
-//Find bus by id
-router.get("/bus/:_id", async (req, res) => {
-  const _id = req.params._id;
-  const foundBus = await Bus.findById(_id);
-  res.json(foundBus);
-});
+// //Find bus by id
+// router.get("/bus/:_id", async (req, res) => {
+//   const _id = req.params._id;
+//   const foundBus = await Bus.findById(_id);
+//   res.json(foundBus);
+// });
 
-//Book bus
-router.put("/bus/:userId/:busId", async (req, res) => {
-  try {
-    const user = await User.findById(req.params.userId);
-    const bus = await Bus.findById(req.params.busId);
-    user.busList.push(bus);
-    await user.save();
-    res.sendStatus(204);
-  } catch (error) {
-    console.log(error);
-  }
-});
+// //Book bus
+// router.put("/bus/:userId/:busId", async (req, res) => {
+//   try {
+//     const user = await User.findById(req.params.userId);
+//     const bus = await Bus.findById(req.params.busId);
+//     user.busList.push(bus);
+//     await user.save();
+//     res.sendStatus(204);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 //Add New Hotel
 router.post("/hotel", isLoggedIn, async (req, res) => {

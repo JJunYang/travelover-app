@@ -124,7 +124,7 @@ export default class TravelGuideDetails extends Component {
                   {this.state.like === "Upvote" ? (
                     <>
                       <Image
-                        src={require("../../Icon/starempty.png")}
+                        src={process.env.PUBLIC_URL + "/Icon/starempty.png"}
                         style={{
                           width: "25px",
                           height: "25px",
@@ -136,7 +136,7 @@ export default class TravelGuideDetails extends Component {
                   ) : (
                     <>
                       <Image
-                        src={require("../../Icon/starfull.png")}
+                        src={process.env.PUBLIC_URL + "/Icon/starfull.png"}
                         style={{
                           width: "25px",
                           height: "25px",
@@ -155,7 +155,7 @@ export default class TravelGuideDetails extends Component {
                 <ListGroup variant="flush" style={{ fontSize: "10px" }}>
                   <ListGroup.Item>
                     <img
-                      src={require("../../Icon/date.png")}
+                      src={process.env.PUBLIC_URL + "/Icon/date.png"}
                       style={{
                         width: "10px",
                         height: "10px",
@@ -167,7 +167,7 @@ export default class TravelGuideDetails extends Component {
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <img
-                      src={require("../../Icon/totaldate.png")}
+                      src={process.env.PUBLIC_URL + "/Icon/totaldate.png"}
                       style={{
                         width: "10px",
                         height: "10px",
@@ -179,7 +179,7 @@ export default class TravelGuideDetails extends Component {
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <img
-                      src={require("../../Icon/with.png")}
+                      src={process.env.PUBLIC_URL + "/Icon/with.png"}
                       style={{
                         width: "10px",
                         height: "10px",
@@ -191,7 +191,7 @@ export default class TravelGuideDetails extends Component {
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <img
-                      src={require("../../Icon/cost.png")}
+                      src={process.env.PUBLIC_URL + "/Icon/cost.png"}
                       style={{
                         width: "10px",
                         height: "10px",

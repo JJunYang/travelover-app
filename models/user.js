@@ -9,10 +9,6 @@ const UserSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
-  busList: {
-    type: Array,
-    default: [],
-  },
   hotelList: {
     type: Array,
     default: [],

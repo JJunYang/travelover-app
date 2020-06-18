@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Container, Carousel, Card, Nav, Row, Col } from "react-bootstrap";
-import { Image,Button,Badge } from "react-bootstrap";
+import { Image, Button, Badge } from "react-bootstrap";
 
 export default class TravelGuide extends Component {
   constructor(props) {
@@ -119,7 +119,7 @@ export default class TravelGuide extends Component {
                 <hr></hr>
                 <p style={{ fontSize: "13px" }}>
                   <img
-                    src={require("../../Icon/journal.png")}
+                    src={process.env.PUBLIC_URL + "/Icon/journal.png"}
                     alt=""
                     style={{
                       width: "12px",
@@ -171,7 +171,7 @@ export default class TravelGuide extends Component {
                           {item.author.username}
                         </Badge>
                         <img
-                          src={require("../../Icon/view.png")}
+                          src={process.env.PUBLIC_URL + "/Icon/view.png"}
                           alt=""
                           style={{ width: "11px", height: "11px" }}
                         ></img>

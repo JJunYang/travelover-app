@@ -1,0 +1,33 @@
+#ticketPage {
+  font-family: "Roboto Mono", monospace;
+  padding-top: 30px;
+  padding-bottom: 35px;
+}
+.ticket-col-btn-book {
+  text-align: right;
+}
+.ticket-card {
+  /* height: 200px; */
+  height: 100%;
+  width: 100%;
+  border-radius: 13px;
+  overflow: hidden;
+}
+.ticket-card-img{
+  width: 100%;
+  max-height: 63%;
+  border-radius: 0px;
+  transition: all 1s;
+}
+.ticket-card-img:hover{
+  transform: scale(1.1);
+}
+
+.ticket-card-title{
+    font-size: 1em;
+    font-weight: 700;
+}
+.ticket-card-text{
+    font-size: 0.9em;
+    letter-spacing: -1px;
+}
