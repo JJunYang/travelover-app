@@ -15,12 +15,6 @@ import Hotel from "./component/ticket/hotel";
 import Paypal_Hotel from "./component/paypal/paypal_hotel";
 import TravelGuide from "./component/travelGuide/travelGuide";
 import TravelGuideDetails from "./component/travelGuide/travelGuideDetail";
-import GroupTour from "./component/groupTour/groupTour";
-import GroupTourDetail from "./component/groupTour/groupTourDetail";
-import Paypal_GroupTour from "./component/paypal/paypal_grouptour";
-import Blog from "./component/blog/blog";
-import postTopic from "./component/blog/postTopic";
-import TopicDetail from "./component/blog/topicDetail";
 import PersonalCenter from "./component/personalCenter/personalCenter";
 import Footer from "./component/footer";
 
@@ -56,22 +50,6 @@ function App() {
             path="/travelGuides/details/:_id"
             exact
             component={TravelGuideDetails}
-          />
-
-          <Route path="/groupTours" exact component={GroupTour} />
-          <Route path="/groupTours/:_id" exact component={GroupTourDetail} />
-          <Route
-            path="/groupTours/:_id/paypal"
-            exact
-            component={Paypal_GroupTour}
-          />
-
-          <Route path="/society" exact component={Blog} />
-          <Route path="/society/postTopic" exact component={postTopic} />
-          <Route
-            path="/society/topicDetail/:_id"
-            exact
-            component={TopicDetail}
           />
           <Route path="/personalcenter" exact component={PersonalCenter} />
         </Switch>

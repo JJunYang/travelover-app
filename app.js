@@ -52,8 +52,6 @@ app.use(function (req, res, next) {
 app.use("/", require("./routes/index"));
 app.use("/tickets", require("./routes/tickets"));
 app.use("/travelGuides", require("./routes/travelGuides"));
-app.use("/groupTours", require("./routes/groupTours"));
-app.use("/society", require("./routes/society"));
 app.use("/personalCenter", require("./routes/personalCenter"));
 
 //Serve listen

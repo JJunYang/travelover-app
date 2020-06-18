@@ -28,8 +28,6 @@ export default class NavComponent extends Component {
               <Nav.Link href="/home">Home</Nav.Link>
               <Nav.Link href="/tickets">Ticket</Nav.Link>
               <Nav.Link href="/travelGuides">TravelGuide</Nav.Link>
-              <Nav.Link href="/groupTours">GroupTour</Nav.Link>
-              <Nav.Link href="/society">Blog</Nav.Link>
               {localStorage.getItem("userName") === null ||
               localStorage.getItem("userName") === "" ? (
                 ""

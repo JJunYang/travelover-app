@@ -6,7 +6,7 @@ export default class CityBlock extends Component {
   render() {
     return (
       <Container id="home-cityBlock">
-          <h2>Popularities</h2>
+          <h2 className="home-subtitle">Popular Cities</h2>
           <Row>
             <Col className="colCity col-md-3 col-6">
               <Card className="cardCity">

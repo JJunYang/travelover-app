@@ -1,6 +1,11 @@
 /* homePage cityBlock */
 #home-cityBlock {
   font-family: "Roboto Mono", monospace;
+  padding-top: 30px;
+  padding-bottom: 35px;
+}
+.home-subtitle{
+  margin-bottom: 20px;
 }
 .cardCity {
   border: 2px solid rgba(0, 0, 0, 0);
@@ -14,6 +19,7 @@
   max-height: 340px;
   max-width: 260px;
   overflow: hidden;
+  padding-bottom: 20px;
 }
 .card-city-title {
   font-size: 0.9em;
@@ -70,6 +76,8 @@
 
 #home-blogBlock {
   font-family: "Roboto Mono", monospace;
+  padding-top: 30px;
+  padding-bottom: 50px;
 }
 .card-blog-title {
   font-family: "Jost", sans-serif;

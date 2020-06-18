@@ -17,10 +17,6 @@ const UserSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
-  groupTourList: {
-    type: Array,
-    default: [],
-  },
 });
 
 UserSchema.plugin(passportLocalMongoose, { usernameField: "email" });

@@ -4,7 +4,7 @@ export default class BlogBlock extends Component {
   render() {
     return (
       <Container id="home-blogBlock">
-        <h2>Travel Inspiration</h2>
+        <h2 className="home-subtitle">Travel Inspiration</h2>
         <Row>
           <Col className="col-md-4">
             <Card style={{ border: "none" }}>
