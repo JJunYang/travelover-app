@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Container, Card, Row, Col } from "react-bootstrap";
-import "./cityBlock.css";
 
 export default class CityBlock extends Component {
   render() {

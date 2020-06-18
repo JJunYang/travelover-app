@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import CarouselBlock from "./carouselBlock";
 import CityBlock from "./cityBlock";
 import BlogBlock from "./blogBlock";
+import "./homePage.css";
+
 
 // import axios from "axios";
 
