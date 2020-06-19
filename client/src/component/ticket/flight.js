@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table, Form, Row, Col, Button } from "react-bootstrap";
+import { Table, Form, Row, Col, Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import axios from "axios";
@@ -62,74 +62,36 @@ export default class Flight extends Component {
 
   render() {
     return (
-      <div
-        id="flight_ticket"
-        style={{ paddingTop: "3%", paddingLeft: "10%", paddingRight: "10%" }}
-      >
-        <h1>Book Flight Ticket</h1>
+      <Container id="flight_ticket">
+        <h2>Book Flight Ticket</h2>
         <hr></hr>
-        <div
-          className="InputBox"
-          style={{ paddingTop: "3%", paddingLeft: "10%", paddingRight: "10%" }}
-        >
-          <Form>
-            <Row>
-              <Col
-                style={{
-                  paddingTop: "10px",
-                  paddingLeft: "10%",
-                  paddingRight: "10%",
-                }}
+        <Form className="ticket-form">
+          <Row className=" ticket-form-row">
+            <Col className="col-10 col-md-3">
+              <Form.Group controlId="From">
+                <Form.Label>Where From?</Form.Label>
+                <Form.Control type="text" placeholder="city name" />
+              </Form.Group>
+            </Col>
+            <Col className="col-10 col-md-3">
+              <Form.Group controlId="To">
+                <Form.Label>Where To?</Form.Label>
+                <Form.Control type="text" placeholder="city name" />
+              </Form.Group>
+            </Col>
+            <Col className="col-3 col-md-2 ticket-form-btnCol">
+              <Button
+                variant="primary"
+                type="button"
+                onClick={(e) => this.handleClickBtn(e)}
               >
-                <Form.Group controlId="exampleForm.ControlInput1">
-                  <Form.Label>Where From?</Form.Label>
-                  <Form.Control type="text" placeholder="city name" />
-                </Form.Group>
-              </Col>
-              <Col
-                style={{
-                  paddingTop: "10px",
-                  paddingLeft: "10%",
-                  paddingRight: "10%",
-                }}
-              >
-                <Form.Group controlId="exampleForm.ControlInput2">
-                  <Form.Label>Where To?</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="city name"
-                    className="box2"
-                  />
-                </Form.Group>
-              </Col>
-              <Col
-                style={{
-                  paddingTop: "10px",
-                  paddingLeft: "10%",
-                  paddingRight: "10%",
-                }}
-              >
-                <Button
-                  variant="primary"
-                  type="button"
-                  onClick={(e) => this.handleClickBtn(e)}
-                >
-                  Search
-                </Button>
-              </Col>
-            </Row>
-          </Form>
-        </div>
-        <div
-          className="flightTable"
-          style={{
-            paddingTop: "3%",
-            paddingLeft: "10%",
-            paddingRight: "10%",
-            textAlign: "center",
-          }}
-        >
-          <Table responsive style={{ paddingLeft: "15%", paddingRight: "15%" }}>
+                Search
+              </Button>
+            </Col>
+          </Row>
+        </Form>
+        <div id="flightTable">
+          <Table responsive>
             <thead>
               <tr>
                 <th>From</th>
@@ -143,10 +105,10 @@ export default class Flight extends Component {
               {this.state.flightList.map((result, key) => {
                 return (
                   <tr key={key}>
-                    <td>{result.from}</td>
-                    <td>{result.to}</td>
+                    <td className="ticket-from">{result.from}</td>
+                    <td className="ticket-to">{result.to}</td>
                     <td>{moment(result.date).format("YYYY-MM-DD HH:mm:ss")}</td>
-                    <td>{result.price}</td>
+                    <td>$ {result.price}</td>
                     <td>
                       {localStorage.getItem("userName") ? (
                         <Link to={`/tickets/flight/paypal/${result._id}`}>
@@ -168,7 +130,7 @@ export default class Flight extends Component {
             </tbody>
           </Table>
         </div>
-      </div>
+      </Container>
     );
   }
 }

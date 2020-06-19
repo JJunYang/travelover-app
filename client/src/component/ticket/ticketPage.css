@@ -1,9 +1,9 @@
+/* ticket main page */
 #ticketPage {
-  font-family: "Jost", sans-serif;
   padding-top: 30px;
   padding-bottom: 35px;
 }
-.ticket-col-btn-book {
+#ticketPage .ticket-col-btn-book {
   text-align: right;
 }
 .ticket-card {
@@ -64,4 +64,26 @@
 #hotel {
   padding-top: 30px;
   padding-bottom: 35px;
+}
+
+/* ticket flight page */
+#flight_ticket {
+  padding-top: 30px;
+  padding-bottom: 35px;
+}
+.ticket-form-row {
+  align-items: center;
+  justify-content: center;
+}
+.ticket-form-btnCol{
+  margin-top: 10px;
+}
+#flightTable{
+  text-align: center;
+}
+#flightTable .ticket-from{
+  text-transform: uppercase;
+}
+#flightTable .ticket-to{
+  text-transform: uppercase;
 }
