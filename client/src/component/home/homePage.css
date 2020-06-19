@@ -1,6 +1,5 @@
 /* homePage cityBlock */
 #home-cityBlock {
-  font-family: "Roboto Mono", monospace;
   padding-top: 30px;
   padding-bottom: 35px;
 }
@@ -30,7 +29,6 @@
 }
 .card-city-placeNums {
   font-size: 0.8em;
-  letter-spacing: -1px;
 }
 .home-card-img {
   border-radius: 13px;
@@ -49,7 +47,6 @@
 
 #home-middle {
   height: 340px;
-  /* background-color: rgb(126, 196, 193); */
   background-image: url(https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);
   background-position: center;
   background-size: cover;
@@ -62,7 +59,6 @@
   width: 50%;
   border-radius: 0 5px 100% 0;
   box-shadow: 2px;
-  /* text-align: center; */
   background-color: #24d8d8;
 }
 #home-middle-word {
@@ -71,16 +67,13 @@
   margin-top: 10%;
   font-size: 2em;
   color: rgba(45, 46, 18, 0.644);
-  font-family: "Roboto Mono", monospace;
 }
 
 #home-blogBlock {
-  font-family: "Roboto Mono", monospace;
   padding-top: 30px;
   padding-bottom: 50px;
 }
 .card-blog-title {
-  font-family: "Jost", sans-serif;
   font-size: 18px;
   font-weight: 600;
 }
@@ -100,7 +93,6 @@
 a.card-blog-tag {
   color: black;
   text-decoration: none;
-  font-family: "Jost", sans-serif;
   font-weight: 500;
   font-size: 12px;
   border-bottom: 1px solid #24d8d8;
@@ -111,11 +103,6 @@ ul li a.card-blog-tag:hover {
   cursor: pointer;
 }
 
-.btn-primary {
-  background-color: #24d8d8;
-  border: none;
-}
-
 @media (max-width: 768px) {
   #home-middle {
     height: 200px;
@@ -124,14 +111,4 @@ ul li a.card-blog-tag:hover {
     font-size: 1.4em;
     margin-left: 15%;
   }
-}
-
-.test {
-  background-image: url(http://wp.getgolo.com/wp-content/uploads/2020/03/banner-blog.png);
-  background-color: #23d3d3;
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: right top;
-  background-attachment: scroll;
-  min-height: 150px;
 }

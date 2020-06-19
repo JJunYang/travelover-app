@@ -5,3 +5,16 @@
 a {
   transition: all 0.3s ease 0s;
 }
+.App {
+  font-family: "Jost", sans-serif;
+  transition: all 1s;
+}
+.App .btn-primary {
+  background-color: #24d8d8;
+  border-color: #24d8d8;
+}
+.App .btn-primary:hover {
+  background-color: white;
+  color: #24d8d8;
+  border-color: #24d8d8;
+}

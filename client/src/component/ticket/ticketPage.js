@@ -97,69 +97,95 @@ export default class TicketPage extends Component {
           </Row>
         </div>
         <div id="hotel">
-          <Row style={{ paddingTop: "3%" }}>
+          <Row>
             <Col>
               <h2>Hotel</h2>
             </Col>
-            <Col style={{ textAlign: "right", paddingRight: "5%" }}>
+            <Col className="ticket-col-btn-book">
               <Link to={`/tickets/hotel`}>
-                <Button variant="primary">Make Reservation</Button>
+                <Button variant="primary">Search More</Button>
               </Link>
             </Col>
           </Row>
-          <Row style={{ paddingTop: "3%" }}>
-            <Col>
-              <Card style={{ width: "15rem" }}>
-                <Card.Img
-                  variant="top"
-                  src={process.env.PUBLIC_URL + "/image/domestic_2.jpg"}
-                  style={{ width: "100%", height: "200px" }}
-                />
+          <Row>
+            <Col className="ticket-col col-6 col-md-3">
+              <Card className="ticket-card">
+                <div className="ticket-card-thumbnail">
+                  <Card.Img
+                    variant="top"
+                    className="ticket-hotel-img"
+                    src={`https://cf.bstatic.com/images/hotel/max1280x900/107/107458730.jpg`}
+                  />
+                </div>
                 <Card.Body>
-                  <Card.Title>Domestic</Card.Title>
-                  <Card.Text>Start from $80/day</Card.Text>
+                  <Card.Text className="ticket-place-term">
+                    <span className="place-type">Hotel</span>
+                    <span className="place-city">Boston</span>
+                  </Card.Text>
+
+                  <Card.Title>Boston Marriott Copley Place</Card.Title>
+                  <Card.Text>8.7 (4 Reviews)</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
-            <Col>
-              <Card style={{ width: "15rem" }}>
-                <Card.Img
-                  variant="top"
-                  src={process.env.PUBLIC_URL + "/image/europe_2.png"}
-                  style={{ width: "100%", height: "200px" }}
-                />
+            <Col className="ticket-col col-6 col-md-3">
+              <Card className="ticket-card">
+                <div className="ticket-card-thumbnail">
+                  <Card.Img
+                    variant="top"
+                    className="ticket-hotel-img"
+                    src={`https://cf.bstatic.com/images/hotel/max1280x900/173/173745332.jpg`}
+                  />
+                </div>
                 <Card.Body>
-                  <Card.Title>Europe</Card.Title>
-                  <Card.Text>Start from $90/day</Card.Text>
+                  <Card.Text className="ticket-place-term">
+                    <span className="place-type">Hotel</span>
+                    <span className="place-city">Boston</span>
+                  </Card.Text>
+                  <Card.Title>YOTEL Boston</Card.Title>
+                  <Card.Text>4.0 (3 Reviews)</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
-            <Col>
-              <Card style={{ width: "15rem" }}>
-                <Card.Img
-                  variant="top"
-                  src={process.env.PUBLIC_URL + "/image/australia_2.jpg"}
-                  style={{ width: "100%", height: "200px" }}
-                />
+            <Col className="ticket-col col-6 col-md-3">
+              <Card className="ticket-card">
+                <div className="ticket-card-thumbnail">
+                  <Card.Img
+                    variant="top"
+                    className="ticket-hotel-img"
+                    src={`https://cf.bstatic.com/images/hotel/max1280x900/155/155685471.jpg`}
+                  />
+                </div>
                 <Card.Body>
-                  <Card.Title>Australia</Card.Title>
-                  <Card.Text>Start from $60/day</Card.Text>
+                  <Card.Text className="ticket-place-term">
+                    <span className="place-type">Apartments</span>
+                    <span className="place-city">Boston</span>
+                  </Card.Text>
+                  <Card.Title>Global Luxury Suites Downtown Boston</Card.Title>
+                  <Card.Text>4.0 (3 Reviews)</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
-            <Col>
-              <Card style={{ width: "15rem" }}>
-                <Card.Img
-                  variant="top"
-                  src={process.env.PUBLIC_URL + "/image/asia_2.jpg"}
-                  style={{ width: "100%", height: "200px" }}
-                />
+            <Col className="ticket-col col-6 col-md-3">
+              <Card className="ticket-card">
+                <div className="ticket-card-thumbnail">
+                  <Card.Img
+                    variant="top"
+                    className="ticket-hotel-img"
+                    src={`https://cf.bstatic.com/images/hotel/max1024x768/395/39532183.jpg`}
+                  />
+                </div>
                 <Card.Body>
-                  <Card.Title>Asia</Card.Title>
-                  <Card.Text>Start from $40/day</Card.Text>
+                  <Card.Text className="ticket-place-term">
+                    <span className="place-type">Hotel</span>
+                    <span className="place-city">Los Angeles</span>
+                  </Card.Text>
+                  <Card.Title>Titta Inn</Card.Title>
+                  <Card.Text>4.0 (3 Reviews)</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
+           
           </Row>
         </div>
       </Container>
