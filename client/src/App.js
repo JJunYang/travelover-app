@@ -15,6 +15,7 @@ import TravelGuide from "./component/travelGuide/travelGuide";
 import TravelGuideDetails from "./component/travelGuide/travelGuideDetail";
 import PersonalCenter from "./component/personalCenter/personalCenter";
 import Footer from "./component/footer";
+import CityMainPage from "./component/city/cityMainPage";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
           <Route path="/home" exact component={Home} />
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
+
+          <Route path="/city" exact component={CityMainPage} />
+
           <Route path="/tickets" exact component={TicketPage} />
           <Route path="/tickets/flight" exact component={Flight} />
           <Route path="/tickets/hotel" exact component={Hotel} />
@@ -47,6 +51,7 @@ function App() {
             exact
             component={TravelGuideDetails}
           />
+
           <Route path="/personalcenter" exact component={PersonalCenter} />
         </Switch>
       </Router>

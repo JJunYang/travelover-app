@@ -1,0 +1,99 @@
+.city-title {
+  position: relative;
+}
+.city-title .city-title-pic {
+  width: 100%;
+  object-fit: cover;
+  height: 400px;
+}
+.city-title .city-title-titleInfo {
+  color: white;
+  position: absolute;
+  top: 20%;
+  left: 15px;
+  right: 15px;
+  padding: 1.25rem;
+  text-align: center;
+}
+.city-title .city-title-titleInfo .countryName {
+  font-size: 20px;
+}
+.city-title .city-title-titleInfo .city-title-city {
+  font-size: 80px;
+}
+
+.city-information {
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+.city-information .info-details .info-description {
+  margin-bottom: 0;
+  font-weight: 400;
+  color: #5d5d5d;
+}
+.city-information .info-details .detail-list {
+  list-style: none;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  margin-bottom: 0;
+  margin-top: 45px;
+  line-height: 20px;
+  padding-left: 0;
+}
+.city-information .info-details .detail-list li {
+  border-left: 1px solid #ddd;
+  flex: 1;
+  padding: 13px 28px;
+}
+.city-information .info-details .detail-list li:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.city-information .info-details .detail-list strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.city-information .info-details .detail-list .currency,
+.time,
+.language {
+  color: #5d5d5d;
+}
+
+.city-nav {
+  text-align: center;
+}
+.city-nav .city-nav-link {
+  color: black;
+  margin-top: 15px;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-bottom: 5px;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out 0s;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.city-nav .city-nav-link:hover {
+  color: #24d8d8;
+  border-bottom: 1px solid #24d8d8;
+}
+.city-nav .city-nav-link .city-icon {
+  width: 18px;
+  height: 18px;
+  margin-bottom: 3px;
+  margin-right: 5px;
+}
+
+@media only screen and (max-width: 1199px) {
+  .city-information .info-details .detail-list {
+    margin-top: 30px;
+  }
+}
