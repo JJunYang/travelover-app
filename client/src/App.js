@@ -16,6 +16,7 @@ import TravelGuideDetails from "./component/travelGuide/travelGuideDetail";
 import PersonalCenter from "./component/personalCenter/personalCenter";
 import Footer from "./component/footer";
 import CityMainPage from "./component/city/cityMainPage";
+import FoodAndDrink from "./component/explore/foodAndDrink";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/register" exact component={Register} />
 
           <Route path="/city" exact component={CityMainPage} />
+          <Route path="/explore/food-drink" exact component={FoodAndDrink} />
 
           <Route path="/tickets" exact component={TicketPage} />
           <Route path="/tickets/flight" exact component={Flight} />

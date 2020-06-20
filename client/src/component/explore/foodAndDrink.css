@@ -1,0 +1,148 @@
+.BrainhubCarousel .BrainhubCarousel__trackContainer .BrainhubCarousel__track {
+  padding-left: 50px;
+}
+.BrainhubCarousel__arrows {
+  position: absolute;
+}
+.BrainhubCarousel__arrows.BrainhubCarousel__arrowLeft {
+  z-index: 1;
+}
+.BrainhubCarousel__arrows.BrainhubCarousel__arrowRight {
+  z-index: 1;
+  right: 0;
+}
+.carousel-img {
+  padding: 1px;
+  align-self: flex-start;
+}
+
+#food-main {
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+#food-main .food-leftside {
+  max-width: calc(100% - 340px);
+  display: block;
+}
+#food-main .food-rightside {
+  max-width: 340px;
+}
+.food-link {
+  color: #24d8d8;
+  text-decoration: none;
+  border-bottom: 1px solid #24d8d8;
+  margin-right: 10px;
+  text-transform: uppercase;
+  transition: all 0s;
+}
+.food-link:hover {
+  text-decoration: none;
+  font-weight: 600;
+  color: #24d8d8;
+}
+#food-main .food-leftside .food-star {
+  color: #24d8d8;
+}
+
+#food-main .food-leftside .food-cost,
+#food-main .food-leftside .food-place-type {
+  position: relative;
+  padding-left: 10px;
+  margin-left: 8px;
+}
+#food-main .food-leftside .food-cost::before,
+#food-main .food-leftside .food-place-type::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+  width: 3px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #d8d8d8;
+}
+
+.food-description-hide {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: block;
+}
+.food-description-hide .inner-content {
+  max-height: 130px;
+  overflow: hidden;
+  position: relative;
+}
+.food-description-hide .inner-content::after {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+  height: 50px;
+}
+.openhour-day {
+  min-width: 140px;
+  display: inline-block;
+  padding-right: 30px;
+}
+
+.review-title-num {
+  color: #d8d8d8;
+  font-weight: 500;
+}
+.review-star {
+  color: #24d8d8;
+  font-weight: 600;
+}
+
+.review-author-block {
+  display: flex;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+.review-author-headpic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.review-content {
+  margin-top: 10px;
+  color: #5d5d5d;
+}
+.similar-places {
+  background-color: #f9f9f9;
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+
+.food-rightside .form-control {
+  margin-top: 10px;
+}
+.food-rightside .form-control.book-btn {
+  background-color: #24d8d8;
+}
+.food-rightside .reservation-block {
+  margin-left: 30px;
+  text-align: center;
+  position: sticky;
+  top: 100px;
+}
+.food-rightside .reservation-form {
+  padding: 30px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 991px) {
+  #food-main .food-leftside {
+    max-width: 768px;
+    width: 100%;
+  }
+  .food-rightside {
+    visibility: collapse;
+    width: 0;
+  }
+}
