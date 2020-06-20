@@ -21,7 +21,7 @@ export default class TicketPage extends Component {
             </Col>
           </Row>
           <Row className="ticket-row-list">
-            <Col className="ticket-col col-6 col-md-3">
+            <Col className="ticket-col col-6 col-md-4 col-lg-3">
               <Card className="ticket-card">
                 <div className="ticket-card-thumbnail">
                   <Card.Img
@@ -41,7 +41,7 @@ export default class TicketPage extends Component {
                 </Card.Body>
               </Card>
             </Col>
-            <Col className="ticket-col col-6 col-md-3">
+            <Col className="ticket-col col-6 col-md-4 col-lg-3">
               <Card className="ticket-card">
                 <div className="ticket-card-thumbnail">
                   <Card.Img
@@ -58,7 +58,7 @@ export default class TicketPage extends Component {
                 </Card.Body>
               </Card>
             </Col>
-            <Col className="ticket-col col-6 col-md-3">
+            <Col className="ticket-col col-6 col-md-4 col-lg-3">
               <Card className="ticket-card">
                 <div className="ticket-card-thumbnail">
                   <Card.Img
@@ -77,7 +77,7 @@ export default class TicketPage extends Component {
                 </Card.Body>
               </Card>
             </Col>
-            <Col className="ticket-col col-6 col-md-3">
+            <Col className="ticket-col col-6 col-md-4 col-lg-3">
               <Card className="ticket-card">
                 <div className="ticket-card-thumbnail">
                   <Card.Img
@@ -108,7 +108,7 @@ export default class TicketPage extends Component {
             </Col>
           </Row>
           <Row>
-            <Col className="ticket-col col-6 col-md-3">
+            <Col className="ticket-col col-6 col-md-4 col-lg-3">
               <Card className="ticket-card">
                 <div className="ticket-card-thumbnail">
                   <Card.Img
@@ -128,7 +128,7 @@ export default class TicketPage extends Component {
                 </Card.Body>
               </Card>
             </Col>
-            <Col className="ticket-col col-6 col-md-3">
+            <Col className="ticket-col col-6 col-md-4 col-lg-3">
               <Card className="ticket-card">
                 <div className="ticket-card-thumbnail">
                   <Card.Img
@@ -147,7 +147,7 @@ export default class TicketPage extends Component {
                 </Card.Body>
               </Card>
             </Col>
-            <Col className="ticket-col col-6 col-md-3">
+            <Col className="ticket-col col-6 col-md-4 col-lg-3">
               <Card className="ticket-card">
                 <div className="ticket-card-thumbnail">
                   <Card.Img
@@ -166,7 +166,7 @@ export default class TicketPage extends Component {
                 </Card.Body>
               </Card>
             </Col>
-            <Col className="ticket-col col-6 col-md-3">
+            <Col className="ticket-col col-6 col-md-4 col-lg-3">
               <Card className="ticket-card">
                 <div className="ticket-card-thumbnail">
                   <Card.Img

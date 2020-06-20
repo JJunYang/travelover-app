@@ -4,10 +4,10 @@
   padding-bottom: 35px;
 }
 .home-subtitle{
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 .cardCity {
-  border: 2px solid rgba(0, 0, 0, 0);
+  border: none;
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -15,10 +15,10 @@
 }
 .colCity {
   color: white;
-  max-height: 340px;
-  max-width: 260px;
+  max-height: 370px;
+  max-width: 270px;
   overflow: hidden;
-  padding-bottom: 20px;
+  margin-top: 20px;
 }
 .card-city-title {
   font-size: 0.9em;
@@ -76,6 +76,9 @@
 .card-blog-title {
   font-size: 18px;
   font-weight: 600;
+}
+.blog-col{
+  margin-top: 20px;
 }
 .home-blog-cardbody {
   padding: 0;

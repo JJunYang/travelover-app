@@ -37,6 +37,9 @@
   font-size: 12px;
   font-weight: 500;
 }
+.ticket-col{
+  margin-top: 20px;
+}
 .place-city {
   position: relative;
   padding-left: 10px;

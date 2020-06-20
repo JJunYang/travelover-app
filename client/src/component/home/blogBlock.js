@@ -6,7 +6,7 @@ export default class BlogBlock extends Component {
       <Container id="home-blogBlock">
         <h2 className="home-subtitle">Travel Inspiration</h2>
         <Row>
-          <Col className="col-md-4">
+          <Col className="blog-col col-md-4 col-6">
             <Card style={{ border: "none" }}>
               <Card.Img
                 className="home-card-img"
@@ -31,7 +31,7 @@ export default class BlogBlock extends Component {
               </Card.Body>
             </Card>
           </Col>
-          <Col className="col-md-4">
+          <Col className="blog-col col-md-4 col-6">
             <Card style={{ border: "none" }}>
               <Card.Img
                 className="home-card-img"
@@ -51,7 +51,7 @@ export default class BlogBlock extends Component {
               </Card.Body>
             </Card>
           </Col>
-          <Col className="col-md-4">
+          <Col className="blog-col col-md-4 col-6">
             <Card style={{ border: "none" }}>
               <Card.Img
                 className="home-card-img"

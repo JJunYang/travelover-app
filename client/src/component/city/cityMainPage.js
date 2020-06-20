@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./cityMainPage.css";
 import { Container, Col, Row } from "react-bootstrap";
 import CityPageNav from "./cityPageNav";
+import ExploreBlock from "./exploreBlock";
+import FoodBlock from "./foodBlock";
 
 export default class CityMainPage extends Component {
   render() {
@@ -22,7 +24,7 @@ export default class CityMainPage extends Component {
         <div className="city-information">
           <Container className="info-details">
             <Row>
-              <Col className="col-12 col-xl-6">
+              <Col className="col-12 col-xl-6 info-introducing">
                 <h2>Introducing</h2>
                 <p className="info-description">
                   Tokyo (東京, Tōkyō) is Japan’s capital and the world’s most
@@ -52,7 +54,11 @@ export default class CityMainPage extends Component {
           </Container>
         </div>
         <CityPageNav />
-        <hr style={{marginTop:"5px"}}></hr>
+        <hr style={{ marginTop: "5px" }}></hr>
+        <FoodBlock />
+        <FoodBlock />
+        <FoodBlock />
+        <ExploreBlock />
       </>
     );
   }
