@@ -1,0 +1,130 @@
+.explore-main-page-search {
+  background-attachment: scroll;
+}
+.explore-search-block {
+  z-index: -1;
+  background-image: url("http://p1-q.mafengwo.net/s15/M00/C6/2C/CoUBGV5ba-OARq9DACDzOtdb_9s76.jpeg?imageMogr2%2Fstrip");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  padding: 100px 0px 100px 0px;
+}
+.explore-hr {
+  margin-top: 0;
+  padding: 0;
+  width: 80px;
+  border-color: #24d8d8;
+}
+.explore-category-block {
+  /* position: absolute; */
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  z-index: 2;
+}
+.explore-category-title {
+  margin-top: 20px;
+}
+.explore-category-detail {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: 200px;
+  /* max-width: 320px; */
+}
+.detail-block-stay {
+  background-image: url(https://wp.getgolo.com/wp-content/uploads/2020/01/cat-1-400x250.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+.detail-block-see {
+  background-image: url(https://wp.getgolo.com/wp-content/uploads/2020/01/cat-1-400x250.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+.detail-block-food {
+  background-image: url(https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+.detail-block-food .category-content {
+  background-color: rgba(62, 200, 235, 0.8);
+  width: 100%;
+  height: 100%;
+  color: white;
+  padding-top: 65px;
+}
+
+.detail-block-see .category-content {
+  width: 100%;
+  height: 100%;
+  color: white;
+  padding-top: 65px;
+  background-color: rgba(240, 98, 108, 0.8);
+}
+
+.detail-block-stay .category-content {
+  width: 100%;
+  height: 100%;
+  color: white;
+  padding-top: 65px;
+  background-color: rgba(84, 147, 249, 0.8);
+}
+.explore-middle {
+  border-radius: 50%;
+  overflow: hidden;
+  height: 200px;
+  position: relative;
+}
+.explore-middle-block {
+  background-image: url(http://n1-q.mafengwo.net/s15/M00/3D/C3/CoUBGV3JaSeABWU9ABe5Q0dNFjQ10.jpeg?imageMogr2%2Fstrip);
+  background-size: cover;
+  height: 300px;
+  position: relative;
+}
+.explore-popular-city {
+  background-color: black;
+  padding-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.explore-popular-city .home-subtitle {
+  color: white;
+  text-align: center;
+  border-bottom: 2px solid #24d8d8;
+  /* display: flex; */
+}
+
+.explore-popular-blog {
+  background-color: #24d8d8;
+}
+.explore-popular-blog .home-subtitle{
+    color: white;
+    text-align: center;
+}
+.explore-popular-blog .card {
+  background-color: transparent;
+}
+.explore-popular-blog .blog-col,
+.explore-popular-blog .blog-col a {
+  color: white;
+}
+.explore-popular-blog .blog-col a:hover {
+  color: white;
+  border-bottom: 1px solid white;
+}

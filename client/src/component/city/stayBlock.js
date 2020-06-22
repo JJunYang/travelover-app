@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
-
-export default class FoodBlock extends Component {
+import { Container, Col, Row, Card } from "react-bootstrap";
+export default class StayBlock extends Component {
   render() {
     return (
       <Container>
         <div className="sub-block-title">
-          <h2 className="sub-block-name">Food & Drink</h2>
+          <h2 className="sub-block-name">Stay</h2>
           <a href="/" className="sub-block-seeall">
             See All(5)
           </a>

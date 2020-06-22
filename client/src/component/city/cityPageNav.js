@@ -17,12 +17,12 @@ export default class CityPageNav extends Component {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item className="city-nav-item">
-              <Nav.Link className="city-nav-link" href="/city/tokyo/see-do">
+              <Nav.Link className="city-nav-link" href="/explore/city/see-do">
                 See & Do
               </Nav.Link>
             </Nav.Item>
             <Nav.Item className="city-nav-item">
-              <Nav.Link className="city-nav-link" href="/city/tokyo/food">
+              <Nav.Link className="city-nav-link" href="/explore/city/food-drink">
                 Food
               </Nav.Link>
             </Nav.Item>

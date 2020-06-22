@@ -4,6 +4,8 @@ import { Container, Col, Row } from "react-bootstrap";
 import CityPageNav from "./cityPageNav";
 import ExploreBlock from "./exploreBlock";
 import FoodBlock from "./foodBlock";
+import SeeBlock from "./seeBlock";
+import StayBlock from "./stayBlock";
 
 export default class CityMainPage extends Component {
   render() {
@@ -56,8 +58,8 @@ export default class CityMainPage extends Component {
         <CityPageNav />
         <hr style={{ marginTop: "5px" }}></hr>
         <FoodBlock />
-        <FoodBlock />
-        <FoodBlock />
+        <SeeBlock />
+        <StayBlock />
         <ExploreBlock />
       </>
     );

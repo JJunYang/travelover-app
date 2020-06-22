@@ -19,6 +19,7 @@ import CityMainPage from "./component/city/cityMainPage";
 import FoodAndDrink from "./component/explore/foodAndDrink";
 import SeeAndDo from "./component/explore/seeAndDo";
 import Stay from "./component/explore/stay";
+import ExploreMainPage from "./component/explore/exploreMainPage";
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
 
-          <Route path="/city" exact component={CityMainPage} />
+          <Route path="/explore" exact component={ExploreMainPage} />
+          <Route path="/explore/city" exact component={CityMainPage} />
           <Route path="/explore/food-drink" exact component={FoodAndDrink} />
           <Route path="/explore/see-do" exact component={SeeAndDo} />
           <Route path="/explore/stay" exact component={Stay} />

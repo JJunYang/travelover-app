@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Carousel, { Dots } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
-import { Card, Container, Form, Row, Col, Button } from "react-bootstrap";
+import { Card, Container, Row, Col, Button } from "react-bootstrap";
 
 export default class Stay extends Component {
   render() {
