@@ -3,41 +3,41 @@
   padding-top: 30px;
   padding-bottom: 35px;
 }
-#ticketPage .ticket-col-btn-book {
+#ticketPage .item-col-btn-book {
   text-align: right;
 }
-.ticket-card {
+.item-card {
   height: 100%;
   width: 100%;
   border-radius: 13px;
   overflow: hidden;
 }
-.ticket-card-img {
+.item-card-img {
   width: 100%;
   border-radius: 0px;
   transition: all 1s;
 }
-.ticket-card-img:hover {
+.item-card-img:hover {
   transform: scale(1.1);
 }
 
-.ticket-card-title {
+.item-card-title {
   font-size: 1em;
   font-weight: 700;
 }
-.ticket-card-text {
+.item-card-text {
   font-size: 0.9em;
 }
-.ticket-card-thumbnail {
+.item-card-thumbnail {
   overflow: hidden;
 }
 
-.ticket-place-term {
+.item-place-term {
   display: flex;
   font-size: 12px;
   font-weight: 500;
 }
-.ticket-col{
+.item-col{
   margin-top: 20px;
 }
 .place-city {
@@ -55,13 +55,13 @@
   border-radius: 3px;
   background-color: #d8d8d8;
 }
-.ticket-hotel-img {
+.item-hotel-img {
   width: 100%;
   /* height: 200px; */
   border-radius: 0px;
   transition: all 1s;
 }
-.ticket-hotel-img:hover {
+.item-hotel-img:hover {
   transform: scale(1.1);
 }
 #hotel {
@@ -74,19 +74,19 @@
   padding-top: 30px;
   padding-bottom: 35px;
 }
-.ticket-form-row {
+.item-form-row {
   align-items: center;
   justify-content: center;
 }
-.ticket-form-btnCol{
+.item-form-btnCol{
   margin-top: 10px;
 }
 #flightTable{
   text-align: center;
 }
-#flightTable .ticket-from{
+#flightTable .item-from{
   text-transform: uppercase;
 }
-#flightTable .ticket-to{
+#flightTable .item-to{
   text-transform: uppercase;
 }

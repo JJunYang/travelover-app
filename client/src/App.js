@@ -17,6 +17,8 @@ import PersonalCenter from "./component/personalCenter/personalCenter";
 import Footer from "./component/footer";
 import CityMainPage from "./component/city/cityMainPage";
 import FoodAndDrink from "./component/explore/foodAndDrink";
+import SeeAndDo from "./component/explore/seeAndDo";
+import Stay from "./component/explore/stay";
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
 
           <Route path="/city" exact component={CityMainPage} />
           <Route path="/explore/food-drink" exact component={FoodAndDrink} />
+          <Route path="/explore/see-do" exact component={SeeAndDo} />
+          <Route path="/explore/stay" exact component={Stay} />
 
           <Route path="/tickets" exact component={TicketPage} />
           <Route path="/tickets/flight" exact component={Flight} />
