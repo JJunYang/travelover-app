@@ -4,7 +4,7 @@ import "@brainhubeu/react-carousel/lib/style.css";
 import "./foodAndDrink.css";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 
-export default class FoodAndDrink extends Component {
+export default class FoodDetails extends Component {
   render() {
     return (
       <>

@@ -4,7 +4,7 @@ import "@brainhubeu/react-carousel/lib/style.css";
 import "./foodAndDrink.css";
 import { Container } from "react-bootstrap";
 
-export default class SeeAndDo extends Component {
+export default class SeeDetails extends Component {
   render() {
     return (
       <>

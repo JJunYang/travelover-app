@@ -1,8 +1,4 @@
-.explore-main-page-search {
-  background-attachment: scroll;
-}
-.explore-search-block {
-  z-index: -1;
+.explore-top-block {
   background-image: url("http://p1-q.mafengwo.net/s15/M00/C6/2C/CoUBGV5ba-OARq9DACDzOtdb_9s76.jpeg?imageMogr2%2Fstrip");
   background-position: center center;
   background-repeat: no-repeat;
@@ -11,6 +7,14 @@
   width: 100%;
   padding: 100px 0px 100px 0px;
 }
+.explore-top-cover {
+  margin-top: -40px;
+}
+.explore-top-cover-block {
+  height: 80px;
+  border-radius: 100% 100% 0 0;
+  background-color: white;
+}
 .explore-hr {
   margin-top: 0;
   padding: 0;
@@ -18,9 +22,8 @@
   border-color: #24d8d8;
 }
 .explore-category-block {
-  /* position: absolute; */
   text-align: center;
-  margin-top: 30px;
+  margin-top: -60px;
   margin-bottom: 30px;
   z-index: 2;
 }
@@ -32,7 +35,6 @@
   display: flex;
   justify-content: center;
   height: 200px;
-  /* max-width: 320px; */
 }
 .detail-block-stay {
   background-image: url(https://wp.getgolo.com/wp-content/uploads/2020/01/cat-1-400x250.png);
@@ -109,13 +111,24 @@
   border-bottom: 2px solid #24d8d8;
   /* display: flex; */
 }
-
-.explore-popular-blog {
-  background-color: #24d8d8;
+.explore-botton-cover-block {
+  height: 80px;
+  margin-bottom: 25px;
+  border-radius: 0 0 100% 100%;
+  background-color: white;
 }
-.explore-popular-blog .home-subtitle{
-    color: white;
-    text-align: center;
+.explore-botton-cover-block .explore-hr {
+  margin-top: 10px;
+}
+.explore-popular-blog {
+  margin-top: -10px;
+  background-color: #24d8d8;
+  padding-bottom: 30px;
+}
+.explore-popular-blog .home-subtitle {
+  color: black;
+  padding-top: 10px;
+  text-align: center;
 }
 .explore-popular-blog .card {
   background-color: transparent;
@@ -127,4 +140,29 @@
 .explore-popular-blog .blog-col a:hover {
   color: white;
   border-bottom: 1px solid white;
+}
+
+.subpage-topblock {
+  /* border: 2px solid black; */
+  margin-top: 56px;
+}
+.subpage-topblock-container {
+  height: 185px;
+  width: 100%;
+  display: flex;
+}
+.subpage-topblock-left {
+  display: block;
+  width: 100%;
+  z-index: 1;
+  background-color: #24d8d8;
+}
+.subpage-topblock-right {
+  position: absolute;
+  right: 0;
+  overflow: hidden;
+  width: 60%;
+  height: 185px;
+  border-radius: 100px 0 0 100px;
+  z-index: 2;
 }
