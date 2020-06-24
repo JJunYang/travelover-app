@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 
-export default class FoodPage extends Component {
+export default class SeePage extends Component {
   render() {
     return (
       <>
@@ -12,7 +12,7 @@ export default class FoodPage extends Component {
               <img
                 className="subpage-topblock-pic"
                 alt="top pic"
-                src={`https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
+                src={`https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
               ></img>
             </div>
           </div>

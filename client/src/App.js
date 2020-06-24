@@ -17,10 +17,12 @@ import PersonalCenter from "./component/personalCenter/personalCenter";
 import Footer from "./component/footer";
 import CityMainPage from "./component/city/cityMainPage";
 import ExploreMainPage from "./component/explore/exploreMainPage";
-import FoodDetails from "./component/explore/foodDetails";
-import SeeDetails from "./component/explore/seeDetails";
-import StayDetails from "./component/explore/stayDetails";
 import FoodPage from "./component/explore/foodPage";
+import SeePage from "./component/explore/seePage";
+import StayPage from "./component/explore/stayPage";
+import SeeDetails from "./component/details/seeDetails";
+import StayDetails from "./component/details/stayDetails";
+import FoodDetails from "./component/details/foodDetails";
 
 function App() {
   return (
@@ -37,8 +39,10 @@ function App() {
           <Route path="/explore" exact component={ExploreMainPage} />
           <Route path="/explore/city" exact component={CityMainPage} />
           <Route path="/explore/food-drink" exact component={FoodPage} />
+          <Route path="/explore/see-do" exact component={SeePage} />
+          <Route path="/explore/stay" exact component={StayPage} />
           <Route
-            path="/expore/food-drink/details"
+            path="/explore/food-drink/details"
             exact
             component={FoodDetails}
           />

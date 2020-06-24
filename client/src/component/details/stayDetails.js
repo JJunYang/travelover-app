@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Carousel, { Dots } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
-import "./foodAndDrink.css";
-import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
+import "./details.css";
+import { Card, Container, Row, Col, Button } from "react-bootstrap";
 
-export default class FoodDetails extends Component {
+export default class StayDetails extends Component {
   render() {
     return (
       <>
@@ -30,7 +30,7 @@ export default class FoodDetails extends Component {
             alt="pic"
           />
         </Carousel>
-        <Container id="food-main">
+        <Container id="stay-main">
           <div className="explore-leftside">
             <div className="item-category">
               <a href="/" className="item-link">
@@ -89,9 +89,6 @@ export default class FoodDetails extends Component {
                 </div>
               </div>
               <div className="toggle-desc">
-                {/* <a className="show-more" href="#food-description-show">
-                  Show more
-                </a> */}
                 <a className="hide-all" href="/">
                   Hide all
                 </a>
@@ -168,22 +165,10 @@ export default class FoodDetails extends Component {
             </div>
           </div>
           <div className="explore-rightside">
-            <div className="reservation-block">
-              <div className="reservation-form">
-                <h3>Make a Reservation</h3>
-                <Form>
-                  <Form.Group>
-                    <Form.Control
-                      type="number"
-                      placeholder="Numbers of Guests"
-                      min="0"
-                    />
-                    <Form.Control type="date" placeholder="date" />
-                    <Form.Control type="time" placeholder="time" />
-                  </Form.Group>
-                  <Button>Make a Reservation</Button>
-                </Form>
-              </div>
+            <div className="book-block">
+              <h4>Booking Online</h4>
+              <Button className="book-block-btn">Booking now</Button>
+              <p className="book-block-note">By Booking.com</p>
             </div>
           </div>
         </Container>

@@ -51,6 +51,7 @@ app.use(function (req, res, next) {
 //Routes
 app.use("/", require("./routes/index"));
 app.use("/tickets", require("./routes/tickets"));
+app.use("/add", require("./routes/add"));
 app.use("/travelGuides", require("./routes/travelGuides"));
 app.use("/personalCenter", require("./routes/personalCenter"));
 
