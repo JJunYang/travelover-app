@@ -3,6 +3,8 @@ const router = express.Router();
 const Country = require("../models/country");
 const City = require("../models/city");
 const Place = require("../models/place");
+const Review = require("../models/review");
+const User = require("../models/user");
 
 //add country
 router.post("/newCountry", async (req, res) => {
@@ -85,9 +87,47 @@ router.post("/newPlace", async (req, res) => {
     } else {
       await newPlace.save();
       foundCity[0].placeList.push(newPlace);
+      const changedNum = parseInt(foundCity[0].placeNum) + 1;
       await foundCity[0].save();
+      await City.updateOne({ name: city }, { $set: { placeNum: changedNum } });
       res.sendStatus(202);
     }
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
+
+//add review
+router.post("/newReview", async (req, res) => {
+  const { author, content, star, place } = req.body;
+  try {
+    var newReview = new Review({
+      author: author,
+      content: content,
+      star: star,
+      place: place,
+    });
+    const foundPlace = await Place.findById(place._id);
+    const user = await User.findById(author._id);
+    foundPlace.reviewList.push(newReview);
+    user.reviewList.push(newReview);
+    var reviewNum = parseInt(foundPlace.reviewNum) + 1;
+    var reviewScore = parseInt(foundPlace.reviewScore) + star;
+    var reviewStar = reviewScore / reviewNum;
+    await Place.updateOne(
+      { _id: place._id },
+      {
+        $set: {
+          reviewNum: reviewNum,
+          reviewScore: reviewScore,
+          reviewStar: reviewStar,
+        },
+      }
+    );
+    await user.save();
+    await foundPlace.save();
+    await newReview.save();
+    res.sendStatus(202);
   } catch (error) {
     res.status(400).json(error);
   }

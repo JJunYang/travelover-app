@@ -20,7 +20,17 @@ const PlaceSchema = new mongoose.Schema({
     phone: String,
     website: String,
   },
-  reviewList: [{ type: mongoose.Schema.Types.ObjectId, ref: "Review" }],
+  reviewList: [
+    {
+      _id: { type: mongoose.Schema.Types.ObjectId, ref: "Review" },
+      author: {
+        _id: { type: mongoose.Schema.Types.ObjectId, ref: "Review" },
+        username: String,
+      },
+    },
+  ],
+  reviewNum: { type: Number, default: 0 },
+  reviewScore: { type: Number, default: 0 },
   reviewStar: { type: Number, default: 0 },
 });
 module.exports = mongoose.model("Place", PlaceSchema);
