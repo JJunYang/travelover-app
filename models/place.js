@@ -5,6 +5,7 @@ const PlaceSchema = new mongoose.Schema({
   category: String,
   type: String,
   cost: String,
+  pics: [],
   introducing: String,
   openingHour: {
     Monday: { from: String, to: String },

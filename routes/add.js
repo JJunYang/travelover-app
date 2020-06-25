@@ -8,10 +8,11 @@ const User = require("../models/user");
 
 //add country
 router.post("/newCountry", async (req, res) => {
-  const { name } = req.body;
+  const { name, pic } = req.body;
   try {
     var newCountry = new Country({
       name: name,
+      pic: pic,
       cityList: [],
     });
     await newCountry.save();
@@ -26,6 +27,7 @@ router.post("/newCity", async (req, res) => {
   const {
     name,
     representPic,
+    cardPic,
     country,
     currency,
     language,
@@ -36,6 +38,7 @@ router.post("/newCity", async (req, res) => {
     var newCity = new City({
       name: name,
       representPic: representPic,
+      cardPic: cardPic,
       country: country,
       currency: currency,
       language: language,
@@ -64,6 +67,7 @@ router.post("/newPlace", async (req, res) => {
     category,
     type,
     cost,
+    pics,
     introducing,
     openingHour,
     contact,
@@ -72,6 +76,7 @@ router.post("/newPlace", async (req, res) => {
     var newPlace = new Place({
       name: name,
       city: city,
+      pics: pics,
       category: category,
       type: type,
       cost: cost,
