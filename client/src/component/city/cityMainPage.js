@@ -6,20 +6,36 @@ import ExploreBlock from "./exploreBlock";
 import FoodBlock from "./foodBlock";
 import SeeBlock from "./seeBlock";
 import StayBlock from "./stayBlock";
+import axios from "axios";
 
 export default class CityMainPage extends Component {
+  state = {
+    city: {},
+  };
+  componentDidMount() {
+    axios
+      .get(
+        `/explore/city/${this.props.match.params.cityName}&${this.props.match.params._id}`
+      )
+      .then((res) => {
+        this.setState({ city: res.data });
+      })
+      .then(() => {
+        console.log(this.state.city);
+      });
+  }
   render() {
     return (
       <>
         <div className="city-title">
           <img
             className="city-title-pic"
-            src={`https://images.unsplash.com/photo-1578637387939-43c525550085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
+            src={this.state.city.representPic}
             alt="title pic"
           ></img>
           <div className="city-title-titleInfo">
-            <div className="countryName">JAPAN</div>
-            <div className="city-title-city">Tokyo</div>
+            <div className="countryName">{this.state.city.country}</div>
+            <div className="city-title-city">{this.state.city.name}</div>
           </div>
         </div>
 
@@ -29,26 +45,24 @@ export default class CityMainPage extends Component {
               <Col className="col-12 col-xl-6 info-introducing">
                 <h2>Introducing</h2>
                 <p className="info-description">
-                  Tokyo (東京, Tōkyō) is Japan’s capital and the world’s most
-                  populous metropolis. It is also one of Japan’s 47 prefectures,
-                  consisting of 23 central city wards and multiple cities, towns
-                  and villages west of the city center. The Izu and Ogasawara
-                  Islands are also part of Tokyo.
+                  {this.state.city.introducing}
                 </p>
               </Col>
               <Col className="col-12 col-xl-6">
                 <ul className="detail-list">
                   <li>
                     <strong>Currency</strong>
-                    <span className="currency">Yen</span>
+                    <span className="currency">{this.state.city.currency}</span>
                   </li>
                   <li>
                     <strong>language</strong>
-                    <span className="language">Japanish</span>
+                    <span className="language">{this.state.city.language}</span>
                   </li>
                   <li>
                     <strong>Best time vist</strong>
-                    <span className="time">Anytime</span>
+                    <span className="time">
+                      {this.state.city.bestTimeVisit}
+                    </span>
                   </li>
                 </ul>
               </Col>

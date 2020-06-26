@@ -52,6 +52,7 @@ app.use(function (req, res, next) {
 app.use("/", require("./routes/index"));
 app.use("/tickets", require("./routes/tickets"));
 app.use("/add", require("./routes/add"));
+app.use("/explore", require("./routes/explore"));
 app.use("/travelGuides", require("./routes/travelGuides"));
 app.use("/personalCenter", require("./routes/personalCenter"));
 

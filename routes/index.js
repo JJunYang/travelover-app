@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const passport=require("passport");
+const passport = require("passport");
 const User = require("../models/user");
 
 router.post("/register", (req, res) => {
-//   console.log(req.body);
+  //   console.log(req.body);
   var newUser = new User({
     username: req.body.username,
     email: req.body.email,
+    reviewList: [],
   });
   User.register(newUser, req.body.password, (err, user) => {
     if (err) {

@@ -3,7 +3,7 @@
   padding-top: 30px;
   padding-bottom: 35px;
 }
-.home-subtitle{
+.home-subtitle {
   margin-bottom: 0px;
 }
 .cardCity {
@@ -20,29 +20,45 @@
   overflow: hidden;
   margin-top: 20px;
 }
-.card-city-title {
-  font-size: 0.9em;
+.img-block {
+  height: 100%;
 }
-.card-city-name {
-  font-size: 1.2em;
-  font-weight: 600;
-}
-.card-city-placeNums {
-  font-size: 0.8em;
-}
-.home-card-img {
+.cardCity .img-block .card-img {
   border-radius: 13px;
   height: 100%;
   width: 100%;
   display: block;
   transition: all 1s;
 }
-.cardCity:hover .home-card-img {
+.cardCity:hover .card-img {
   transform: scale(1.1);
 }
-.country {
+.cardCity .card-country {
+  font-size: 0.9em;
+  font-weight: 500;
+  position: absolute;
+  top: 1.25em;
+  left: 1.25em;
+  text-transform: uppercase;
+}
+.cardCity .card-city {
   position: absolute;
   bottom: 1.5em;
+  left: 1.25em;
+}
+.cardCity .card-city .card-city-name {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.cardCity .card-city .card-city-placeNums {
+  font-size: 0.8em;
+}
+.cardCity .card-city .card-city-name a {
+  color: white;
+}
+.cardCity .card-city .card-city-name a:hover {
+  color: #24d8d8;
+  text-decoration: none;
 }
 
 #home-middle {
@@ -77,7 +93,7 @@
   font-size: 18px;
   font-weight: 600;
 }
-.blog-col{
+.blog-col {
   margin-top: 20px;
 }
 .home-blog-cardbody {

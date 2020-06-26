@@ -1,23 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
+import { Card } from "react-bootstrap";
 
-export default class CityCard extends Component {
-  render() {
-    return (
-      <Card className="cardCity">
-        <Card.Img
-          className="home-card-img"
-          src={`https://images.unsplash.com/photo-1522850959516-58f958dde2c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
-          alt="Card image"
-        />
-        <Card.ImgOverlay>
-          <Card.Title className="card-city-title">JAPAN</Card.Title>
-          <Card.Text className="country">
-            <span className="card-city-name">Tokyo</span>
-            <br />
-            <span className="card-city-placeNums">15 places</span>
-          </Card.Text>
-        </Card.ImgOverlay>
-      </Card>
-    );
-  }
-}
+const CityCard = ({ city }) => (
+  <Card className="cardCity">
+    <a href={`/explore/city/${city.name}&${city._id}`} className="img-block">
+      <Card.Img src={city.representPic} alt="Card image" />
+    </a>
+    <div className="card-country">{city.country}</div>
+    <div className="card-city">
+      <span className="card-city-name">
+        <a href={`/explore/city/${city.name}&${city._id}`}>{city.name}</a>
+      </span>
+      <br />
+      <span className="card-city-placeNums">{city.placeNum} places</span>
+    </div>
+  </Card>
+);
+
+export default CityCard;

@@ -37,7 +37,11 @@ function App() {
           <Route path="/register" exact component={Register} />
 
           <Route path="/explore" exact component={ExploreMainPage} />
-          <Route path="/explore/city" exact component={CityMainPage} />
+          <Route
+            path="/explore/city/:cityName&:_id"
+            exact
+            component={CityMainPage}
+          />
           <Route path="/explore/food-drink" exact component={FoodPage} />
           <Route path="/explore/see-do" exact component={SeePage} />
           <Route path="/explore/stay" exact component={StayPage} />
