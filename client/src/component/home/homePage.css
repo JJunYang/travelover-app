@@ -6,59 +6,12 @@
 .home-subtitle {
   margin-bottom: 0px;
 }
-.cardCity {
-  border: none;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 13px;
-}
 .colCity {
   color: white;
   max-height: 370px;
   max-width: 270px;
   overflow: hidden;
   margin-top: 20px;
-}
-.img-block {
-  height: 100%;
-}
-.cardCity .img-block .card-img {
-  border-radius: 13px;
-  height: 100%;
-  width: 100%;
-  display: block;
-  transition: all 1s;
-}
-.cardCity:hover .card-img {
-  transform: scale(1.1);
-}
-.cardCity .card-country {
-  font-size: 0.9em;
-  font-weight: 500;
-  position: absolute;
-  top: 1.25em;
-  left: 1.25em;
-  text-transform: uppercase;
-}
-.cardCity .card-city {
-  position: absolute;
-  bottom: 1.5em;
-  left: 1.25em;
-}
-.cardCity .card-city .card-city-name {
-  font-size: 1.2em;
-  font-weight: 600;
-}
-.cardCity .card-city .card-city-placeNums {
-  font-size: 0.8em;
-}
-.cardCity .card-city .card-city-name a {
-  color: white;
-}
-.cardCity .card-city .card-city-name a:hover {
-  color: #24d8d8;
-  text-decoration: none;
 }
 
 #home-middle {

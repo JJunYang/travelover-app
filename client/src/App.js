@@ -23,6 +23,9 @@ import StayPage from "./component/explore/stayPage";
 import SeeDetails from "./component/details/seeDetails";
 import StayDetails from "./component/details/stayDetails";
 import FoodDetails from "./component/details/foodDetails";
+import CityFoodPage from "./component/city/cityFoodPage";
+import CitySeePage from "./component/city/citySeePage";
+import CityStayPage from "./component/city/cityStayPage";
 
 function App() {
   return (
@@ -42,9 +45,22 @@ function App() {
             exact
             component={CityMainPage}
           />
-          <Route path="/explore/food-drink" exact component={FoodPage} />
-          <Route path="/explore/see-do" exact component={SeePage} />
-          <Route path="/explore/stay" exact component={StayPage} />
+          <Route
+            path="/explore/city/:cityName&:_id/see-do"
+            exact
+            component={CitySeePage}
+          />
+          <Route
+            path="/explore/city/:cityName&:_id/food-drink"
+            exact
+            component={CityFoodPage}
+          />
+          <Route
+            path="/explore/city/:cityName&:_id/stay"
+            exact
+            component={CityStayPage}
+          />
+
           <Route
             path="/explore/food-drink/details"
             exact

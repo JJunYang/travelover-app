@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Nav, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 export default class CityPageNav extends Component {
   render() {
     return (
@@ -7,29 +9,42 @@ export default class CityPageNav extends Component {
         <Container>
           <Nav className="city-nav">
             <Nav.Item className="city-nav-item">
-              <Nav.Link className="city-nav-link" href="/city">
+              <Link
+                className="city-nav-link"
+                to={`/explore/city/${this.props.city.name}&${this.props.city._id}`}
+              >
                 <img
                   src={process.env.PUBLIC_URL + "/Icon/city.png"}
                   alt="icon-city"
                   className="city-icon"
                 ></img>
-                Tokyo
-              </Nav.Link>
+                {this.props.city.name}
+              </Link>
             </Nav.Item>
+            <Nav.Item>|</Nav.Item>
             <Nav.Item className="city-nav-item">
-              <Nav.Link className="city-nav-link" href="/explore/city/see-do">
+              <Link
+                className="city-nav-link"
+                to={`/explore/city/${this.props.city.name}&${this.props.city._id}/see-do`}
+              >
                 See & Do
-              </Nav.Link>
+              </Link>
             </Nav.Item>
             <Nav.Item className="city-nav-item">
-              <Nav.Link className="city-nav-link" href="/explore/city/food-drink">
-                Food
-              </Nav.Link>
+              <Link
+                className="city-nav-link"
+                to={`/explore/city/${this.props.city.name}&${this.props.city._id}/food-drink`}
+              >
+                Food & Drink
+              </Link>
             </Nav.Item>
             <Nav.Item className="city-nav-item">
-              <Nav.Link className="city-nav-link" href="/city/tokyo/stay">
+              <Link
+                className="city-nav-link"
+                to={`/explore/city/${this.props.city.name}&${this.props.city._id}/stay`}
+              >
                 Stay
-              </Nav.Link>
+              </Link>
             </Nav.Item>
           </Nav>
         </Container>

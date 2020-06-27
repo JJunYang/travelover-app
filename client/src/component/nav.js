@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default class NavComponent extends Component {
   logout = async (e) => {
@@ -20,19 +21,29 @@ export default class NavComponent extends Component {
     return (
       <Container style={{ marginBottom: "55px" }}>
         <Navbar bg="dark" variant="dark" fixed="top" expand="lg">
-          <Navbar.Brand href="/home">Travelover</Navbar.Brand>
+          <Link to="/home" className="navbar-brand">Travelover</Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/home">Home</Nav.Link>
-              <Nav.Link href="/tickets">Ticket</Nav.Link>
-              <Nav.Link href="/explore">Explore</Nav.Link>
-              <Nav.Link href="/travelGuides">TravelGuide</Nav.Link>
+              <Link to="/home" className="nav-link">
+                Home
+              </Link>
+              <Link to="/tickets" className="nav-link">
+                Ticket
+              </Link>
+              <Link to="/explore" className="nav-link">
+                Explore
+              </Link>
+              <Link to="/travelGuides" className="nav-link">
+                TravelGuide
+              </Link>
               {localStorage.getItem("userName") === null ||
               localStorage.getItem("userName") === "" ? (
                 ""
               ) : (
-                <Nav.Link href="/personalcenter">Personalcenter</Nav.Link>
+                <Link to="/personalcenter" className="nav-link">
+                  Personalcenter
+                </Link>
               )}
             </Nav>
             <Navbar.Collapse className="justify-content-end">

@@ -30,7 +30,6 @@ export default class TicketPage extends Component {
                     src={`https://images.unsplash.com/photo-1495201050688-bee4686329be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
                   />
                 </div>
-
                 <Card.Body>
                   <Card.Title className="item-card-title">
                     Domestic

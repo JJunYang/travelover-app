@@ -14,6 +14,7 @@
 }
 .item-card-img {
   width: 100%;
+  /* height: 135px; */
   border-radius: 0px;
   transition: all 1s;
 }
@@ -57,7 +58,8 @@
 }
 .item-hotel-img {
   width: 100%;
-  /* height: 200px; */
+  height: 135px;
+  object-fit: cover;
   border-radius: 0px;
   transition: all 1s;
 }

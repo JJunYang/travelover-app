@@ -1,20 +1,13 @@
 import React, { Component } from "react";
-import "./cityMainPage.css";
 import { Container, Col, Row } from "react-bootstrap";
 import CityPageNav from "./cityPageNav";
-import ExploreBlock from "./exploreBlock";
-import FoodBlock from "./foodBlock";
-import SeeBlock from "./seeBlock";
-import StayBlock from "./stayBlock";
 import axios from "axios";
+import PlaceCard from "../shared/placeCard";
 
-export default class CityMainPage extends Component {
+export default class CitySeePage extends Component {
   state = {
     city: {},
-    otherFourCities: [],
-    foodList: [],
     seeList: [],
-    stayList: [],
   };
   componentDidMount() {
     axios
@@ -24,14 +17,11 @@ export default class CityMainPage extends Component {
       .then((res) => {
         this.setState({
           city: res.data.city,
-          otherFourCities: res.data.cityList,
-          foodList: res.data.foodList,
           seeList: res.data.seeList,
-          stayList: res.data.stayList,
         });
       })
       .then(() => {
-        console.log(this.state);
+        console.log(this.state.city);
       });
   }
   render() {
@@ -81,22 +71,23 @@ export default class CityMainPage extends Component {
         </div>
         <CityPageNav city={this.state.city} />
         <hr style={{ marginTop: "5px" }}></hr>
-        <FoodBlock
-          placeList={this.state.foodList}
-          cityName={this.state.city.name}
-          cityId={this.state.city._id}
-        />
-        <SeeBlock
-          placeList={this.state.seeList}
-          cityName={this.state.city.name}
-          cityId={this.state.city._id}
-        />
-        <StayBlock
-          placeList={this.state.stayList}
-          cityName={this.state.city.name}
-          cityId={this.state.city._id}
-        />
-        <ExploreBlock cityList={this.state.otherFourCities} />
+        <Container>
+          <div className="sub-block-title">
+            <h2 className="sub-block-name">See & Do</h2>
+            <div className="sub-block-seeall">
+              All({this.state.seeList.length})
+            </div>
+          </div>
+          <Row className="sub-block-row">
+            {this.state.seeList.map((item, i) => {
+              return (
+                <Col key={i} className="sub-block-col col-6 clo-md-4 col-lg-3">
+                  <PlaceCard place={item} />
+                </Col>
+              );
+            })}
+          </Row>
+        </Container>
       </>
     );
   }
