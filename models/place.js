@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 const PlaceSchema = new mongoose.Schema({
   name: String,
-  city: String,
+  city: {
+    _id: { type: mongoose.Schema.Types.ObjectId, ref: "City" },
+    name: String,
+  },
   category: String,
   type: String,
   cost: String,
@@ -25,7 +28,7 @@ const PlaceSchema = new mongoose.Schema({
     {
       _id: { type: mongoose.Schema.Types.ObjectId, ref: "Review" },
       author: {
-        _id: { type: mongoose.Schema.Types.ObjectId, ref: "Review" },
+        _id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
         username: String,
       },
     },

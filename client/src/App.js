@@ -62,12 +62,20 @@ function App() {
           />
 
           <Route
-            path="/explore/food-drink/details"
+            path="/explore/place/food & drink/:_id"
             exact
             component={FoodDetails}
           />
-          <Route path="/explore/see-do/details" exact component={SeeDetails} />
-          <Route path="/explore/stay/details" exact component={StayDetails} />
+          <Route
+            path="/explore/place/see & do/:_id"
+            exact
+            component={SeeDetails}
+          />
+          <Route
+            path="/explore/place/stay/:_id"
+            exact
+            component={StayDetails}
+          />
 
           <Route path="/tickets" exact component={TicketPage} />
           <Route path="/tickets/flight" exact component={Flight} />

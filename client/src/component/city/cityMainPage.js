@@ -10,7 +10,9 @@ import axios from "axios";
 
 export default class CityMainPage extends Component {
   state = {
-    city: {},
+    city: {
+      country: {},
+    },
     otherFourCities: [],
     foodList: [],
     seeList: [],
@@ -44,7 +46,7 @@ export default class CityMainPage extends Component {
             alt="title pic"
           ></img>
           <div className="city-title-titleInfo">
-            <div className="countryName">{this.state.city.country}</div>
+            <div className="countryName">{this.state.city.country.name}</div>
             <div className="city-title-city">{this.state.city.name}</div>
           </div>
         </div>
@@ -81,7 +83,7 @@ export default class CityMainPage extends Component {
         </div>
         <CityPageNav city={this.state.city} />
         <hr style={{ marginTop: "5px" }}></hr>
-        <FoodBlock
+         <FoodBlock
           placeList={this.state.foodList}
           cityName={this.state.city.name}
           cityId={this.state.city._id}

@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import "./shared.css";
+import { Link } from "react-router-dom";
 
 const PlaceCard = ({ place }) => (
   <Card className="card-place">
@@ -10,10 +11,14 @@ const PlaceCard = ({ place }) => (
     <Card.Body>
       <Card.Text className="card-place-term">
         <span className="place-type">{place.type}</span>
-        <span className="place-city">{place.city}</span>
+        <span className="place-city">{place.city.name}</span>
       </Card.Text>
 
-      <Card.Title>{place.name}</Card.Title>
+      <Card.Title>
+        <Link to={`/explore/place/${place.category}/${place._id}`}>
+          {place.name}
+        </Link>
+      </Card.Title>
       <Card.Text>
         {place.reviewStar} ({place.reviewNum} Reviews)
       </Card.Text>

@@ -14,6 +14,9 @@
 .carousel-img {
   padding: 1px;
   align-self: flex-start;
+  max-height: 400px;
+  width: 100%;
+  object-fit: cover;
 }
 
 #food-main {
@@ -107,21 +110,6 @@
   font-weight: 600;
 }
 
-.review-author-block {
-  display: flex;
-  margin-top: 20px;
-  margin-right: 20px;
-}
-.review-author-headpic {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 20px;
-}
-.review-content {
-  margin-top: 10px;
-  color: #5d5d5d;
-}
 .similar-places {
   background-color: #f9f9f9;
   padding-top: 30px;

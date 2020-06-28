@@ -45,14 +45,14 @@ router.post("/newCity", async (req, res) => {
       introducing: introducing,
       bestTimeVisit: bestTimeVisit,
     });
-    const foundCountry = await Country.find({ name: country });
-    if (foundCountry.length < 1) {
-      res.Status(400).json({ message: "No Country Found " });
-    } else {
+    const foundCountry = await Country.findById(country._id);
+    if (foundCountry) {
       await newCity.save();
-      foundCountry[0].cityList.push(newCity);
-      await foundCountry[0].save();
+      foundCountry.cityList.push(newCity);
+      await foundCountry.save();
       res.sendStatus(202);
+    } else {
+      res.Status(400).json({ message: "No Country Found " });
     }
   } catch (error) {
     res.status(400).json(error);
@@ -86,18 +86,23 @@ router.post("/newPlace", async (req, res) => {
       reviewList: [],
       reviewStar: 0,
     });
-    const foundCity = await City.find({ name: city });
-    if (foundCity.length < 1) {
-      res.Status(400).json({ message: "No City Found " });
-    } else {
+    const foundCity = await City.findById(city._id);
+    if (foundCity) {
       await newPlace.save();
-      foundCity[0].placeList.push(newPlace);
-      const changedNum = parseInt(foundCity[0].placeNum) + 1;
-      await foundCity[0].save();
-      await City.updateOne({ name: city }, { $set: { placeNum: changedNum } });
+      foundCity.placeList.push(newPlace);
+      const changedNum = parseInt(foundCity.placeNum) + 1;
+      await foundCity.save();
+      await City.updateOne(
+        { _id: city._id },
+        { $set: { placeNum: changedNum } }
+      );
       res.sendStatus(202);
+    } else {
+      res.Status(400).json({ message: "No City Found " });
     }
   } catch (error) {
+    console.log(error);
+
     res.status(400).json(error);
   }
 });

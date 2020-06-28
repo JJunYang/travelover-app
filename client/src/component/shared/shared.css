@@ -85,3 +85,26 @@
   border-radius: 3px;
   background-color: #d8d8d8;
 }
+.card-place .card-title a {
+  color: black;
+}
+.card-place .card-title a:hover {
+  color: #24d8d8;
+  text-decoration: none;
+}
+
+.review-author-block {
+  display: flex;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+.review-author-headpic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.review-content {
+  margin-top: 10px;
+  color: #5d5d5d;
+}

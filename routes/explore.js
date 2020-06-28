@@ -13,9 +13,15 @@ router.get("/city/:name&:_id", async (req, res) => {
     const city = req.params.name;
     const cityId = req.params._id;
     const foundCity = await City.findById(cityId);
-    const foodList = await Place.find({ city: city, category: "food & drink" });
-    const seeList = await Place.find({ city: city, category: "see & do" });
-    const stayList = await Place.find({ city: city, category: "stay" });
+    const foodList = await Place.find({
+      "city._id": cityId,
+      category: "food & drink",
+    });
+    const seeList = await Place.find({
+      "city._id": cityId,
+      category: "see & do",
+    });
+    const stayList = await Place.find({ "city._id": cityId, category: "stay" });
     const allCities = await City.find();
     const cityList = [];
     for (var i = 0; i < allCities.length; i++) {
@@ -55,6 +61,16 @@ router.get("/city/:_id/otherFour", async (req, res) => {
       }
     }
     res.status(200).json(cityList);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
+  }
+});
+
+router.get("/place/:_id", async (req, res) => {
+  try {
+    const foundPlace = await Place.findById(req.params._id);
+    res.status(200).json(foundPlace);
   } catch (error) {
     console.log(error);
     res.status(400).json(error);

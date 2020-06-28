@@ -2,7 +2,10 @@ const mongoose = require("mongoose");
 const CitySchema = new mongoose.Schema({
   name: String,
   representPic: String,
-  country: String,
+  country: {
+    _id: { type: mongoose.Schema.Types.ObjectId, ref: "Country" },
+    name: String,
+  },
   currency: String,
   language: String,
   introducing: String,
