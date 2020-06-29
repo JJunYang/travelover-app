@@ -1,6 +1,13 @@
+#root {
+  min-height: 100%;
+  position: relative;
+}
 #footer {
   background-color: #24d8d8;
-  padding-left: 5px;
+  padding-left: 10px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 a {
   transition: all 0.3s ease 0s;
@@ -8,6 +15,7 @@ a {
 .App {
   font-family: "Jost", sans-serif;
   transition: all 1s;
+  padding-bottom: 20px;
 }
 .App .btn-primary {
   background-color: #24d8d8;
@@ -17,4 +25,10 @@ a {
   background-color: white;
   color: #24d8d8;
   border-color: #24d8d8;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }

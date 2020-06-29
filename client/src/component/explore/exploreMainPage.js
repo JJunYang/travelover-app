@@ -1,22 +1,26 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "./explore.css";
-import CityBlock from "../home/cityBlock";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import CityCard from "../shared/cityCard";
 
 export default class ExploreMainPage extends Component {
   state = {
     placeNum: [],
+    cityList: [],
   };
   componentDidMount() {
+    axios.get("/explore/place/getPlaceNumByCategory").then((res) => {
+      this.setState({ placeNum: res.data });
+    });
     axios
-      .get("/explore/place/getPlaceNumByCategory")
+      .get("/explore/getAllCities")
       .then((res) => {
-        this.setState({ placeNum: res.data });
+        this.setState({ cityList: res.data });
       })
       .then(() => {
-        console.log(this.state.placeNum);
+        console.log(this.state.cityList);
       });
   }
   render() {
@@ -26,7 +30,6 @@ export default class ExploreMainPage extends Component {
         <div className="explore-top-cover">
           <div className="explore-top-cover-block"></div>
         </div>
-
         <Container className="explore-category-block">
           <h2 className="explore-category-title">Explore By </h2>
           <hr className="explore-hr"></hr>
@@ -52,7 +55,19 @@ export default class ExploreMainPage extends Component {
           <div className="explore-middle-block"></div>
         </div>
         <div className="explore-popular-city">
-          <CityBlock />
+          <Container>
+            <h2 className="explore-city-title">Popular Cities</h2>
+            <hr className="explore-hr"></hr>
+            <Row>
+              {this.state.cityList.map((item, i) => {
+                return (
+                  <Col key={i} className="colCity col-md-3 col-6">
+                    <CityCard city={item} />
+                  </Col>
+                );
+              })}
+            </Row>
+          </Container>
         </div>
         <div className="explore-popular-blog">
           <div className="explore-botton-cover-block">

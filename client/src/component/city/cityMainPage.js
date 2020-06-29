@@ -31,9 +31,6 @@ export default class CityMainPage extends Component {
           seeList: res.data.seeList,
           stayList: res.data.stayList,
         });
-      })
-      .then(() => {
-        console.log(this.state);
       });
   }
   render() {

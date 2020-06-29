@@ -9,7 +9,6 @@ export default class CityBlock extends Component {
   };
   componentDidMount() {
     axios.get("/explore/getAllCities").then((response) => {
-      console.log(response.data);
       this.setState({ cityList: response.data });
     });
   }

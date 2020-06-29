@@ -27,84 +27,86 @@ import ExploreCategoryPage from "./component/explore/exploreCategoryPage";
 
 function App() {
   return (
-    <div className="App">
-      <Router forceRefresh={true}>
-        <NavComponent />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/home" exact component={Home} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/register" exact component={Register} />
+    <>
+      <div className="App">
+        <Router forceRefresh={true}>
+          <NavComponent />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/home" exact component={Home} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/register" exact component={Register} />
 
-          <Route path="/explore" exact component={ExploreMainPage} />
-          <Route
-            path="/explore/city/:cityName&:_id"
-            exact
-            component={CityMainPage}
-          />
-          <Route
-            path="/explore/city/:cityName&:_id/see-do"
-            exact
-            component={CitySeePage}
-          />
-          <Route
-            path="/explore/city/:cityName&:_id/food-drink"
-            exact
-            component={CityFoodPage}
-          />
-          <Route
-            path="/explore/city/:cityName&:_id/stay"
-            exact
-            component={CityStayPage}
-          />
-          <Route
-            path="/explore/place/placeList/:category"
-            exact
-            component={ExploreCategoryPage}
-          />
+            <Route path="/explore" exact component={ExploreMainPage} />
+            <Route
+              path="/explore/city/:cityName&:_id"
+              exact
+              component={CityMainPage}
+            />
+            <Route
+              path="/explore/city/:cityName&:_id/see-do"
+              exact
+              component={CitySeePage}
+            />
+            <Route
+              path="/explore/city/:cityName&:_id/food-drink"
+              exact
+              component={CityFoodPage}
+            />
+            <Route
+              path="/explore/city/:cityName&:_id/stay"
+              exact
+              component={CityStayPage}
+            />
+            <Route
+              path="/explore/place/placeList/:category"
+              exact
+              component={ExploreCategoryPage}
+            />
 
-          <Route
-            path="/explore/place/food & drink/:_id"
-            exact
-            component={FoodDetails}
-          />
-          <Route
-            path="/explore/place/see & do/:_id"
-            exact
-            component={SeeDetails}
-          />
-          <Route
-            path="/explore/place/stay/:_id"
-            exact
-            component={StayDetails}
-          />
+            <Route
+              path="/explore/place/food & drink/:_id"
+              exact
+              component={FoodDetails}
+            />
+            <Route
+              path="/explore/place/see & do/:_id"
+              exact
+              component={SeeDetails}
+            />
+            <Route
+              path="/explore/place/stay/:_id"
+              exact
+              component={StayDetails}
+            />
 
-          <Route path="/tickets" exact component={TicketPage} />
-          <Route path="/tickets/flight" exact component={Flight} />
-          <Route path="/tickets/hotel" exact component={Hotel} />
-          <Route
-            path="/tickets/flight/paypal/:_id"
-            exact
-            component={Paypal_Flight}
-          />
-          <Route
-            path="/tickets/hotel/paypal/:_id"
-            exact
-            component={Paypal_Hotel}
-          />
+            <Route path="/tickets" exact component={TicketPage} />
+            <Route path="/tickets/flight" exact component={Flight} />
+            <Route path="/tickets/hotel" exact component={Hotel} />
+            <Route
+              path="/tickets/flight/paypal/:_id"
+              exact
+              component={Paypal_Flight}
+            />
+            <Route
+              path="/tickets/hotel/paypal/:_id"
+              exact
+              component={Paypal_Hotel}
+            />
 
-          <Route path="/travelGuides" exact component={TravelGuide} />
-          <Route
-            path="/travelGuides/details/:_id"
-            exact
-            component={TravelGuideDetails}
-          />
+            <Route path="/travelGuides" exact component={TravelGuide} />
+            <Route
+              path="/travelGuides/details/:_id"
+              exact
+              component={TravelGuideDetails}
+            />
 
-          <Route path="/personalcenter" exact component={PersonalCenter} />
-        </Switch>
-      </Router>
+            <Route path="/personalcenter" exact component={PersonalCenter} />
+          </Switch>
+        </Router>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

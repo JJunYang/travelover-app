@@ -91,7 +91,6 @@ router.get("/place/getPlaceNumByCategory", async (req, res) => {
 router.get("/place/getPlacesByCategory/:category", async (req, res) => {
   try {
     const foundPlaces = await Place.find({ category: req.params.category });
-    console.log(req.params.category);
     res.status(200).json(foundPlaces);
   } catch (error) {
     console.log(error);
