@@ -2,8 +2,23 @@ import React, { Component } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "./explore.css";
 import CityBlock from "../home/cityBlock";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default class ExploreMainPage extends Component {
+  state = {
+    placeNum: [],
+  };
+  componentDidMount() {
+    axios
+      .get("/explore/place/getPlaceNumByCategory")
+      .then((res) => {
+        this.setState({ placeNum: res.data });
+      })
+      .then(() => {
+        console.log(this.state.placeNum);
+      });
+  }
   render() {
     return (
       <>
@@ -16,30 +31,21 @@ export default class ExploreMainPage extends Component {
           <h2 className="explore-category-title">Explore By </h2>
           <hr className="explore-hr"></hr>
           <Row>
-            <Col className="col-6 col-md-4 explore-category-detail">
-              <div className="detail-block-see">
-                <div className="category-content">
-                  <h3>See & Do</h3>
-                  <p>44 places</p>
-                </div>
-              </div>
-            </Col>
-            <Col className="col-6 col-md-4 explore-category-detail">
-              <div className="detail-block-food">
-                <div className="category-content">
-                  <h3>Food & Drink</h3>
-                  <p>44 places</p>
-                </div>
-              </div>
-            </Col>
-            <Col className="col-6 col-md-4 explore-category-detail">
-              <div className="detail-block-stay">
-                <div className="category-content">
-                  <h3>Stay</h3>
-                  <p>44 places</p>
-                </div>
-              </div>
-            </Col>
+            {this.state.placeNum.map((item, i) => {
+              return (
+                <Col className="col-6 col-md-4 explore-category-detail" key={i}>
+                  <Link
+                    to={`/explore/place/placeList/${item.category}`}
+                    className={`detail-block-${item.abbr}`}
+                  >
+                    <div className="category-content">
+                      <h3>{item.category}</h3>
+                      <p>{item.num} places</p>
+                    </div>
+                  </Link>
+                </Col>
+              );
+            })}
           </Row>
         </Container>
         <div className="explore-middle">

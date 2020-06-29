@@ -26,7 +26,7 @@ export default class StayDetails extends Component {
   };
   componentDidMount() {
     axios
-      .get(`/explore/place/${this.props.match.params._id}`)
+      .get(`/explore/place/getPlaceById/${this.props.match.params._id}`)
       .then((res) => {
         this.setState({ place: res.data });
       })
@@ -34,6 +34,18 @@ export default class StayDetails extends Component {
         console.log(this.state);
       });
   }
+  showMore = () => {
+    document.getElementById("item-hide").classList.add("unplay");
+    document.getElementById("item-hide").classList.remove("play");
+    document.getElementById("item-show").classList.remove("unplay");
+    document.getElementById("item-show").classList.add("play");
+  };
+  hideAll = () => {
+    document.getElementById("item-hide").classList.add("play");
+    document.getElementById("item-hide").classList.remove("unplay");
+    document.getElementById("item-show").classList.remove("play");
+    document.getElementById("item-show").classList.add("unplay");
+  };
   render() {
     return (
       <>
@@ -65,31 +77,20 @@ export default class StayDetails extends Component {
               <span className="item-place-type">{this.state.place.type}</span>
             </div>
             <hr></hr>
-            <div className="item-description-hide" id="item-description-hide">
+            <div className="item-hide" id="item-hide">
               <div className="inner-content">
-                <div className="visibility">
-                  <p>{this.state.place.introducing}</p>
-                </div>
+                <p>{this.state.place.introducing}</p>
               </div>
-              <div className="toggle-desc">
-                <a className="show-more" href="#item-description-show">
-                  Show more
-                </a>
-                {/* <a class="hide-all" href="#">
-                  Hide all
-                </a> */}
+              <div className="show-more" onClick={this.showMore}>
+                Show More
               </div>
             </div>
-            <div className="item-description-show" id="item-description-show">
+            <div className="item-show" id="item-show">
               <div className="inner-content">
-                <div className="inner-hide">
-                  <p>{this.state.place.introducing}</p>
-                </div>
+                <p>{this.state.place.introducing}</p>
               </div>
-              <div className="toggle-desc">
-                <a className="hide-all" href="/">
-                  Hide all
-                </a>
+              <div className="hide-all" onClick={this.hideAll}>
+                Hide All
               </div>
             </div>
             <hr></hr>

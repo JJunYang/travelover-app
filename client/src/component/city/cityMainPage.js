@@ -83,7 +83,7 @@ export default class CityMainPage extends Component {
         </div>
         <CityPageNav city={this.state.city} />
         <hr style={{ marginTop: "5px" }}></hr>
-         <FoodBlock
+        <FoodBlock
           placeList={this.state.foodList}
           cityName={this.state.city.name}
           cityId={this.state.city._id}

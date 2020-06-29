@@ -3,11 +3,13 @@ const router = express.Router();
 const City = require("../models/city");
 const Place = require("../models/place");
 
+//get all cities
 router.get("/getAllCities", async (req, res) => {
   const cities = await City.find();
   res.json(cities);
 });
 
+//get city by id
 router.get("/city/:name&:_id", async (req, res) => {
   try {
     const city = req.params.name;
@@ -46,31 +48,51 @@ router.get("/city/:name&:_id", async (req, res) => {
   }
 });
 
-router.get("/city/:_id/otherFour", async (req, res) => {
+//get place by id
+router.get("/place/getPlaceById/:_id", async (req, res) => {
   try {
-    const cityId = req.params._id;
-    console.log(cityId);
-
-    const foundCity = await City.find();
-    const cityList = [];
-    for (var i = 0; i < foundCity.length; i++) {
-      if (cityList.length < 4) {
-        if (foundCity[i]._id.toString() !== cityId.toString()) {
-          cityList.push(foundCity[i]);
-        }
-      }
-    }
-    res.status(200).json(cityList);
+    const foundPlace = await Place.findById(req.params._id);
+    res.status(200).json(foundPlace);
   } catch (error) {
     console.log(error);
     res.status(400).json(error);
   }
 });
 
-router.get("/place/:_id", async (req, res) => {
+//get places by category
+// router.get("/place/getPlacesByCategory/:category", async (req, res) => {
+//   try {
+//     const foundPlaces = await Place.find({ category: req.params.category });
+//     res.status(200).json(foundPlaces);
+//   } catch (error) {
+//     console.log(error);
+//     res.status(400).json(error);
+//   }
+// });
+
+//get place number by category
+router.get("/place/getPlaceNumByCategory", async (req, res) => {
   try {
-    const foundPlace = await Place.findById(req.params._id);
-    res.status(200).json(foundPlace);
+    const foundSeePlaces = await Place.find({ category: "see & do" });
+    const foundFoodPlaces = await Place.find({ category: "food & drink" });
+    const foundStayPlaces = await Place.find({ category: "stay" });
+    const data = [
+      { category: "see & do", num: foundSeePlaces.length, abbr: "see" },
+      { category: "food & drink", num: foundFoodPlaces.length, abbr: "food" },
+      { category: "stay", num: foundStayPlaces.length, abbr: "stay" },
+    ];
+    res.status(200).json(data);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
+  }
+});
+
+router.get("/place/getPlacesByCategory/:category", async (req, res) => {
+  try {
+    const foundPlaces = await Place.find({ category: req.params.category });
+    console.log(req.params.category);
+    res.status(200).json(foundPlaces);
   } catch (error) {
     console.log(error);
     res.status(400).json(error);

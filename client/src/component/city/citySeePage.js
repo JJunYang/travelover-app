@@ -6,7 +6,7 @@ import PlaceCard from "../shared/placeCard";
 
 export default class CitySeePage extends Component {
   state = {
-    city: {},
+    city: { country: {} },
     seeList: [],
   };
   componentDidMount() {
@@ -34,7 +34,7 @@ export default class CitySeePage extends Component {
             alt="title pic"
           ></img>
           <div className="city-title-titleInfo">
-            <div className="countryName">{this.state.city.country}</div>
+            <div className="countryName">{this.state.city.country.name}</div>
             <div className="city-title-city">{this.state.city.name}</div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import CityPageNav from "./cityPageNav";
 
 export default class CityFoodPage extends Component {
   state = {
-    city: {},
+    city: { country: {} },
     foodList: [],
   };
   componentDidMount() {
@@ -34,7 +34,7 @@ export default class CityFoodPage extends Component {
             alt="title pic"
           ></img>
           <div className="city-title-titleInfo">
-            <div className="countryName">{this.state.city.country}</div>
+            <div className="countryName">{this.state.city.country.name}</div>
             <div className="city-title-city">{this.state.city.name}</div>
           </div>
         </div>

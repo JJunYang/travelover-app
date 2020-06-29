@@ -17,22 +17,19 @@ import PersonalCenter from "./component/personalCenter/personalCenter";
 import Footer from "./component/footer";
 import CityMainPage from "./component/city/cityMainPage";
 import ExploreMainPage from "./component/explore/exploreMainPage";
-import FoodPage from "./component/explore/foodPage";
-import SeePage from "./component/explore/seePage";
-import StayPage from "./component/explore/stayPage";
 import SeeDetails from "./component/details/seeDetails";
 import StayDetails from "./component/details/stayDetails";
 import FoodDetails from "./component/details/foodDetails";
 import CityFoodPage from "./component/city/cityFoodPage";
 import CitySeePage from "./component/city/citySeePage";
 import CityStayPage from "./component/city/cityStayPage";
+import ExploreCategoryPage from "./component/explore/exploreCategoryPage";
 
 function App() {
   return (
     <div className="App">
       <Router forceRefresh={true}>
         <NavComponent />
-        {/* <br /> <br/> */}
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/home" exact component={Home} />
@@ -59,6 +56,11 @@ function App() {
             path="/explore/city/:cityName&:_id/stay"
             exact
             component={CityStayPage}
+          />
+          <Route
+            path="/explore/place/placeList/:category"
+            exact
+            component={ExploreCategoryPage}
           />
 
           <Route

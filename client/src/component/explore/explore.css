@@ -36,6 +36,22 @@
   justify-content: center;
   height: 200px;
 }
+.explore-category-detail .category-content h3{
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.explore-category-detail .category-content p{
+  font-size: 16px;
+  font-weight: 500;
+}
+.explore-category-detail a:hover {
+  text-decoration: none;
+}
+.explore-category-detail a:hover .category-content {
+  color: #24d8d8;
+  transition: all 1s;
+
+}
 .detail-block-stay {
   background-image: url(https://wp.getgolo.com/wp-content/uploads/2020/01/cat-1-400x250.png);
   background-position: center;
@@ -166,6 +182,6 @@
   border-radius: 100px 0 0 100px;
   z-index: 2;
 }
-.subpage-topblock-pic{
+.subpage-topblock-pic {
   width: 100%;
 }
