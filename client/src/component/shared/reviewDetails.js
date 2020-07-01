@@ -1,23 +1,39 @@
-import React from "react";
+import React, { Component } from "react";
+import axios from "axios";
+import moment from "moment";
 
-const ReviewDetails = () => (
-  <div className="review-detail">
-    <div className="review-author-block">
-      <img
-        className="review-author-headpic"
-        alt="authorpic"
-        src={`https://wp.getgolo.com/wp-content/uploads/2020/01/Rectangle-23.png`}
-      ></img>
-      <div className="author-detail">
-        <div>Ann</div>
-        <div>5 months ago</div>
+
+export default class ReviewDetails extends Component {
+  state = {
+    review: {},
+    author: {},
+  };
+  componentDidMount() {
+    axios
+      .get(`/explore/review/details/${this.props.review._id}`)
+      .then((res) => {
+        this.setState({ review: res.data.review, author: res.data.author });
+      })
+      .then(() => {
+        console.log(this.state);
+      });
+  }
+  render() {
+    return (
+      <div className="review-detail">
+        <div className="review-author-block">
+          <img
+            className="review-author-headpic"
+            alt="authorpic"
+            src={this.state.author.pic}
+          ></img>
+          <div className="author-detail">
+            <div>{this.state.author.username}</div>
+            <div>{moment(this.state.review.date).format("YYYY-MM-DD")}</div>
+          </div>
+        </div>
+        <div className="review-content">{this.state.review.content}</div>
       </div>
-    </div>
-    <div className="review-content">
-      Excellent service and awesome food. Truly a 5 star restaurant. Service is
-      seamless and spot on. Food was prepared perfectly.
-    </div>
-  </div>
-);
-
-export default ReviewDetails;
+    );
+  }
+}

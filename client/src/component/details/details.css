@@ -78,6 +78,7 @@
   border-radius: 3px;
   background-color: #d8d8d8;
 }
+
 .item-hide {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -151,6 +152,62 @@
 .review-star {
   color: #24d8d8;
   font-weight: 600;
+}
+
+.review-create-block {
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+.review-create-block .review-notes {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+.review-create-block .review-rate {
+  display: flex;
+}
+.review-create-block .review-rate .review-rate-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #24d8d8;
+}
+.review-create-block .review-rate .review-rate-message {
+  font-size: 18px;
+  margin-left: 20px;
+  font-weight: 500;
+  color: red;
+}
+.rating {
+  font-size: 0;
+  display: table;
+}
+.rating > label {
+  color: #ddd;
+  float: right;
+}
+.rating > label:before {
+  padding: 5px;
+  font-size: 18px;
+  line-height: 1em;
+  display: inline-block;
+  content: "★";
+}
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #24d8d8;
+}
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+  opacity: 0.5;
+}
+#review-content {
+  width: 100%;
+  /* margin-left: 15px;
+  margin-right: 15px; */
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .similar-places {

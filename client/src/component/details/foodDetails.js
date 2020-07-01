@@ -24,6 +24,9 @@ export default class FoodDetails extends Component {
       pics: [],
       reviewList: [],
     },
+    rating: "",
+    content: "",
+    message: "",
   };
   componentDidMount() {
     axios
@@ -31,8 +34,6 @@ export default class FoodDetails extends Component {
       .then((res) => {
         this.setState({
           place: res.data,
-          cityName: res.data.city.name,
-          cityId: res.data.city._id,
         });
       })
       .then(() => {
@@ -50,6 +51,30 @@ export default class FoodDetails extends Component {
     document.getElementById("item-hide").classList.remove("unplay");
     document.getElementById("item-show").classList.remove("play");
     document.getElementById("item-show").classList.add("unplay");
+  };
+  handleChange = (e) => {
+    const name = e.target.name;
+    this.setState({ [name]: e.target.value });
+  };
+  handleSubmitRateForm = (e) => {
+    e.preventDefault();
+    if (this.state.rating === null || this.state.rating === "") {
+      this.setState({ message: "Please rate first!" });
+      return;
+    }
+    axios
+      .post("/add/newReview", {
+        content: this.state.content,
+        star: this.state.rating,
+        place: this.state.place,
+      })
+      .then(() => {
+        const pathname = this.props.location.pathname;
+        this.props.history.replace("/reload");
+        setTimeout(() => {
+          this.props.history.replace(pathname);
+        });
+      });
   };
   render() {
     return (
@@ -75,7 +100,6 @@ export default class FoodDetails extends Component {
               </a>
             </div>
             <h2>{this.state.place.name}</h2>
-
             <div>
               <span className="item-star">{this.state.place.reviewStar}</span> (
               {this.state.place.reviewNum} reviews)
@@ -173,7 +197,79 @@ export default class FoodDetails extends Component {
               {this.state.place.reviewList.map((item, i) => {
                 return <ReviewDetails review={item} key={i} />;
               })}
-              <hr></hr>
+              {localStorage.getItem("userName") ? (
+                <div className="review-create-block">
+                  <Form onSubmit={this.handleSubmitRateForm}>
+                    <div className="review-notes">Create your review:</div>
+                    <div className="review-rate">
+                      <div className="review-rate-title">Rating:</div>
+                      <div className="rating" onChange={this.handleChange}>
+                        <input
+                          type="radio"
+                          id="star5"
+                          name="rating"
+                          value="5"
+                          hidden
+                        />
+                        <label htmlFor="star5"></label>
+                        <input
+                          type="radio"
+                          id="star4"
+                          name="rating"
+                          value="4"
+                          hidden
+                        />
+                        <label htmlFor="star4"></label>
+                        <input
+                          type="radio"
+                          id="star3"
+                          name="rating"
+                          value="3"
+                          hidden
+                        />
+                        <label htmlFor="star3"></label>
+                        <input
+                          type="radio"
+                          id="star2"
+                          name="rating"
+                          value="2"
+                          hidden
+                        />
+                        <label htmlFor="star2"></label>
+                        <input
+                          type="radio"
+                          id="star1"
+                          name="rating"
+                          value="1"
+                          hidden
+                        />
+                        <label htmlFor="star1"></label>
+                      </div>
+                      <div className="review-rate-message">
+                        {this.state.message}
+                      </div>
+                    </div>
+                    <textarea
+                      id="review-content"
+                      name="content"
+                      cols="45"
+                      rows="7"
+                      required
+                      onChange={this.handleChange}
+                      placeholder="Enter your review Content now!"
+                    ></textarea>
+                    <input
+                      type="submit"
+                      value="Submit"
+                      className="btn btn-primary"
+                    />
+                  </Form>
+                </div>
+              ) : (
+                <p>
+                  <Link to="/login">Login</Link> to review
+                </p>
+              )}
             </div>
           </div>
           <div className="explore-rightside">

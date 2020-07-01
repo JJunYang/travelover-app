@@ -31,7 +31,7 @@ export default class CityMainPage extends Component {
           seeList: res.data.seeList,
           stayList: res.data.stayList,
         });
-      });
+      })
   }
   render() {
     return (

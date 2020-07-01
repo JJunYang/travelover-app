@@ -108,8 +108,9 @@ router.post("/newPlace", async (req, res) => {
 });
 
 //add review
-router.post("/newReview", async (req, res) => {
-  const { author, content, star, place } = req.body;
+router.post("/newReview", isLoggedIn, async (req, res) => {
+  const { content, star, place } = req.body;
+  const author = { _id: req.user._id, username: req.user.username };
   try {
     var newReview = new Review({
       author: author,
@@ -122,8 +123,8 @@ router.post("/newReview", async (req, res) => {
     foundPlace.reviewList.push(newReview);
     user.reviewList.push(newReview);
     var reviewNum = parseInt(foundPlace.reviewNum) + 1;
-    var reviewScore = parseInt(foundPlace.reviewScore) + star;
-    var reviewStar = reviewScore / reviewNum;
+    var reviewScore = parseInt(foundPlace.reviewScore) + parseInt(star);
+    var reviewStar = (reviewScore / reviewNum).toFixed(1);
     await Place.updateOne(
       { _id: place._id },
       {
@@ -142,4 +143,11 @@ router.post("/newReview", async (req, res) => {
     res.status(400).json(error);
   }
 });
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  return res.json({ message: "loggin first" });
+}
 module.exports = router;

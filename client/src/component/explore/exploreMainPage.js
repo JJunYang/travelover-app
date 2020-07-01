@@ -14,14 +14,9 @@ export default class ExploreMainPage extends Component {
     axios.get("/explore/place/getPlaceNumByCategory").then((res) => {
       this.setState({ placeNum: res.data });
     });
-    axios
-      .get("/explore/getAllCities")
-      .then((res) => {
-        this.setState({ cityList: res.data });
-      })
-      .then(() => {
-        console.log(this.state.cityList);
-      });
+    axios.get("/explore/getAllCities").then((res) => {
+      this.setState({ cityList: res.data });
+    });
   }
   render() {
     return (

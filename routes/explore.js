@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const City = require("../models/city");
 const Place = require("../models/place");
+const Review = require("../models/review");
+const User = require("../models/user");
 
 //get all cities
 router.get("/getAllCities", async (req, res) => {
@@ -59,17 +61,6 @@ router.get("/place/getPlaceById/:_id", async (req, res) => {
   }
 });
 
-//get places by category
-// router.get("/place/getPlacesByCategory/:category", async (req, res) => {
-//   try {
-//     const foundPlaces = await Place.find({ category: req.params.category });
-//     res.status(200).json(foundPlaces);
-//   } catch (error) {
-//     console.log(error);
-//     res.status(400).json(error);
-//   }
-// });
-
 //get place number by category
 router.get("/place/getPlaceNumByCategory", async (req, res) => {
   try {
@@ -92,6 +83,19 @@ router.get("/place/getPlacesByCategory/:category", async (req, res) => {
   try {
     const foundPlaces = await Place.find({ category: req.params.category });
     res.status(200).json(foundPlaces);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
+  }
+});
+
+//get review details
+router.get("/review/details/:_id", async (req, res) => {
+  try {
+    const foundReview = await Review.findById(req.params._id);
+    const foundAuther = await User.findById(foundReview.author._id);
+    const data = { review: foundReview, author: foundAuther };
+    res.status(200).json(data);
   } catch (error) {
     console.log(error);
     res.status(400).json(error);
