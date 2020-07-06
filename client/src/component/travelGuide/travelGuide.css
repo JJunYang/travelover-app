@@ -1,0 +1,86 @@
+#travelGuide-list {
+  border: none;
+}
+#travelGuide-list .card-header {
+  background-color: white;
+  border: none;
+}
+#travelGuide-list .nav-tabs .nav-link {
+  color: #24d8d8;
+  border: none;
+}
+#travelGuide-list.nav-tabs .nav-link:focus {
+  outline: none;
+}
+#travelGuide-list .nav-tabs .nav-link:hover {
+  background-color: #24d8d8;
+  color: white;
+}
+#travelGuide-list .travelGuide-card:last-child {
+  margin-bottom: 40px;
+}
+
+.travelGuide-journal-detail {
+  margin-top: 10px;
+}
+.travelGuide-journal-detail .journal-title-pic {
+  width: 110px;
+  height: 110px;
+  margin-top: 20px;
+}
+.travelGuide-journal-detail .journal-title-midBlock {
+  display: flex;
+  color: #5d5d5d;
+  margin-top: 55px;
+}
+.travelGuide-journal-detail .journal-title-midBlock > p {
+  margin-left: 40px;
+}
+.travelGuide-journal-detail .journal-title-midBlock .journal-title-username {
+  color: #24d8d8;
+}
+.travelGuide-journal-detail .journal-title-midBlock .journal-title-date {
+  font-style: italic;
+}
+.travelGuide-journal-detail .journal-title-midBlock .journal-star-pic {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+.travelGuide-journal-detail
+  .journal-title-midBlock
+  .journal-title-upvote:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #24d8d8;
+}
+.travelGuide-journal-detail .journal-rightblock-icon {
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+}
+
+.travelGuide-content-block .journal-content-title {
+  color: #24d8d8;
+  font-style: italic;
+}
+
+@media screen and (max-width: 991px) {
+  .travelGuide-journal-detail .journal-title-midBlock > p {
+    margin-left: 10px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .travelGuide-journal-detail .journal-title-midBlock {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+  }
+  .travelGuide-journal-detail .journal-title-midBlock > p {
+    margin-left: 0px;
+    line-height: 1rem;
+  }
+  .travelGuide-journal-detail .journal-title-pic {
+    margin-top: 0;
+  }
+}

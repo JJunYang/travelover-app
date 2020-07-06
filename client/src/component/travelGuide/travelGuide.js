@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
-import { Container, Carousel, Card, Nav, Row, Col } from "react-bootstrap";
-import { Image, Button, Badge } from "react-bootstrap";
+import { Container, Carousel, Card, Nav } from "react-bootstrap";
+import "./travelGuide.css";
+import TravelGuideCard from "../shared/travelGuideCard";
 
 export default class TravelGuide extends Component {
   constructor(props) {
@@ -19,6 +19,9 @@ export default class TravelGuide extends Component {
       })
       .then((data) => {
         this.setState({ travelGuideList: data });
+      })
+      .then(() => {
+        console.log(this.state.travelGuideList);
       });
   }
 
@@ -99,7 +102,7 @@ export default class TravelGuide extends Component {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-        <Card>
+        <Card id="travelGuide-list">
           <Card.Header>
             <Nav variant="tabs" defaultActiveKey="#first">
               <Nav.Item>
@@ -114,83 +117,7 @@ export default class TravelGuide extends Component {
             </Nav>
           </Card.Header>
           {this.state.travelGuideList.map((item, i) => {
-            return (
-              <Card.Body key={i}>
-                <hr></hr>
-                <p style={{ fontSize: "13px" }}>
-                  <img
-                    src={process.env.PUBLIC_URL + "/Icon/journal.png"}
-                    alt=""
-                    style={{
-                      width: "12px",
-                      height: "12px",
-                      marginRight: "10px",
-                    }}
-                  ></img>
-                  From{" "}
-                  <span style={{ color: "orange", fontStyle: "italic" }}>
-                    {item.type}
-                  </span>
-                </p>
-                <Card.Title>{item.title}</Card.Title>
-                <Row>
-                  <Col md={3}>
-                    <Image
-                      className="card-img-top"
-                      src={item.pic[0]}
-                      alt=""
-                      style={{ width: "90%", height: "70%" }}
-                    />
-                    <br></br>
-                  </Col>
-                  <Col md={9}>
-                    <Card.Text>{item.description}</Card.Text>
-                    <Row style={{ marginTop: "60px" }}>
-                      <Col xs={3}>
-                        <Link to={`/travelGuides/details/${item._id}`}>
-                          <Button size="sm" variant="primary">
-                            View Details
-                          </Button>
-                        </Link>
-                      </Col>
-                      <Col xs={{ offset: 5 }}>
-                        <Image
-                          src={item.pic[1]}
-                          alt=""
-                          style={{
-                            width: "11px",
-                            height: "11px",
-                            marginRight: "10px",
-                          }}
-                          roundedCircle
-                        />
-                        <span style={{ fontSize: "10px", fontStyle: "italic" }}>
-                          author:
-                        </span>
-                        <Badge style={{ color: "orange", fontStyle: "italic" }}>
-                          {item.author.username}
-                        </Badge>
-                        <img
-                          src={process.env.PUBLIC_URL + "/Icon/view.png"}
-                          alt=""
-                          style={{ width: "11px", height: "11px" }}
-                        ></img>
-                        <span
-                          style={{
-                            fontSize: "10px",
-                            fontStyle: "italic",
-                            color: "grey",
-                            marginLeft: "3px",
-                          }}
-                        >
-                          views: {item.clickNum}
-                        </span>
-                      </Col>
-                    </Row>
-                  </Col>
-                </Row>
-              </Card.Body>
-            );
+            return <TravelGuideCard item={item} key={i} />;
           })}
         </Card>
       </Container>

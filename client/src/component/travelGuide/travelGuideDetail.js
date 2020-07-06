@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Image, Container, ListGroup, Row, Col, Button } from "react-bootstrap";
+import { Image, Container, ListGroup, Row, Col } from "react-bootstrap";
 import axios from "axios";
 
 export default class TravelGuideDetails extends Component {
@@ -94,73 +94,50 @@ export default class TravelGuideDetails extends Component {
           style={{ height: "300px" }}
           alt="top pic"
         />
-        <div style={{ marginTop: "10px" }}>
-          <Container>
+        <Container className="travelGuide-journal-detail">
+          <div className="journal-details-title">
             <Row>
-              <Col xs={{ span: 7, offset: 0 }}>
+              <Col className="col-4 col-sm-3 col-md-2 col-lg-1">
                 <Image
                   src={this.state.pic[2]}
+                  className="journal-title-pic"
                   roundedCircle
-                  style={{ width: "100px", height: "100px" }}
                 />
-                <span style={{ color: "orange", marginLeft: "30px" }}>
-                  {this.state.authorname}
-                </span>
-                <span style={{ color: "grey", marginLeft: "30px" }}>
-                  {this.state.date}
-                </span>
-                <span style={{ color: "grey", marginLeft: "30px" }}>
-                  clickNum: {this.state.clickNum}
-                </span>
-                <Button
-                  variant="light"
-                  style={{
-                    marginLeft: "20px",
-                    width: "120px",
-                    marginTop: "0px",
-                  }}
-                  onClick={this.changeLike}
-                >
-                  {this.state.like === "Upvote" ? (
-                    <>
-                      <Image
-                        src={process.env.PUBLIC_URL + "/Icon/starempty.png"}
-                        style={{
-                          width: "25px",
-                          height: "25px",
-                          marginRight: "10px",
-                        }}
-                      />
-                      {this.state.like}
-                    </>
-                  ) : (
-                    <>
-                      <Image
-                        src={process.env.PUBLIC_URL + "/Icon/starfull.png"}
-                        style={{
-                          width: "25px",
-                          height: "25px",
-                          marginRight: "10px",
-                        }}
-                      />
-                      {this.state.like}
-                    </>
-                  )}
-                </Button>
               </Col>
-              {/* <Col xs={1}>
-                        
-                    </Col> */}
-              <Col xs={{ span: 3, offset: 2 }}>
+              <Col className="col-8 col-sm-4 col-md-6 col-lg-8">
+                <div className="journal-title-midBlock">
+                  <p className="journal-title-username">
+                    {this.state.authorname}
+                  </p>
+                  <p className="journal-title-date">{this.state.date}</p>
+                  <p>Likes: {this.state.clickNum}</p>
+                  <p onClick={this.changeLike} className="journal-title-upvote">
+                    {this.state.like === "Upvote" ? (
+                      <>
+                        <Image
+                          src={process.env.PUBLIC_URL + "/Icon/loveempty.png"}
+                          className="journal-star-pic"
+                        />
+                        {this.state.like}
+                      </>
+                    ) : (
+                      <>
+                        <Image
+                          src={process.env.PUBLIC_URL + "/Icon/lovefull.png"}
+                          className="journal-star-pic"
+                        />
+                        {this.state.like}
+                      </>
+                    )}
+                  </p>
+                </div>
+              </Col>
+              <Col className="col-12 col-sm-5 col-md-4 col-lg-3">
                 <ListGroup variant="flush" style={{ fontSize: "10px" }}>
                   <ListGroup.Item>
                     <img
                       src={process.env.PUBLIC_URL + "/Icon/date.png"}
-                      style={{
-                        width: "10px",
-                        height: "10px",
-                        marginRight: "10px",
-                      }}
+                      className="journal-rightblock-icon"
                       alt=""
                     />
                     Start Date/ {this.state.details.startdate}
@@ -168,50 +145,35 @@ export default class TravelGuideDetails extends Component {
                   <ListGroup.Item>
                     <img
                       src={process.env.PUBLIC_URL + "/Icon/totaldate.png"}
-                      style={{
-                        width: "10px",
-                        height: "10px",
-                        marginRight: "10px",
-                      }}
                       alt=""
+                      className="journal-rightblock-icon"
                     />
                     Total Date/ {this.state.details.totaldate}
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <img
                       src={process.env.PUBLIC_URL + "/Icon/with.png"}
-                      style={{
-                        width: "10px",
-                        height: "10px",
-                        marginRight: "10px",
-                      }}
                       alt=""
+                      className="journal-rightblock-icon"
                     />
                     With/ {this.state.details.with}
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <img
                       src={process.env.PUBLIC_URL + "/Icon/cost.png"}
-                      style={{
-                        width: "10px",
-                        height: "10px",
-                        marginRight: "10px",
-                      }}
                       alt=""
+                      className="journal-rightblock-icon"
                     />
                     Costs/ {this.state.details.cost}
                   </ListGroup.Item>
                 </ListGroup>
               </Col>
             </Row>
-          </Container>
-        </div>
+          </div>
+        </Container>
         <hr></hr>
-        <Container>
-          <h2 style={{ color: "orange", fontStyle: "italic" }}>
-            {this.state.title}
-          </h2>
-          <br />
+        <Container className="travelGuide-content-block">
+          <h2 className="journal-content-title">{this.state.title}</h2>
           <br />
           {this.state.detialdata.map((item, i) => {
             return (
