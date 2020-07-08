@@ -5,6 +5,7 @@ const City = require("../models/city");
 const Place = require("../models/place");
 const Review = require("../models/review");
 const User = require("../models/user");
+const Blog = require("../models/blog");
 
 //add country
 router.post("/newCountry", async (req, res) => {
@@ -102,7 +103,6 @@ router.post("/newPlace", async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-
     res.status(400).json(error);
   }
 });
@@ -140,6 +140,29 @@ router.post("/newReview", isLoggedIn, async (req, res) => {
     await newReview.save();
     res.sendStatus(202);
   } catch (error) {
+    res.status(400).json(error);
+  }
+});
+
+//add blog
+router.post("/newBlog", async (req, res) => {
+  const { name, author, type, pic, content } = req.body;
+  try {
+    var newBlog = new Blog({
+      name: name,
+      author: author,
+      type: type,
+      pic: pic,
+      content: content,
+      commentList: [],
+    });
+    const user = await User.findById(author._id);
+    user.blogList.push(newBlog);
+    await user.save();
+    await newBlog.save();
+    res.status(202).json(newBlog);
+  } catch (error) {
+    console.log(error);
     res.status(400).json(error);
   }
 });

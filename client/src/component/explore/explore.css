@@ -162,7 +162,7 @@
   margin-top: 56px;
 }
 .subpage-topblock-container {
-  height: 185px;
+  height: 180px;
   width: 100%;
   display: flex;
 }
@@ -172,15 +172,22 @@
   z-index: 1;
   background-color: #24d8d8;
 }
-.subpage-topblock-right {
+.subpage-topblock-pic {
   position: absolute;
   right: 0;
   overflow: hidden;
   width: 60%;
-  height: 185px;
+  height: 180px;
   border-radius: 100px 0 0 100px;
   z-index: 2;
+  object-fit: cover;
 }
-.subpage-topblock-pic {
-  width: 100%;
+@media screen and (max-width: 767px) {
+  .subpage-topblock-pic {
+    height: 130px;
+    width: 50%;
+  }
+  .subpage-topblock-container {
+    height: 130px;
+  }
 }

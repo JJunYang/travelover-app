@@ -217,6 +217,95 @@
   color: #5d5d5d;
 }
 
+.blog-card {
+  border: none;
+}
+.blog-card .blog-cardbody {
+  padding: 0;
+  padding-top: 1em;
+}
+.blog-card .blog-cardbody .blog-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+.blog-taglist {
+  margin-left: 0;
+  padding-left: 0;
+}
+.blog-taglist li {
+  list-style: none;
+  display: inline;
+  margin-right: 1em;
+}
+.blog-taglist li a.blog-tag {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px;
+  border-bottom: 1px solid #24d8d8;
+  cursor: pointer;
+}
+.blog-taglist li a.blog-tag:hover {
+  color: #24d8d8;
+  cursor: pointer;
+}
+
+.blog-author-info {
+  font-size: 15px;
+  line-height: 23px;
+  font-style: italic;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 500;
+  color: #8d8d8d;
+}
+.blog-author-name {
+  color: #5d5d5d;
+}
+.blog-author {
+  margin-right: 15px;
+  position: relative;
+}
+.blog-author-info span {
+  margin-right: 10px;
+}
+.blog-author-name::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background-color: #d8d8d8;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  display: block;
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  margin-top: -2px;
+}
+.blog-content {
+  margin-bottom: 25px;
+  line-height: 1.8;
+  color: #5d5d5d;
+}
+.blog-readmore-btn a {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #ddd;
+  color: #2d2d2d;
+}
+.blog-readmore-btn:hover a {
+  color: #24d8d8;
+  border-bottom: 1px solid #24d8d8;
+
+}
+
 @media only screen and (max-width: 575px) {
   .travelGuide-card .journal-content-img {
     display: none;

@@ -24,6 +24,7 @@ import CityFoodPage from "./component/city/cityFoodPage";
 import CitySeePage from "./component/city/citySeePage";
 import CityStayPage from "./component/city/cityStayPage";
 import ExploreCategoryPage from "./component/explore/exploreCategoryPage";
+import BlogMainPage from "./component/blog/blogMainPage";
 
 function App() {
   return (
@@ -100,6 +101,8 @@ function App() {
               exact
               component={TravelGuideDetails}
             />
+
+            <Route path="/blog" exact component={BlogMainPage} />
 
             <Route path="/personalcenter" exact component={PersonalCenter} />
           </Switch>

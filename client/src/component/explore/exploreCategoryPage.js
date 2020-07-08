@@ -22,27 +22,25 @@ export default class ExploreCategoryPage extends Component {
         <div className="subpage-topblock">
           <div className="subpage-topblock-container">
             <div className="subpage-topblock-left"></div>
-            <div className="subpage-topblock-right">
-              {this.props.match.params.category === "see & do" ? (
-                <img
-                  className="subpage-topblock-pic"
-                  alt="top pic"
-                  src={`https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
-                ></img>
-              ) : this.props.match.params.category === "food & drink" ? (
-                <img
-                  className="subpage-topblock-pic"
-                  alt="top pic"
-                  src={`https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
-                ></img>
-              ) : (
-                <img
-                  className="subpage-topblock-pic"
-                  alt="top pic"
-                  src={`https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
-                ></img>
-              )}
-            </div>
+            {this.props.match.params.category === "see & do" ? (
+              <img
+                className="subpage-topblock-pic"
+                alt="top pic"
+                src={`https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
+              ></img>
+            ) : this.props.match.params.category === "food & drink" ? (
+              <img
+                className="subpage-topblock-pic"
+                alt="top pic"
+                src={`https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
+              ></img>
+            ) : (
+              <img
+                className="subpage-topblock-pic"
+                alt="top pic"
+                src={`https://images.unsplash.com/photo-1582239105560-588fb10baf27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
+              ></img>
+            )}
           </div>
         </div>
         <hr></hr>
