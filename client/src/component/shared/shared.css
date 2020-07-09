@@ -220,6 +220,10 @@
 .blog-card {
   border: none;
 }
+.blog-card .blog-card-img {
+  height: 230px;
+  object-fit: cover;
+}
 .blog-card .blog-cardbody {
   padding: 0;
   padding-top: 1em;
@@ -228,16 +232,16 @@
   font-size: 18px;
   font-weight: 600;
 }
-.blog-taglist {
+.blog-card .blog-taglist {
   margin-left: 0;
   padding-left: 0;
 }
-.blog-taglist li {
+.blog-card .blog-taglist li {
   list-style: none;
   display: inline;
   margin-right: 1em;
 }
-.blog-taglist li a.blog-tag {
+.blog-card .blog-taglist li a.blog-tag {
   color: black;
   text-decoration: none;
   font-weight: 500;
@@ -245,12 +249,12 @@
   border-bottom: 1px solid #24d8d8;
   cursor: pointer;
 }
-.blog-taglist li a.blog-tag:hover {
+.blog-card .blog-taglist li a.blog-tag:hover {
   color: #24d8d8;
   cursor: pointer;
 }
 
-.blog-author-info {
+.blog-card .blog-author-info {
   font-size: 15px;
   line-height: 23px;
   font-style: italic;
@@ -260,17 +264,17 @@
   font-weight: 500;
   color: #8d8d8d;
 }
-.blog-author-name {
+.blog-card .blog-author-name {
   color: #5d5d5d;
 }
-.blog-author {
+.blog-card .blog-author {
   margin-right: 15px;
   position: relative;
 }
-.blog-author-info span {
+.blog-card .blog-author-info span {
   margin-right: 10px;
 }
-.blog-author-name::after {
+.blog-card .blog-author-name::after {
   content: "";
   width: 4px;
   height: 4px;
@@ -284,12 +288,12 @@
   top: 50%;
   margin-top: -2px;
 }
-.blog-content {
+.blog-card .blog-content {
   margin-bottom: 25px;
   line-height: 1.8;
   color: #5d5d5d;
 }
-.blog-readmore-btn a {
+.blog-card .blog-readmore-btn a {
   text-decoration: none;
   position: relative;
   display: inline-block;
@@ -300,10 +304,9 @@
   border-bottom: 1px solid #ddd;
   color: #2d2d2d;
 }
-.blog-readmore-btn:hover a {
+.blog-card .blog-readmore-btn:hover a {
   color: #24d8d8;
   border-bottom: 1px solid #24d8d8;
-
 }
 
 @media only screen and (max-width: 575px) {

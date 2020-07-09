@@ -91,8 +91,8 @@ export default class Hotel extends Component {
                 </Row>
                 <Row style={{ paddingTop: "3%" }}>
                   <Col style={{ textAlign: "center" }}>
-                    {localStorage.getItem("userName") === "" ||
-                    localStorage.getItem("userName") === null ? (
+                    {sessionStorage.getItem("userName") === "" ||
+                    sessionStorage.getItem("userName") === null ? (
                       ""
                     ) : (
                       <Link to={`/tickets/hotel/paypal/${result._id}`}>

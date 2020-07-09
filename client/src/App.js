@@ -25,6 +25,7 @@ import CitySeePage from "./component/city/citySeePage";
 import CityStayPage from "./component/city/cityStayPage";
 import ExploreCategoryPage from "./component/explore/exploreCategoryPage";
 import BlogMainPage from "./component/blog/blogMainPage";
+import BlogDetails from "./component/blog/blogDetails";
 
 function App() {
   return (
@@ -103,6 +104,7 @@ function App() {
             />
 
             <Route path="/blog" exact component={BlogMainPage} />
+            <Route path="/blog/details" exact component={BlogDetails} />
 
             <Route path="/personalcenter" exact component={PersonalCenter} />
           </Switch>

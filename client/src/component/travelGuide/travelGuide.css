@@ -23,6 +23,10 @@
 .travelGuide-journal-detail {
   margin-top: 10px;
 }
+.travel-details-toppic{
+  object-fit: cover;
+  height: 450px;
+}
 .travelGuide-journal-detail .journal-title-pic {
   width: 110px;
   height: 110px;

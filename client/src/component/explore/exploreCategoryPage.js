@@ -26,7 +26,7 @@ export default class ExploreCategoryPage extends Component {
               <img
                 className="subpage-topblock-pic"
                 alt="top pic"
-                src={`https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
+                src={`https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
               ></img>
             ) : this.props.match.params.category === "food & drink" ? (
               <img

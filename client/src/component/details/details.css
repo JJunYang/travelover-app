@@ -144,7 +144,9 @@
   display: inline-block;
   padding-right: 30px;
 }
-
+.review-block a{
+  color: #24d8d8;
+}
 .review-title-num {
   color: #aaa;
   font-weight: 500;

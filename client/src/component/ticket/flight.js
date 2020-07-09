@@ -110,7 +110,7 @@ export default class Flight extends Component {
                     <td>{moment(result.date).format("YYYY-MM-DD HH:mm:ss")}</td>
                     <td>$ {result.price}</td>
                     <td>
-                      {localStorage.getItem("userName") ? (
+                      {sessionStorage.getItem("userName") ? (
                         <Link to={`/tickets/flight/paypal/${result._id}`}>
                           <button
                             type="button"

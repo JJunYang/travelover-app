@@ -89,9 +89,8 @@ export default class TravelGuideDetails extends Component {
     return (
       <Fragment>
         <img
-          className="d-block w-100"
+          className="d-block w-100 travel-details-toppic"
           src={this.state.pic[1]}
-          style={{ height: "300px" }}
           alt="top pic"
         />
         <Container className="travelGuide-journal-detail">
@@ -148,7 +147,7 @@ export default class TravelGuideDetails extends Component {
                       alt=""
                       className="journal-rightblock-icon"
                     />
-                    Total Date/ {this.state.details.totaldate}
+                    Total Days/ {this.state.details.totaldate}
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <img

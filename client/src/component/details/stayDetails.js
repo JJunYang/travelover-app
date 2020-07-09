@@ -181,7 +181,7 @@ export default class StayDetails extends Component {
               </p>
             </div>
             <hr></hr>
-            <div>
+            <div className="review-block">
               <div className="review-title">
                 <h3>Review</h3>
                 <span className="review-star">
@@ -194,7 +194,7 @@ export default class StayDetails extends Component {
               {this.state.place.reviewList.map((item, i) => {
                 return <ReviewDetails review={item} key={i} />;
               })}
-              {localStorage.getItem("userName") ? (
+              {sessionStorage.getItem("userName") ? (
                 <div className="review-create-block">
                   <Form onSubmit={this.handleSubmitRateForm}>
                     <div className="review-notes">Create your review:</div>

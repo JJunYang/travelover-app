@@ -101,8 +101,8 @@ export default class FoodDetails extends Component {
             </div>
             <h2>{this.state.place.name}</h2>
             <div>
-              <span className="item-star">{this.state.place.reviewStar}</span> (
-              {this.state.place.reviewNum} reviews)
+              <span className="item-star">{this.state.place.reviewStar}</span>
+              <span> ({this.state.place.reviewNum} reviews)</span>
               <span className="item-cost">{this.state.place.cost}</span>
               <span className="item-place-type">{this.state.place.type}</span>
             </div>
@@ -184,7 +184,7 @@ export default class FoodDetails extends Component {
               </p>
             </div>
             <hr></hr>
-            <div>
+            <div className="review-block">
               <div className="review-title">
                 <h3>Review</h3>
                 <span className="review-star">
@@ -197,7 +197,7 @@ export default class FoodDetails extends Component {
               {this.state.place.reviewList.map((item, i) => {
                 return <ReviewDetails review={item} key={i} />;
               })}
-              {localStorage.getItem("userName") ? (
+              {sessionStorage.getItem("userName") ? (
                 <div className="review-create-block">
                   <Form onSubmit={this.handleSubmitRateForm}>
                     <div className="review-notes">Create your review:</div>

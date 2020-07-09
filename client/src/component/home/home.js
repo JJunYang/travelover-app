@@ -4,7 +4,6 @@ import CityBlock from "./cityBlock";
 import BlogBlock from "./blogBlock";
 import "./homePage.css";
 
-
 // import axios from "axios";
 
 export default class Home extends Component {

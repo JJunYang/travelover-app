@@ -23,20 +23,32 @@ export default class BlogMainPage extends Component {
           <Container className="blog-content-block">
             <div className="blog-nav-block">
               <ul className="list-category">
-                <li>All(15)</li>
-                <li>TIPS & TRICKS (6)</li>
-                <li>Beaches (4)</li>
-                <li>take a break (3)</li>
-                <li>road trip (6)</li>
-                <li>unique stay (6)</li>
+                <li>
+                  <a href="/">All(15)</a>
+                </li>
+                <li>
+                  <a href="/">TIPS & TRICKS (6)</a>
+                </li>
+                <li>
+                  <a href="/">Beaches (4)</a>
+                </li>
+                <li>
+                  <a href="/">take a break (3)</a>
+                </li>
+                <li>
+                  <a href="/">road trip (6)</a>
+                </li>
+                <li>
+                  <a href="/">unique stay (6)</a>
+                </li>
               </ul>
             </div>
             {/* <div className="blog-main-block"> */}
-              <Row>
-                <Col className="blog-col col-md-4 col-6">
-                  <BlogCard />
-                </Col>
-              </Row>
+            <Row>
+              <Col className="blog-col col-md-4 col-6">
+                <BlogCard />
+              </Col>
+            </Row>
             {/* </div> */}
           </Container>
         </div>

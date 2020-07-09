@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export default class NavComponent extends Component {
   logout = async (e) => {
     e.preventDefault();
-    localStorage.clear();
+    sessionStorage.clear();
     await axios({
       url: "/logout",
       method: "GET",
@@ -42,8 +42,8 @@ export default class NavComponent extends Component {
               <Link to="/blog" className="nav-link">
                 Blog
               </Link>
-              {localStorage.getItem("userName") === null ||
-              localStorage.getItem("userName") === "" ? (
+              {sessionStorage.getItem("userName") === null ||
+              sessionStorage.getItem("userName") === "" ? (
                 ""
               ) : (
                 <Link to="/personalcenter" className="nav-link">
@@ -53,17 +53,17 @@ export default class NavComponent extends Component {
             </Nav>
             <Navbar.Collapse className="justify-content-end">
               <Navbar.Text>
-                {localStorage.getItem("userName") === "" ||
-                localStorage.getItem("userName") === null ? (
+                {sessionStorage.getItem("userName") === "" ||
+                sessionStorage.getItem("userName") === null ? (
                   <>
                     Hello,<a href="/login"> Please Login</a> |
                   </>
                 ) : (
-                  <>Signed in as : {localStorage.getItem("userName")} |</>
+                  <>Signed in as : {sessionStorage.getItem("userName")} |</>
                 )}
               </Navbar.Text>
-              {localStorage.getItem("userName") === "" ||
-              localStorage.getItem("userName") === null ? (
+              {sessionStorage.getItem("userName") === "" ||
+              sessionStorage.getItem("userName") === null ? (
                 ""
               ) : (
                 // <Link to="/login">
