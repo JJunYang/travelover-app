@@ -24,5 +24,28 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        var start_height = $(document).scrollTop();
+        var navigation_height = $(".app-nav").outerHeight();
+        $(window).scroll(function () {
+          var end_height = $(document).scrollTop();
+          if (end_height > navigation_height) {
+            $(".app-nav").addClass("nav-hide");
+          } else {
+            $(".app-nav").removeClass("nav-hide");
+          }
+          if (end_height < start_height) {
+            $(".app-nav").removeClass("nav-hide");
+          }
+          start_height=$(document).scrollTop();
+        });
+      });
+    </script>
   </body>
 </html>

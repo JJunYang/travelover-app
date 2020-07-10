@@ -154,7 +154,6 @@ router.post("/newBlog", async (req, res) => {
       type: type,
       pic: pic,
       content: content,
-      commentList: [],
     });
     const user = await User.findById(author._id);
     user.blogList.push(newBlog);

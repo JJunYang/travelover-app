@@ -55,6 +55,7 @@ app.use("/add", require("./routes/add"));
 app.use("/explore", require("./routes/explore"));
 app.use("/travelGuides", require("./routes/travelGuides"));
 app.use("/personalCenter", require("./routes/personalCenter"));
+app.use("/blog", require("./routes/blog"));
 
 //Serve listen
 var PORT = process.env.PORT | 4000;

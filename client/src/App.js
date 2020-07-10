@@ -103,8 +103,9 @@ function App() {
               component={TravelGuideDetails}
             />
 
-            <Route path="/blog" exact component={BlogMainPage} />
-            <Route path="/blog/details" exact component={BlogDetails} />
+            {/* <Route path="/blog" exact component={BlogMainPage} /> */}
+            <Route path="/blog/:category" exact component={BlogMainPage} />
+            <Route path="/blog/details/:_id" exact component={BlogDetails} />
 
             <Route path="/personalcenter" exact component={PersonalCenter} />
           </Switch>

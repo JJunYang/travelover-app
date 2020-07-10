@@ -1,23 +1,23 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-const BlogCardReduced = () => (
+const BlogCardReduced = ({ item }) => (
   <Card className="blog-card">
-    <Card.Img
-      className="blog-card-img"
-      src={`https://images.unsplash.com/photo-1468818438311-4bab781ab9b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
-    ></Card.Img>
+    <Card.Img className="blog-card-img" src={item.pic}></Card.Img>
     <Card.Body className="blog-cardbody">
       <ul className="blog-taglist">
-        <li>
-          <a className="blog-tag" href="/">
-            TIPS & TRICKS
-          </a>
-        </li>
+        {item.type.map((type, i) => {
+          return (
+            <li key={i}>
+              <Link to={`/blog/${type}`} className="blog-tag">
+                {type}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
-      <Card.Text className="blog-title">
-        Start Your Trip in Nature
-      </Card.Text>
+      <Card.Text className="blog-title">{item.name}</Card.Text>
     </Card.Body>
   </Card>
 );

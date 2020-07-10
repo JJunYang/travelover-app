@@ -24,11 +24,6 @@ const UserSchema = new mongoose.Schema({
       _id: { type: mongoose.Schema.Types.ObjectId, ref: "Blog" },
     },
   ],
-  commentList: [
-    {
-      _id: { type: mongoose.Schema.Types.ObjectId, ref: "Comment" },
-    },
-  ],
   flightList: {
     type: Array,
     default: [],

@@ -1,34 +1,36 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import moment from "moment";
+import { Link } from "react-router-dom";
 
-const BlogCard = () => (
+const BlogCard = ({ item }) => (
   <Card className="blog-card">
-    <Card.Img
-      className="blog-card-img"
-      src={`https://images.unsplash.com/photo-1527838832700-5059252407fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
-    ></Card.Img>
+    <Card.Img className="blog-card-img" src={item.pic}></Card.Img>
     <Card.Body className="blog-cardbody">
       <ul className="blog-taglist">
-        <li>
-          <a className="blog-tag" href="/">
-            TIPS & TRICKS
-          </a>
-        </li>
+        {item.type.map((type, i) => {
+          return (
+            <li key={i}>
+              <Link to={`/blog/${type}`} className="blog-tag">
+                {type}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
-      <Card.Text className="blog-title">Start Your Trip in Nature</Card.Text>
+      <Card.Text className="blog-title">{item.name}</Card.Text>
       <div className="blog-author-info">
         <div className="blog-author">
           <span>by</span>
-          <span className="blog-author-name">Jun</span>
+          <span className="blog-author-name">{item.author.username}</span>
         </div>
-        <span>2020/3/2</span>
+        <span>{moment(item.date).format("ll")}</span>
       </div>
       <Card.Text className="blog-content">
-        There are many variations of passages of Lorem Ipsum available, but the
-        majority have suffered alteration in some form, by…
+        {item.content[0].content.slice(0, 100)}...
       </Card.Text>
       <div className="blog-readmore-btn">
-        <a href="/blog/details">Read more</a>
+        <Link to={`/blog/details/${item._id}`}>Read more</Link>
       </div>
     </Card.Body>
   </Card>

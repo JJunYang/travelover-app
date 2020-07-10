@@ -2,8 +2,28 @@ import React, { Component } from "react";
 import "./blog.css";
 import { Container, Row, Col } from "react-bootstrap";
 import BlogCard from "../shared/blogCard";
+import axios from "axios";
 
 export default class BlogMainPage extends Component {
+  state = {
+    categoryList: [],
+    blogList: [],
+  };
+  async componentDidMount() {
+    await axios.get("/blog/getCategoryNum").then((res) => {
+      this.setState({ categoryList: res.data });
+    });
+    await axios
+      .get("/blog/getBlogs", {
+        params: {
+          category: this.props.match.params.category,
+        },
+      })
+      .then((res) => {
+        // console.log(res.data);
+        this.setState({ blogList: res.data });
+      });
+  }
   render() {
     return (
       <>
@@ -23,31 +43,26 @@ export default class BlogMainPage extends Component {
           <Container className="blog-content-block">
             <div className="blog-nav-block">
               <ul className="list-category">
-                <li>
-                  <a href="/">All(15)</a>
-                </li>
-                <li>
-                  <a href="/">TIPS & TRICKS (6)</a>
-                </li>
-                <li>
-                  <a href="/">Beaches (4)</a>
-                </li>
-                <li>
-                  <a href="/">take a break (3)</a>
-                </li>
-                <li>
-                  <a href="/">road trip (6)</a>
-                </li>
-                <li>
-                  <a href="/">unique stay (6)</a>
-                </li>
+                {this.state.categoryList.map((item, i) => {
+                  return (
+                    <li key={i}>
+                      <a href={`/blog/${item.category}`}>
+                        {item.category}({item.num})
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
             {/* <div className="blog-main-block"> */}
             <Row>
-              <Col className="blog-col col-md-4 col-6">
-                <BlogCard />
-              </Col>
+              {this.state.blogList.map((item, i) => {
+                return (
+                  <Col className="blog-col col-md-4 col-6" key={i}>
+                    <BlogCard item={item}/>
+                  </Col>
+                );
+              })}
             </Row>
             {/* </div> */}
           </Container>
