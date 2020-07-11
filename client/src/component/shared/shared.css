@@ -157,12 +157,6 @@
 .travelGuide-card:hover .card-title {
   color: #24d8d8;
 }
-.travelGuide-card:hover .journal-item-description::after {
-  background: -webkit-linear-gradient(left, transparent, #f8f8f8 55%);
-  background: -o-linear-gradient(right, transparent, #f8f8f8 55%);
-  background: -moz-linear-gradient(right, transparent, #f8f8f8 55%);
-  background: linear-gradient(to right, transparent, #f8f8f8 55%);
-}
 .travelGuide-card .journal-content-img {
   width: 100%;
   height: 120px;
@@ -176,20 +170,7 @@
   color: #5d5d5d;
   position: relative;
   word-wrap: break-word;
-  line-height: 20px;
-  max-height: 60px;
   overflow: hidden;
-}
-.travelGuide-card .journal-item-description::after {
-  content: "...";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding-left: 30px;
-  background: -webkit-linear-gradient(left, transparent, #fff 55%);
-  background: -o-linear-gradient(right, transparent, #fff 55%);
-  background: -moz-linear-gradient(right, transparent, #fff 55%);
-  background: linear-gradient(to right, transparent, #fff 55%);
 }
 .travelGuide-card .journal-author-block .journal-item-details {
   font-size: 10px;
@@ -197,10 +178,13 @@
 }
 .travelGuide-card .journal-author-block {
   margin-top: 20px;
+  margin-right: 30px;
+  float: right;
 }
 .travelGuide-card .journal-author-block .journal-author-pic {
   width: 11px;
   height: 11px;
+  object-fit: fill;
   margin-right: 10px;
 }
 .travelGuide-card .journal-author-block .journal-item-username {
@@ -223,6 +207,7 @@
 .blog-card .blog-card-img {
   height: 230px;
   object-fit: cover;
+  border-radius: 10px;
 }
 .blog-card .blog-cardbody {
   padding: 0;
@@ -232,6 +217,14 @@
   font-size: 18px;
   font-weight: 600;
 }
+.blog-card .blog-cardbody .blog-title a {
+  color: #2d2d2d;
+  text-decoration: none;
+}
+.blog-card .blog-cardbody .blog-title a:hover {
+  color: #24d8d8;
+}
+
 .blog-card .blog-taglist {
   margin-left: 0;
   padding-left: 0;
@@ -242,6 +235,7 @@
   margin-right: 1em;
 }
 .blog-card .blog-taglist li a.blog-tag {
+  text-transform: uppercase;
   color: black;
   text-decoration: none;
   font-weight: 500;

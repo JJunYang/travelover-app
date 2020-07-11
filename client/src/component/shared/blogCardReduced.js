@@ -17,7 +17,9 @@ const BlogCardReduced = ({ item }) => (
           );
         })}
       </ul>
-      <Card.Text className="blog-title">{item.name}</Card.Text>
+      <Card.Text className="blog-title">
+        <Link to={`/blog/details/${item._id}`}>{item.name}</Link>
+      </Card.Text>
     </Card.Body>
   </Card>
 );

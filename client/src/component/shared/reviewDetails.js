@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import moment from "moment";
 
-
 export default class ReviewDetails extends Component {
   state = {
     review: {},

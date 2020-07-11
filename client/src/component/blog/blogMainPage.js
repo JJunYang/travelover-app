@@ -39,34 +39,34 @@ export default class BlogMainPage extends Component {
               src={`https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
             ></img>
           </div>
+        </div>
 
-          <Container className="blog-content-block">
-            <div className="blog-nav-block">
-              <ul className="list-category">
-                {this.state.categoryList.map((item, i) => {
-                  return (
-                    <li key={i}>
-                      <a href={`/blog/${item.category}`}>
-                        {item.category}({item.num})
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-            {/* <div className="blog-main-block"> */}
-            <Row>
-              {this.state.blogList.map((item, i) => {
+        <Container className="blog-content-block">
+          <div className="blog-nav-block">
+            <ul className="list-category">
+              {this.state.categoryList.map((item, i) => {
                 return (
-                  <Col className="blog-col col-md-4 col-6" key={i}>
-                    <BlogCard item={item}/>
-                  </Col>
+                  <li key={i}>
+                    <a href={`/blog/${item.category}`}>
+                      {item.category}({item.num})
+                    </a>
+                  </li>
                 );
               })}
-            </Row>
-            {/* </div> */}
-          </Container>
-        </div>
+            </ul>
+          </div>
+          {/* <div className="blog-main-block"> */}
+          <Row>
+            {this.state.blogList.map((item, i) => {
+              return (
+                <Col className="blog-col col-md-4 col-6" key={i}>
+                  <BlogCard item={item} />
+                </Col>
+              );
+            })}
+          </Row>
+          {/* </div> */}
+        </Container>
       </>
     );
   }

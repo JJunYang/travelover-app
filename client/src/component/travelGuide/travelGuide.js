@@ -19,9 +19,6 @@ export default class TravelGuide extends Component {
       })
       .then((data) => {
         this.setState({ travelGuideList: data });
-      })
-      .then(() => {
-        console.log(this.state.travelGuideList);
       });
   }
 

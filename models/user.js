@@ -22,6 +22,13 @@ const UserSchema = new mongoose.Schema({
   blogList: [
     {
       _id: { type: mongoose.Schema.Types.ObjectId, ref: "Blog" },
+      name: String,
+    },
+  ],
+  travelGuideList: [
+    {
+      _id: { type: mongoose.Schema.Types.ObjectId, ref: "Blog" },
+      title: String,
     },
   ],
   flightList: {

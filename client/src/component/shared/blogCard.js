@@ -18,7 +18,9 @@ const BlogCard = ({ item }) => (
           );
         })}
       </ul>
-      <Card.Text className="blog-title">{item.name}</Card.Text>
+      <Card.Text className="blog-title">
+        <Link to={`/blog/details/${item._id}`}>{item.name}</Link>
+      </Card.Text>
       <div className="blog-author-info">
         <div className="blog-author">
           <span>by</span>

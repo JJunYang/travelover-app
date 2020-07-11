@@ -2,26 +2,6 @@ const express = require("express");
 const router = express.Router();
 const TravelGuide = require("../models/travelGuide");
 
-//Create new travelguide
-router.post("/create", async (req, res) => {
-  try {
-    const travelGuide = new TravelGuide({
-      title: req.body.title,
-      description: req.body.description,
-      pic: req.body.pic,
-      type: req.body.type,
-      author: req.body.author,
-      clickNum: req.body.clickNum,
-      details: req.body.details,
-      detailpics: req.body.detailpics,
-    });
-    const savedTravelGuide = await travelGuide.save();
-    res.status(200).json({ code: 200, travelGuide: savedTravelGuide });
-  } catch (error) {
-    res.status(400).json({ des: error });
-  }
-});
-
 //Get details by ID
 router.get("/details/:_id", async (req, res) => {
   try {
@@ -63,14 +43,14 @@ router.get("/getNational", async (req, res) => {
   }
 });
 
-//Add clickNum
-router.put("/addClickNum", async (req, res) => {
+//Add likeNum
+router.put("/addlikeNum", async (req, res) => {
   try {
-    const { title, clickNum } = req.body;
-    const changedNum = parseInt(clickNum) + 1;
+    const { title, likeNum } = req.body;
+    const changedNum = parseInt(likeNum) + 1;
     const travelGuide = await TravelGuide.updateOne(
       { title: title },
-      { $set: { clickNum: changedNum } }
+      { $set: { likeNum: changedNum } }
     );
     res.status(204).json(travelGuide);
   } catch (error) {
@@ -78,14 +58,14 @@ router.put("/addClickNum", async (req, res) => {
   }
 });
 
-//Cut clickNum
-router.put("/cutClickNum", async (req, res) => {
+//Cut likeNum
+router.put("/cutlikeNum", async (req, res) => {
   try {
-    const { title, clickNum } = req.body;
-    const changedNum = parseInt(clickNum) - 1;
+    const { title, likeNum } = req.body;
+    const changedNum = parseInt(likeNum) - 1;
     const travelGuide = await TravelGuide.updateOne(
       { title: title },
-      { $set: { clickNum: changedNum } }
+      { $set: { likeNum: changedNum } }
     );
     res.status(204).json(travelGuide);
   } catch (error) {

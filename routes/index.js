@@ -47,16 +47,20 @@ router.post("/login", function (req, res, next) {
   })(req, res, next);
 });
 
-router.get("/api", isLoggedIn, (req, res) => {
-  res.json({
-    message: "hello",
-    user: req.user,
-  });
-});
-
 router.get("/logout", (req, res) => {
   req.logout();
   res.json({ message: "success logout" });
+});
+
+//get userById
+router.get("/user/:_id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params._id);
+    res.json(user);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
+  }
 });
 
 function isLoggedIn(req, res, next) {

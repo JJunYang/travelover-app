@@ -76,8 +76,8 @@
 }
 .blog-details-main {
   margin-top: 20px;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 7%;
+  margin-right: 7%;
 }
 .blog-category-list {
   margin-bottom: 15px;
@@ -152,6 +152,7 @@
   color: #5d5d5d;
   line-height: 1.6;
   font-weight: 500;
+  margin-top: 20px;
 }
 .blog-paragragh .blog-paragraph-pic {
   max-width: 100%;
@@ -163,7 +164,8 @@
 }
 
 .blog-details-rightside {
-  padding-left: 10px;
+  padding-left: 20px;
+  max-width: 400px;
 }
 .blog-category-alllist .blog-category-ul {
   text-transform: capitalize;

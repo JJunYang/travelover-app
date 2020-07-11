@@ -5,58 +5,57 @@ import axios from "axios";
 export default class TravelGuideDetails extends Component {
   state = {
     title: "",
-    description: "",
     pic: "",
     type: "",
-    authorname: "",
-    clickNum: 0,
+    author: {},
+    likeNum: 0,
     details: {},
-    detailpics: [],
     date: "",
-    detialdata: [],
+    schedule: [],
+    content: [],
+    authorPic: "",
     like: "Upvote",
   };
-  componentDidMount() {
-    axios
+  async componentDidMount() {
+    await axios
       .get(`/travelGuides/details/${this.props.match.params._id}`)
       .then((response) => {
         this.setState({
           title: response.data.title,
-          clickNum: response.data.clickNum,
-          date: response.data.date.slice(0, 10),
-          description: response.data.description,
-          detailpics: response.data.detailpics,
-          details: response.data.details,
           pic: response.data.pic,
           type: response.data.type,
-          authorname: response.data.author.username,
-          detialdata: response.data.details.detail,
+          author: response.data.author,
+          likeNum: response.data.likeNum,
+          details: response.data.details,
+          date: response.data.date.slice(0, 10),
+          schedule: response.data.schedule,
+          content: response.data.content,
         });
-      })
-      .then(() => {
-        console.log(this.state.travelGuide);
       })
       .catch((err) => {
         console.log(err);
       });
+    await axios.get(`/user/${this.state.author._id}`).then((res) => {
+      this.setState({ authorPic: res.data.pic });
+    });
   }
 
   changeLike = () => {
     if (this.state.like === "Upvote") {
       this.setState({ like: "Cancel" });
-      const changedNum = parseInt(this.state.clickNum) + 1;
+      const changedNum = parseInt(this.state.likeNum) + 1;
       const data = {
         title: this.state.title,
-        clickNum: this.state.clickNum,
+        likeNum: this.state.likeNum,
       };
       axios({
-        url: "/travelGuides/addClickNum",
+        url: "/travelGuides/addlikeNum",
         method: "put",
         data: data,
       })
         .then((res) => {
           this.setState({
-            clickNum: changedNum,
+            likeNum: changedNum,
           });
         })
         .catch((err) => {
@@ -64,19 +63,19 @@ export default class TravelGuideDetails extends Component {
         });
     } else {
       this.setState({ like: "Upvote" });
-      const changedNum = parseInt(this.state.clickNum) - 1;
+      const changedNum = parseInt(this.state.likeNum) - 1;
       const data = {
         title: this.state.title,
-        clickNum: this.state.clickNum,
+        likeNum: this.state.likeNum,
       };
       axios({
-        url: "/travelGuides/cutClickNum",
+        url: "/travelGuides/cutlikeNum",
         method: "put",
         data: data,
       })
-        .then((res) => {
+        .then(() => {
           this.setState({
-            clickNum: changedNum,
+            likeNum: changedNum,
           });
         })
         .catch((err) => {
@@ -90,7 +89,7 @@ export default class TravelGuideDetails extends Component {
       <Fragment>
         <img
           className="d-block w-100 travel-details-toppic"
-          src={this.state.pic[1]}
+          src={this.state.pic}
           alt="top pic"
         />
         <Container className="travelGuide-journal-detail">
@@ -98,7 +97,7 @@ export default class TravelGuideDetails extends Component {
             <Row>
               <Col className="col-4 col-sm-3 col-md-2 col-lg-1">
                 <Image
-                  src={this.state.pic[2]}
+                  src={this.state.authorPic}
                   className="journal-title-pic"
                   roundedCircle
                 />
@@ -106,10 +105,10 @@ export default class TravelGuideDetails extends Component {
               <Col className="col-8 col-sm-4 col-md-6 col-lg-8">
                 <div className="journal-title-midBlock">
                   <p className="journal-title-username">
-                    {this.state.authorname}
+                    {this.state.author.username}
                   </p>
                   <p className="journal-title-date">{this.state.date}</p>
-                  <p>Likes: {this.state.clickNum}</p>
+                  <p>Likes: {this.state.likeNum}</p>
                   <p onClick={this.changeLike} className="journal-title-upvote">
                     {this.state.like === "Upvote" ? (
                       <>
@@ -172,26 +171,58 @@ export default class TravelGuideDetails extends Component {
         </Container>
         <hr></hr>
         <Container className="travelGuide-content-block">
-          <h2 className="journal-content-title">{this.state.title}</h2>
-          <br />
-          {this.state.detialdata.map((item, i) => {
-            return (
-              <div key={i}>
-                <h3>{item.Day}</h3>
-                <p>{item.Des}</p>
-              </div>
-            );
-          })}
-          <br></br>
-          {this.state.detailpics.map((item, i) => {
-            return (
-              <div key={i}>
-                <p>{item.alt}</p>
-                <img className="d-block w-100" src={item.src} alt=""></img>
-                <br></br>
-              </div>
-            );
-          })}
+          <div className="journal-content-leftside col-12 col-lg-9">
+            <h2 className="journal-content-title">{this.state.title}</h2>
+            {this.state.content.map((item, i) => {
+              return (
+                <div key={i} id={`paragraph${item.title}`}>
+                  {item.title === "" ? (
+                    ""
+                  ) : (
+                    <div className="journal-content-subtitle">{item.title}</div>
+                  )}
+                  <p className="journal-content-paragragh">{item.content}</p>
+                  {item.pic === "" ? (
+                    ""
+                  ) : (
+                    <img className="d-block w-100" src={item.pic} alt=""></img>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <div className="journal-content-rightside col-3">
+            <h4 className="journal-timeline-title">Schedule Recommendation</h4>
+            {this.state.schedule.map((item, i) => {
+              return (
+                <div key={i}>
+                  <h5>- Day {i + 1} -</h5>
+                  <p className="journal-timeline-description">{item}</p>
+                </div>
+              );
+            })}
+            <div className="journal-content">
+              <hr></hr>
+              <h4 className="journal-content-title">Content</h4>
+              <ul className="journal-content-ul">
+                {this.state.content.map((content, i) => {
+                  return (
+                    <div key={i}>
+                      {content.title === "" ? (
+                        ""
+                      ) : (
+                        <li>
+                          <a href={`#paragraph${content.title}`}>
+                            {content.title}
+                          </a>
+                        </li>
+                      )}
+                    </div>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
         </Container>
       </Fragment>
     );

@@ -23,7 +23,7 @@
 .travelGuide-journal-detail {
   margin-top: 10px;
 }
-.travel-details-toppic{
+.travel-details-toppic {
   object-fit: cover;
   height: 450px;
 }
@@ -63,15 +63,83 @@
   height: 10px;
   margin-right: 10px;
 }
-
+.travelGuide-content-block {
+  display: flex;
+}
 .travelGuide-content-block .journal-content-title {
   color: #24d8d8;
   font-style: italic;
+}
+.travelGuide-content-block .journal-content-leftside .journal-content-subtitle {
+  color: black;
+  font-weight: 500;
+  font-size: 24px;
+  text-transform: capitalize;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.travelGuide-content-block
+  .journal-content-leftside
+  .journal-content-paragragh {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.travelGuide-content-block .journal-content-rightside {
+  padding-left: 30px;
+}
+.travelGuide-content-block .journal-content-rightside .journal-timeline-title {
+  margin-top: 20px;
+  color: #3d3d3d;
+  font-style: italic;
+}
+.travelGuide-content-block .journal-content-rightside h5 {
+  color: #5d5d5d;
+}
+.travelGuide-content-block
+  .journal-content-rightside
+  .journal-timeline-description {
+  color: #999;
+  font-size: 15px;
+}
+.travelGuide-content-block .journal-content-rightside .journal-content {
+  text-align: start;
+  position: sticky;
+  top: 40px;
+}
+.travelGuide-content-block
+  .journal-content-rightside
+  .journal-content
+  .journal-content-title {
+  color: #3d3d3d;
+}
+.travelGuide-content-block .journal-content-rightside .journal-content ul {
+  max-height: 300px;
+  overflow: scroll;
+  color: #999;
+  font-weight: 500;
+  margin-left: 0;
+}
+.travelGuide-content-block .journal-content-rightside .journal-content ul li {
+  margin-top: 10px;
+}
+
+.travelGuide-content-block .journal-content-rightside .journal-content ul a {
+  color: #4d4d4d;
+}
+.travelGuide-content-block
+  .journal-content-rightside
+  .journal-content
+  ul
+  a:hover {
+  color: #24d8d8;
 }
 
 @media screen and (max-width: 991px) {
   .travelGuide-journal-detail .journal-title-midBlock > p {
     margin-left: 10px;
+  }
+  .travelGuide-content-block .journal-content-rightside {
+    display: none;
   }
 }
 @media screen and (max-width: 767px) {

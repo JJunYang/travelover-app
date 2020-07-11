@@ -6,6 +6,7 @@ const Place = require("../models/place");
 const Review = require("../models/review");
 const User = require("../models/user");
 const Blog = require("../models/blog");
+const TravelGuide = require("../models/travelGuide");
 
 //add country
 router.post("/newCountry", async (req, res) => {
@@ -163,6 +164,35 @@ router.post("/newBlog", async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(400).json(error);
+  }
+});
+
+//add travelGuide
+router.post("/newTravelGuide", isLoggedIn, async (req, res) => {
+  const author = {
+    _id: req.user._id,
+    username: req.user.username,
+    pic: req.user.pic,
+  };
+  try {
+    const travelGuide = new TravelGuide({
+      title: req.body.title,
+      pic: req.body.pic,
+      type: req.body.type,
+      author: author,
+      likeNum: req.body.likeNum,
+      details: req.body.details,
+      schedule: req.body.schedule,
+      content: req.body.content,
+    });
+    const user = await User.findById(author._id);
+    user.travelGuideList.push(travelGuide);
+    const savedTravelGuide = await travelGuide.save();
+    await user.save();
+    res.status(200).json({ code: 200, travelGuide: savedTravelGuide });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ des: error });
   }
 });
 

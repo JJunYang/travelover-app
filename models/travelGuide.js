@@ -4,23 +4,16 @@ const TravelGuide = mongoose.Schema({
     type: String,
     required: "title can't be empty",
   },
-  description: {
-    type: String,
-    required: "description can't be empty",
-  },
-  pic: {
-    type: Array,
-    required: "pic can't be empty",
-  },
+  pic: String,
   type: {
     type: String,
     required: "type can't be empty",
   },
   author: {
-    id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    _id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     username: String,
   },
-  clickNum: {
+  likeNum: {
     type: Number,
     required: true,
   },
@@ -33,10 +26,8 @@ const TravelGuide = mongoose.Schema({
     type: Object,
     required: "details can't be empty",
   },
-  detailpics: {
-    type: Array,
-    required: "detailpics can't be empty",
-  },
+  schedule: [],
+  content: [{ content: String, pic: String, title: String }],
 });
 
 module.exports = mongoose.model("TravelGuide", TravelGuide);
