@@ -8,6 +8,6 @@ const BlogSchema = new mongoose.Schema({
     _id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     username: String,
   },
-  content: [{ content: String, pic: String }],
+  content: [{ content: String, pic: String, title: String }],
 });
 module.exports = mongoose.model("Blog", BlogSchema);

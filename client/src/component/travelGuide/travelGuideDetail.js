@@ -175,7 +175,7 @@ export default class TravelGuideDetails extends Component {
             <h2 className="journal-content-title">{this.state.title}</h2>
             {this.state.content.map((item, i) => {
               return (
-                <div key={i} id={`paragraph${item.title}`}>
+                <div key={i} id={item._id}>
                   {item.title === "" ? (
                     ""
                   ) : (
@@ -212,7 +212,7 @@ export default class TravelGuideDetails extends Component {
                         ""
                       ) : (
                         <li>
-                          <a href={`#paragraph${content.title}`}>
+                          <a href={`#${content._id}`}>
                             {content.title}
                           </a>
                         </li>

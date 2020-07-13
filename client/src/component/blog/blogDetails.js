@@ -65,8 +65,19 @@ export default class BlogDetails extends Component {
               {this.state.blog.content.map((p, i) => {
                 return (
                   <div className="blog-paragragh" key={i} id={`${p._id}`}>
+                    {p.title === "" ? (
+                      ""
+                    ) : p.title === "default" ? (
+                      ""
+                    ) : (
+                      <div className="blog-content-subtitle">{p.title}</div>
+                    )}
                     <p>{p.content}</p>
-                    <img src={p.pic} className="blog-paragraph-pic" alt=""></img>
+                    <img
+                      src={p.pic}
+                      className="blog-paragraph-pic"
+                      alt=""
+                    ></img>
                   </div>
                 );
               })}
@@ -110,9 +121,17 @@ export default class BlogDetails extends Component {
                 <ul className="blog-content-ul">
                   {this.state.blog.content.map((p, i) => {
                     return (
-                      <li key={i}>
-                        <a href={`#${p._id}`}>{i + 1} / moren</a>
-                      </li>
+                      <div key={i}>
+                        {p.title === "" ? (
+                          ""
+                        ) : (
+                          <li>
+                            <a href={`#${p._id}`}>
+                              {">"} {p.title}
+                            </a>
+                          </li>
+                        )}
+                      </div>
                     );
                   })}
                 </ul>

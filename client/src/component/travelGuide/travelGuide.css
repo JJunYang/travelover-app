@@ -36,6 +36,7 @@
   display: flex;
   color: #5d5d5d;
   margin-top: 55px;
+  font-weight: 500;
 }
 .travelGuide-journal-detail .journal-title-midBlock > p {
   margin-left: 40px;
@@ -118,6 +119,7 @@
   color: #999;
   font-weight: 500;
   margin-left: 0;
+  text-transform: capitalize;
 }
 .travelGuide-content-block .journal-content-rightside .journal-content ul li {
   margin-top: 10px;
