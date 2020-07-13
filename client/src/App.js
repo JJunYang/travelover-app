@@ -24,8 +24,8 @@ import CityStayPage from "./component/city/cityStayPage";
 import ExploreCategoryPage from "./component/explore/exploreCategoryPage";
 import BlogMainPage from "./component/blog/blogMainPage";
 import BlogDetails from "./component/blog/blogDetails";
-import Journal from "./component/travelGuide/journal";
-import JournalDetails from "./component/travelGuide/journalDetails";
+import Journal from "./component/journal/journal";
+import JournalDetails from "./component/journal/journalDetails";
 
 function App() {
   return (

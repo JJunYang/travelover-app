@@ -4,11 +4,13 @@ import axios from "axios";
 
 export default class JournalDetails extends Component {
   state = {
+    _id: "",
     title: "",
     pic: "",
     type: "",
     author: {},
     likeNum: 0,
+    viewNum: 0,
     details: {},
     date: "",
     schedule: [],
@@ -21,11 +23,13 @@ export default class JournalDetails extends Component {
       .get(`/journals/details/${this.props.match.params._id}`)
       .then((response) => {
         this.setState({
+          _id: response.data._id,
           title: response.data.title,
           pic: response.data.pic,
           type: response.data.type,
           author: response.data.author,
           likeNum: response.data.likeNum,
+          viewNum: response.data.viewNum,
           details: response.data.details,
           date: response.data.date.slice(0, 10),
           schedule: response.data.schedule,
@@ -38,6 +42,11 @@ export default class JournalDetails extends Component {
     await axios.get(`/user/${this.state.author._id}`).then((res) => {
       this.setState({ authorPic: res.data.pic });
     });
+    axios({
+      url: "/journals/addViewNum",
+      method: "put",
+      data: { _id: this.state._id, viewNum: this.state.viewNum },
+    });
   }
 
   changeLike = () => {
@@ -45,7 +54,7 @@ export default class JournalDetails extends Component {
       this.setState({ like: "Cancel" });
       const changedNum = parseInt(this.state.likeNum) + 1;
       const data = {
-        title: this.state.title,
+        _id: this.state._id,
         likeNum: this.state.likeNum,
       };
       axios({
@@ -65,7 +74,7 @@ export default class JournalDetails extends Component {
       this.setState({ like: "Upvote" });
       const changedNum = parseInt(this.state.likeNum) - 1;
       const data = {
-        title: this.state.title,
+        _id: this.state._id,
         likeNum: this.state.likeNum,
       };
       axios({
@@ -178,6 +187,8 @@ export default class JournalDetails extends Component {
                 <div key={i} id={item._id}>
                   {item.title === "" ? (
                     ""
+                  ) : item.title === "default" ? (
+                    ""
                   ) : (
                     <div className="journal-content-subtitle">{item.title}</div>
                   )}
@@ -212,9 +223,7 @@ export default class JournalDetails extends Component {
                         ""
                       ) : (
                         <li>
-                          <a href={`#${content._id}`}>
-                            {content.title}
-                          </a>
+                          <a href={`#${content._id}`}>{content.title}</a>
                         </li>
                       )}
                     </div>

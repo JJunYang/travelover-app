@@ -46,10 +46,10 @@ router.get("/getNational", async (req, res) => {
 //Add likeNum
 router.put("/addlikeNum", async (req, res) => {
   try {
-    const { title, likeNum } = req.body;
+    const { _id, likeNum } = req.body;
     const changedNum = parseInt(likeNum) + 1;
-    const journal = await Journal.updateOne(
-      { title: title },
+    const journal = await Journal.findByIdAndUpdate(
+      { _id: _id },
       { $set: { likeNum: changedNum } }
     );
     res.status(204).json(journal);
@@ -61,11 +61,26 @@ router.put("/addlikeNum", async (req, res) => {
 //Cut likeNum
 router.put("/cutlikeNum", async (req, res) => {
   try {
-    const { title, likeNum } = req.body;
+    const { _id, likeNum } = req.body;
     const changedNum = parseInt(likeNum) - 1;
-    const journal = await Journal.updateOne(
-      { title: title },
+    const journal = await Journal.findByIdAndUpdate(
+      { _id: _id },
       { $set: { likeNum: changedNum } }
+    );
+    res.status(204).json(journal);
+  } catch (error) {
+    res.status(401).json({ code: 401, err: error });
+  }
+});
+
+//add reviewsNum
+router.put("/addViewNum", async (req, res) => {
+  try {
+    const { _id, viewNum } = req.body;
+    const changedNum = parseInt(viewNum) + 1;
+    const journal = await Journal.findByIdAndUpdate(
+      { _id: _id },
+      { $set: { viewNum: changedNum } }
     );
     res.status(204).json(journal);
   } catch (error) {

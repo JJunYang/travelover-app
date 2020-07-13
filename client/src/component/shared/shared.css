@@ -123,6 +123,22 @@
 .journal-card .journal-title {
   display: flex;
 }
+.journal-card .journal-title .journal-title-loveNum-block {
+  position: absolute;
+  right: 2rem;
+  color: #5d5d5d;
+  border: 1px solid #24d8d8;
+  padding-left:10px;
+  padding-right:0px;
+  margin-top: 5px;
+  border-radius: 50px;
+}
+.journal-card .journal-title .journal-title-loveNum-block .journal-title-loveNum{
+  color: #24d8d8;
+}
+.journal-card .journal-title .journal-title-loveNum-block .journal-title-icon{
+  margin-bottom: 4px;
+}
 .journal-card .journal-title .journal-title-icon {
   width: 15px;
   height: 15px;

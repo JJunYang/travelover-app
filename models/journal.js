@@ -17,6 +17,10 @@ const Journal = mongoose.Schema({
     type: Number,
     required: true,
   },
+  viewNum: {
+    type: Number,
+    default: 0,
+  },
   date: {
     type: Date,
     required: true,

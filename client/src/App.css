@@ -32,9 +32,9 @@ body {
   margin: 0;
   padding: 0;
 }
-.App .nav-hide{
-  top:-600px
+.App .nav-hide {
+  top: -600px;
 }
-.App .app-nav{
-  transition: top 0.8s;
+.App .app-nav {
+  transition: top 0.5s;
 }

@@ -30,6 +30,7 @@ export default class Journal extends Component {
       })
       .then((data) => {
         this.setState({ journalList: data });
+      }).then(()=>{console.log("home");
       });
   };
 
@@ -37,11 +38,14 @@ export default class Journal extends Component {
     await axios
       .get("/journals/getNative")
       .then((response) => {
-        return response.data;
+        this.setState({ journalList: response.data });
       })
-      .then((data) => {
-        this.setState({ journalList: data });
+      .then(() => {
+        console.log(this.state.journalList);
       });
+    // .then((data) => {
+    //   this.setState({ journalList: data });
+    // });
   };
 
   findNational = async () => {
@@ -52,12 +56,15 @@ export default class Journal extends Component {
       })
       .then((data) => {
         this.setState({ journalList: data });
+      })
+      .then(()=>{
+        console.log(this.state.journalList);
       });
   };
 
   render() {
     return (
-      <Container>
+      <Container id="journal-page">
         <Carousel>
           <Carousel.Item>
             <img
@@ -113,8 +120,8 @@ export default class Journal extends Component {
               </Nav.Item>
             </Nav>
           </Card.Header>
-          {this.state.journalList.map((item, i) => {
-            return <JournalCard item={item} key={i} />;
+          {this.state.journalList.map((item) => {
+            return <JournalCard item={item} key={item._id} />;
           })}
         </Card>
       </Container>

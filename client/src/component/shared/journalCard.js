@@ -38,6 +38,17 @@ export default class JournalCard extends Component {
                 {this.state.journal.type}
               </span>
             </p>
+            <div className="journal-title-loveNum-block">
+              <span className="journal-title-loveNum">
+                {this.state.journal.likeNum}
+              </span>{" "}
+              <span>Loves </span>
+              <img
+                src={process.env.PUBLIC_URL + "/Icon/thumb.png"}
+                alt="thumbIcon"
+                className="journal-title-icon"
+              ></img>
+            </div>
           </div>
           <Card.Title>{this.state.journal.title}</Card.Title>
           <Row>
@@ -70,7 +81,7 @@ export default class JournalCard extends Component {
                     className="journal-icon-views"
                   ></img>
                   <span className="journal-item-views">
-                    Views: {this.state.journal.likeNum}
+                    Views: {this.state.journal.viewNum}
                   </span>
                 </span>
               </div>
