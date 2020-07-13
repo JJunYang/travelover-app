@@ -25,9 +25,9 @@ const UserSchema = new mongoose.Schema({
       name: String,
     },
   ],
-  travelGuideList: [
+  journalList: [
     {
-      _id: { type: mongoose.Schema.Types.ObjectId, ref: "Blog" },
+      _id: { type: mongoose.Schema.Types.ObjectId, ref: "Journal" },
       title: String,
     },
   ],

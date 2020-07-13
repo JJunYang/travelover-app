@@ -11,8 +11,6 @@ import Flight from "./component/ticket/flight";
 import Paypal_Flight from "./component/paypal/paypal_flight";
 import Hotel from "./component/ticket/hotel";
 import Paypal_Hotel from "./component/paypal/paypal_hotel";
-import TravelGuide from "./component/travelGuide/travelGuide";
-import TravelGuideDetails from "./component/travelGuide/travelGuideDetail";
 import PersonalCenter from "./component/personalCenter/personalCenter";
 import Footer from "./component/footer";
 import CityMainPage from "./component/city/cityMainPage";
@@ -26,6 +24,8 @@ import CityStayPage from "./component/city/cityStayPage";
 import ExploreCategoryPage from "./component/explore/exploreCategoryPage";
 import BlogMainPage from "./component/blog/blogMainPage";
 import BlogDetails from "./component/blog/blogDetails";
+import Journal from "./component/travelGuide/journal";
+import JournalDetails from "./component/travelGuide/journalDetails";
 
 function App() {
   return (
@@ -96,11 +96,11 @@ function App() {
               component={Paypal_Hotel}
             />
 
-            <Route path="/travelGuides" exact component={TravelGuide} />
+            <Route path="/journals" exact component={Journal} />
             <Route
-              path="/travelGuides/details/:_id"
+              path="/journals/details/:_id"
               exact
-              component={TravelGuideDetails}
+              component={JournalDetails}
             />
 
             {/* <Route path="/blog" exact component={BlogMainPage} /> */}

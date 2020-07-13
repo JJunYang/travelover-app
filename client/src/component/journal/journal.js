@@ -1,57 +1,57 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Container, Carousel, Card, Nav } from "react-bootstrap";
-import "./travelGuide.css";
-import TravelGuideCard from "../shared/travelGuideCard";
+import "./journal.css";
+import JournalCard from "../shared/journalCard";
 
-export default class TravelGuide extends Component {
+export default class Journal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      travelGuideList: [],
+      journalList: [],
     };
   }
   componentDidMount() {
     axios
-      .get("/travelGuides/getAll")
+      .get("/journals/getAll")
       .then((response) => {
         return response.data;
       })
       .then((data) => {
-        this.setState({ travelGuideList: data });
+        this.setState({ journalList: data });
       });
   }
 
   findAllGuides = async () => {
     await axios
-      .get("/travelGuides/getAll")
+      .get("/journals/getAll")
       .then((response) => {
         return response.data;
       })
       .then((data) => {
-        this.setState({ travelGuideList: data });
+        this.setState({ journalList: data });
       });
   };
 
   findNative = async () => {
     await axios
-      .get("/travelGuides/getNative")
+      .get("/journals/getNative")
       .then((response) => {
         return response.data;
       })
       .then((data) => {
-        this.setState({ travelGuideList: data });
+        this.setState({ journalList: data });
       });
   };
 
   findNational = async () => {
     await axios
-      .get("/travelGuides/getNational")
+      .get("/journals/getNational")
       .then((response) => {
         return response.data;
       })
       .then((data) => {
-        this.setState({ travelGuideList: data });
+        this.setState({ journalList: data });
       });
   };
 
@@ -99,7 +99,7 @@ export default class TravelGuide extends Component {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-        <Card id="travelGuide-list">
+        <Card id="journal-list">
           <Card.Header>
             <Nav variant="tabs" defaultActiveKey="#first">
               <Nav.Item>
@@ -113,8 +113,8 @@ export default class TravelGuide extends Component {
               </Nav.Item>
             </Nav>
           </Card.Header>
-          {this.state.travelGuideList.map((item, i) => {
-            return <TravelGuideCard item={item} key={i} />;
+          {this.state.journalList.map((item, i) => {
+            return <JournalCard item={item} key={i} />;
           })}
         </Card>
       </Container>

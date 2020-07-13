@@ -40,8 +40,8 @@ export default class NavComponent extends Component {
             <Link to="/explore" className="nav-link">
               Explore
             </Link>
-            <Link to="/travelGuides" className="nav-link">
-              TravelGuide
+            <Link to="/journals" className="nav-link">
+              Journal
             </Link>
             <Link to="/blog/all" className="nav-link">
               Blog

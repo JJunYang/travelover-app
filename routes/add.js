@@ -6,7 +6,7 @@ const Place = require("../models/place");
 const Review = require("../models/review");
 const User = require("../models/user");
 const Blog = require("../models/blog");
-const TravelGuide = require("../models/travelGuide");
+const Journal = require("../models/journal");
 
 //add country
 router.post("/newCountry", async (req, res) => {
@@ -167,15 +167,15 @@ router.post("/newBlog", async (req, res) => {
   }
 });
 
-//add travelGuide
-router.post("/newTravelGuide", isLoggedIn, async (req, res) => {
+//add journal
+router.post("/newJournal", isLoggedIn, async (req, res) => {
   const author = {
     _id: req.user._id,
     username: req.user.username,
     pic: req.user.pic,
   };
   try {
-    const travelGuide = new TravelGuide({
+    const journal = new Journal({
       title: req.body.title,
       pic: req.body.pic,
       type: req.body.type,
@@ -186,10 +186,10 @@ router.post("/newTravelGuide", isLoggedIn, async (req, res) => {
       content: req.body.content,
     });
     const user = await User.findById(author._id);
-    user.travelGuideList.push(travelGuide);
-    const savedTravelGuide = await travelGuide.save();
+    user.journalList.push(journal);
+    const savedjournal = await journal.save();
     await user.save();
-    res.status(200).json({ code: 200, travelGuide: savedTravelGuide });
+    res.status(200).json({ code: 200, journal: savedjournal });
   } catch (error) {
     console.log(error);
     res.status(400).json({ des: error });

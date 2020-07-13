@@ -53,7 +53,7 @@ app.use("/", require("./routes/index"));
 app.use("/tickets", require("./routes/tickets"));
 app.use("/add", require("./routes/add"));
 app.use("/explore", require("./routes/explore"));
-app.use("/travelGuides", require("./routes/travelGuides"));
+app.use("/journals", require("./routes/journals"));
 app.use("/personalCenter", require("./routes/personalCenter"));
 app.use("/blog", require("./routes/blog"));
 

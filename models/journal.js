@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const TravelGuide = mongoose.Schema({
+const Journal = mongoose.Schema({
   title: {
     type: String,
     required: "title can't be empty",
@@ -30,4 +30,4 @@ const TravelGuide = mongoose.Schema({
   content: [{ content: String, pic: String, title: String }],
 });
 
-module.exports = mongoose.model("TravelGuide", TravelGuide);
+module.exports = mongoose.model("Journal", Journal);

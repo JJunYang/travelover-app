@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Image, Container, ListGroup, Row, Col } from "react-bootstrap";
 import axios from "axios";
 
-export default class TravelGuideDetails extends Component {
+export default class JournalDetails extends Component {
   state = {
     title: "",
     pic: "",
@@ -18,7 +18,7 @@ export default class TravelGuideDetails extends Component {
   };
   async componentDidMount() {
     await axios
-      .get(`/travelGuides/details/${this.props.match.params._id}`)
+      .get(`/journals/details/${this.props.match.params._id}`)
       .then((response) => {
         this.setState({
           title: response.data.title,
@@ -49,7 +49,7 @@ export default class TravelGuideDetails extends Component {
         likeNum: this.state.likeNum,
       };
       axios({
-        url: "/travelGuides/addlikeNum",
+        url: "/journals/addlikeNum",
         method: "put",
         data: data,
       })
@@ -69,7 +69,7 @@ export default class TravelGuideDetails extends Component {
         likeNum: this.state.likeNum,
       };
       axios({
-        url: "/travelGuides/cutlikeNum",
+        url: "/journals/cutlikeNum",
         method: "put",
         data: data,
       })
@@ -92,7 +92,7 @@ export default class TravelGuideDetails extends Component {
           src={this.state.pic}
           alt="top pic"
         />
-        <Container className="travelGuide-journal-detail">
+        <Container className="journal-journal-detail">
           <div className="journal-details-title">
             <Row>
               <Col className="col-4 col-sm-3 col-md-2 col-lg-1">
@@ -170,7 +170,7 @@ export default class TravelGuideDetails extends Component {
           </div>
         </Container>
         <hr></hr>
-        <Container className="travelGuide-content-block">
+        <Container className="journal-content-block">
           <div className="journal-content-leftside col-12 col-lg-9">
             <h2 className="journal-content-title">{this.state.title}</h2>
             {this.state.content.map((item, i) => {
