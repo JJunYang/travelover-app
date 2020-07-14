@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CarouselBlock from "./carouselBlock";
 import CityBlock from "./cityBlock";
-import BlogBlock from "./blogBlock";
+import TopicBlock from "./topicBlock";
 import "./homePage.css";
 
 // import axios from "axios";
@@ -17,7 +17,7 @@ export default class Home extends Component {
             <span id="home-middle-word">Explore The Beautiful World</span>
           </div>
         </div>
-        <BlogBlock />
+        <TopicBlock />
         {/* <div className="test"></div> */}
       </>
     );

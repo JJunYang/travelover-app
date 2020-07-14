@@ -5,7 +5,7 @@ const City = require("../models/city");
 const Place = require("../models/place");
 const Review = require("../models/review");
 const User = require("../models/user");
-const Blog = require("../models/blog");
+const Topic = require("../models/topic");
 const Journal = require("../models/journal");
 
 //add country
@@ -145,11 +145,11 @@ router.post("/newReview", isLoggedIn, async (req, res) => {
   }
 });
 
-//add blog
-router.post("/newBlog", async (req, res) => {
+//add topic
+router.post("/newTopic", async (req, res) => {
   const { name, author, type, pic, content } = req.body;
   try {
-    var newBlog = new Blog({
+    var newTopic = new Topic({
       name: name,
       author: author,
       type: type,
@@ -157,10 +157,10 @@ router.post("/newBlog", async (req, res) => {
       content: content,
     });
     const user = await User.findById(author._id);
-    user.blogList.push(newBlog);
+    user.topicList.push(newTopic);
     await user.save();
-    await newBlog.save();
-    res.status(202).json(newBlog);
+    await newTopic.save();
+    res.status(202).json(newTopic);
   } catch (error) {
     console.log(error);
     res.status(400).json(error);

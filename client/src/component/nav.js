@@ -43,8 +43,8 @@ export default class NavComponent extends Component {
             <Link to="/journals" className="nav-link">
               Journal
             </Link>
-            <Link to="/blog/all" className="nav-link">
-              Blog
+            <Link to="/topic/all" className="nav-link">
+              Topic
             </Link>
             {sessionStorage.getItem("userName") === null ||
             sessionStorage.getItem("userName") === "" ? (

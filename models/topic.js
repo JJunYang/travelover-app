@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const BlogSchema = new mongoose.Schema({
+const TopicSchema = new mongoose.Schema({
   name: String,
   type: [],
   pic: String,
@@ -10,4 +10,4 @@ const BlogSchema = new mongoose.Schema({
   },
   content: [{ content: String, pic: String, title: String }],
 });
-module.exports = mongoose.model("Blog", BlogSchema);
+module.exports = mongoose.model("Topic", TopicSchema);

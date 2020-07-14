@@ -22,10 +22,10 @@ import CityFoodPage from "./component/city/cityFoodPage";
 import CitySeePage from "./component/city/citySeePage";
 import CityStayPage from "./component/city/cityStayPage";
 import ExploreCategoryPage from "./component/explore/exploreCategoryPage";
-import BlogMainPage from "./component/blog/blogMainPage";
-import BlogDetails from "./component/blog/blogDetails";
 import Journal from "./component/journal/journal";
 import JournalDetails from "./component/journal/journalDetails";
+import TopicMainPage from "./component/topic/topicMainPage";
+import TopicDetails from "./component/topic/topicDetails";
 
 function App() {
   return (
@@ -102,10 +102,8 @@ function App() {
               exact
               component={JournalDetails}
             />
-
-            {/* <Route path="/blog" exact component={BlogMainPage} /> */}
-            <Route path="/blog/:category" exact component={BlogMainPage} />
-            <Route path="/blog/details/:_id" exact component={BlogDetails} />
+            <Route path="/topic/:category" exact component={TopicMainPage} />
+            <Route path="/topic/details/:_id" exact component={TopicDetails} />
 
             <Route path="/personalcenter" exact component={PersonalCenter} />
           </Switch>

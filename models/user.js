@@ -19,7 +19,7 @@ const UserSchema = new mongoose.Schema({
       },
     },
   ],
-  blogList: [
+  topicList: [
     {
       _id: { type: mongoose.Schema.Types.ObjectId, ref: "Blog" },
       name: String,

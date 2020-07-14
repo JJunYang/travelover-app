@@ -217,40 +217,40 @@
   color: #5d5d5d;
 }
 
-.blog-card {
+.topic-card {
   border: none;
 }
-.blog-card .blog-card-img {
+.topic-card .topic-card-img {
   height: 230px;
   object-fit: cover;
   border-radius: 10px;
 }
-.blog-card .blog-cardbody {
+.topic-card .topic-cardbody {
   padding: 0;
   padding-top: 1em;
 }
-.blog-card .blog-cardbody .blog-title {
+.topic-card .topic-cardbody .topic-title {
   font-size: 18px;
   font-weight: 600;
 }
-.blog-card .blog-cardbody .blog-title a {
+.topic-card .topic-cardbody .topic-title a {
   color: #2d2d2d;
   text-decoration: none;
 }
-.blog-card .blog-cardbody .blog-title a:hover {
+.topic-card .topic-cardbody .topic-title a:hover {
   color: #24d8d8;
 }
 
-.blog-card .blog-taglist {
+.topic-card .topic-taglist {
   margin-left: 0;
   padding-left: 0;
 }
-.blog-card .blog-taglist li {
+.topic-card .topic-taglist li {
   list-style: none;
   display: inline;
   margin-right: 1em;
 }
-.blog-card .blog-taglist li a.blog-tag {
+.topic-card .topic-taglist li a.topic-tag {
   text-transform: uppercase;
   color: black;
   text-decoration: none;
@@ -259,12 +259,12 @@
   border-bottom: 1px solid #24d8d8;
   cursor: pointer;
 }
-.blog-card .blog-taglist li a.blog-tag:hover {
+.topic-card .topic-taglist li a.topic-tag:hover {
   color: #24d8d8;
   cursor: pointer;
 }
 
-.blog-card .blog-author-info {
+.topic-card .topic-author-info {
   font-size: 15px;
   line-height: 23px;
   font-style: italic;
@@ -274,17 +274,17 @@
   font-weight: 500;
   color: #8d8d8d;
 }
-.blog-card .blog-author-name {
+.topic-card .topic-author-name {
   color: #5d5d5d;
 }
-.blog-card .blog-author {
+.topic-card .topic-author {
   margin-right: 15px;
   position: relative;
 }
-.blog-card .blog-author-info span {
+.topic-card .topic-author-info span {
   margin-right: 10px;
 }
-.blog-card .blog-author-name::after {
+.topic-card .topic-author-name::after {
   content: "";
   width: 4px;
   height: 4px;
@@ -298,12 +298,12 @@
   top: 50%;
   margin-top: -2px;
 }
-.blog-card .blog-content {
+.topic-card .topic-content {
   margin-bottom: 25px;
   line-height: 1.8;
   color: #5d5d5d;
 }
-.blog-card .blog-readmore-btn a {
+.topic-card .topic-readmore-btn a {
   text-decoration: none;
   position: relative;
   display: inline-block;
@@ -314,7 +314,7 @@
   border-bottom: 1px solid #ddd;
   color: #2d2d2d;
 }
-.blog-card .blog-readmore-btn:hover a {
+.topic-card .topic-readmore-btn:hover a {
   color: #24d8d8;
   border-bottom: 1px solid #24d8d8;
 }
