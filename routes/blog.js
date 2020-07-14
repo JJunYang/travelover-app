@@ -82,10 +82,16 @@ router.get("/getDetails", async (req, res) => {
       });
       relatedBlogs = relatedBlogs.concat(typeBlogs);
     }
+    var threeRelatedBlogs = [];
+    var num = 3;
+    for (var i = 0; i < num; i++) {
+      var ran = Math.floor(Math.random() * relatedBlogs.length);
+      threeRelatedBlogs.push(relatedBlogs.splice(ran, 1)[0]);
+    }
     res.json({
       blog: blog,
       recommendBlog: recommendBlog,
-      relatedBlogs: relatedBlogs,
+      relatedBlogs: threeRelatedBlogs,
     });
   } catch (error) {
     console.log(error);
