@@ -54,7 +54,9 @@ export default class FoodDetails extends Component {
   };
   handleChange = (e) => {
     const name = e.target.name;
-    this.setState({ [name]: e.target.value });
+    this.setState({
+      [name]: e.target.value,
+    });
   };
   handleSubmitRateForm = (e) => {
     e.preventDefault();

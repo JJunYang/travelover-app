@@ -8,6 +8,15 @@ const TopicSchema = new mongoose.Schema({
     _id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     username: String,
   },
-  content: [{ content: String, pic: String, title: String }],
+  content: String,
+  commentList: [
+    {
+      _id: { type: mongoose.Schema.Types.ObjectId, ref: "Comment" },
+      author: {
+        _id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+        username: String,
+      },
+    },
+  ],
 });
 module.exports = mongoose.model("Topic", TopicSchema);

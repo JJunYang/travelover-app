@@ -29,7 +29,7 @@ const TopicCard = ({ item }) => (
         <span>{moment(item.date).format("ll")}</span>
       </div>
       <Card.Text className="topic-content">
-        {item.content[0].content.slice(0, 100)}...
+        {item.content.slice(0, 100)}...
       </Card.Text>
       <div className="topic-readmore-btn">
         <Link to={`/topic/details/${item._id}`}>Read more</Link>

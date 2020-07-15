@@ -14,6 +14,8 @@ export default class PersonalCenter extends Component {
     flightList: [],
     busList: [],
     hotelList: [],
+    newTopicContent: "",
+    newTopicName: "",
   };
 
   componentDidMount() {
@@ -34,6 +36,12 @@ export default class PersonalCenter extends Component {
         console.log(error);
       });
   }
+  handleChange = (e) => {
+    const name = e.target.name;
+    this.setState({
+      [name]: e.target.value,
+    });
+  };
   render() {
     return (
       <Tab.Container id="left-tabs-example" defaultActiveKey="basic">
@@ -75,9 +83,23 @@ export default class PersonalCenter extends Component {
                       <td>{this.state.name}</td>
                     </tr>
                   </tbody>
+                  <input
+                    name="newTopicName"
+                    onChange={this.handleChange}
+                  ></input>
+                  <div>
+                    <textarea
+                      name="newTopicContent"
+                      cols="45"
+                      rows="7"
+                      required
+                      onChange={this.handleChange}
+                      placeholder="Enter your review Content now!"
+                    ></textarea>
+                  </div>
                 </Table>
               </Tab.Pane>
-              <Tab.Pane eventKey="grouptour">
+              {/* <Tab.Pane eventKey="grouptour">
                 <CenterGroupTourPane
                   groupTourList={this.state.groupTourList}
                 />
@@ -90,7 +112,7 @@ export default class PersonalCenter extends Component {
               </Tab.Pane>
               <Tab.Pane eventKey="hotel">
                 <CenterHotelPane hotelList={this.state.hotelList} />
-              </Tab.Pane>
+              </Tab.Pane> */}
             </Tab.Content>
           </Col>
         </Row>

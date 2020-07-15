@@ -223,7 +223,12 @@ export default class JournalDetails extends Component {
                         ""
                       ) : (
                         <li>
-                          <a href={`#${content._id}`}>{content.title}</a>
+                          {">"}{" "}
+                          <a href={`#${content._id}`}>
+                            <span className="journal-content-note">
+                              {content.title}
+                            </span>
+                          </a>
                         </li>
                       )}
                     </div>

@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import axios from "axios";
 import moment from "moment";
 
-export default class ReviewDetails extends Component {
+export default class CommentDetail extends Component {
   state = {
-    review: {},
+    comment: {},
     author: {},
   };
   componentDidMount() {
     axios
-      .get(`/explore/review/details/${this.props.review._id}`)
+      .get(`/topic/getCommentDetails/${this.props.comment._id}`)
       .then((res) => {
-        this.setState({ review: res.data.review, author: res.data.author });
+        this.setState({ comment: res.data.comment, author: res.data.author });
       })
       .then(() => {
         console.log(this.state);
@@ -19,20 +19,20 @@ export default class ReviewDetails extends Component {
   }
   render() {
     return (
-      <div className="review-detail">
-        <div className="review-author-block">
+      <div className="comment-detail">
+        <div className="comment-author-block">
           <img
-            className="review-author-headpic"
+            className="comment-author-headpic"
             alt="authorpic"
             src={this.state.author.pic}
           ></img>
           <div className="author-detail">
             <div>{this.state.author.username}</div>
-            <div>{moment(this.state.review.date).format("YYYY-MM-DD")}</div>
+            <div>{moment(this.state.comment.date).format("YYYY-MM-DD")}</div>
           </div>
         </div>
-        <div className="review-content" style={{ whiteSpace: "pre-wrap" }}>
-          {this.state.review.content}
+        <div className="comment-content" style={{ whiteSpace: "pre-wrap" }}>
+          {this.state.comment.content}
         </div>
       </div>
     );

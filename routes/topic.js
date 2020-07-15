@@ -2,33 +2,57 @@ const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
 const Topic = require("../models/topic");
+const Comment = require("../models/comment");
+const User = require("../models/user");
 // const { json } = require("body-parser");
 
 router.get("/getCategoryNum", async (req, res) => {
   try {
+    const type = [
+      "traveling with pets",
+      "road trips",
+      "honeymoons and romance",
+      "family travel",
+      "solo travel",
+      "beaches",
+      "winter sports",
+      "destination weddings",
+      "air travel",
+      "bargain travel",
+      "business travel",
+      "food and travel",
+      "cruises",
+      "train travel",
+    ];
     const result = [];
     const alltopics = await Topic.find();
     result.push({ category: "all", num: alltopics.length });
-    const beachtopics = await Topic.find({
-      type: { $elemMatch: { $eq: "beaches" } },
-    });
-    result.push({ category: "beaches", num: beachtopics.length });
-    const staytopics = await Topic.find({
-      type: { $elemMatch: { $eq: "unique stay" } },
-    });
-    result.push({ category: "unique stay", num: staytopics.length });
-    const tiptopics = await Topic.find({
-      type: { $elemMatch: { $eq: "tips & tricks" } },
-    });
-    result.push({ category: "tips & tricks", num: tiptopics.length });
-    const breaktopics = await Topic.find({
-      type: { $elemMatch: { $eq: "take a break" } },
-    });
-    result.push({ category: "take a break", num: breaktopics.length });
-    const roadtriptopics = await Topic.find({
-      type: { $elemMatch: { $eq: "road trips" } },
-    });
-    result.push({ category: "road trips", num: roadtriptopics.length });
+    for (var i = 0; i < type.length; i++) {
+      const topics = await Topic.find({
+        type: { $elemMatch: { $eq: type[i] } },
+      });
+      result.push({ category: type[i], num: topics.length });
+    }
+    // const beachtopics = await Topic.find({
+    //   type: { $elemMatch: { $eq: "beaches" } },
+    // });
+    // result.push({ category: "beaches", num: beachtopics.length });
+    // const staytopics = await Topic.find({
+    //   type: { $elemMatch: { $eq: "unique stay" } },
+    // });
+    // result.push({ category: "unique stay", num: staytopics.length });
+    // const tiptopics = await Topic.find({
+    //   type: { $elemMatch: { $eq: "tips & tricks" } },
+    // });
+    // result.push({ category: "tips & tricks", num: tiptopics.length });
+    // const breaktopics = await Topic.find({
+    //   type: { $elemMatch: { $eq: "take a break" } },
+    // });
+    // result.push({ category: "take a break", num: breaktopics.length });
+    // const roadtriptopics = await Topic.find({
+    //   type: { $elemMatch: { $eq: "road trips" } },
+    // });
+    // result.push({ category: "road trips", num: roadtriptopics.length });
     result.sort(function (a, b) {
       return b.num - a.num;
     });
@@ -70,6 +94,7 @@ router.get("/getThreeTopics", async (req, res) => {
 router.get("/getDetails", async (req, res) => {
   try {
     const topic = await Topic.findById(req.query._id);
+    const pList = topic.content.split("<br/>");
     const recommendTopic = await Topic.aggregate([
       { $match: { _id: { $ne: mongoose.Types.ObjectId(req.query._id) } } },
       { $sample: { size: 1 } },
@@ -92,7 +117,20 @@ router.get("/getDetails", async (req, res) => {
       topic: topic,
       recommendTopic: recommendTopic,
       relatedTopics: threeRelatedTopics,
+      pList: pList,
     });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
+  }
+});
+
+router.get("/getCommentDetails/:_id", async (req, res) => {
+  try {
+    const foundComment = await Comment.findById(req.params._id);
+    const foundUser = await User.findById(foundComment.author._id);
+    const data = { comment: foundComment, author: foundUser };
+    res.status(200).json(data);
   } catch (error) {
     console.log(error);
     res.status(400).json(error);

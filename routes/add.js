@@ -7,6 +7,7 @@ const Review = require("../models/review");
 const User = require("../models/user");
 const Topic = require("../models/topic");
 const Journal = require("../models/journal");
+const Comment = require("../models/comment");
 
 //add country
 router.post("/newCountry", async (req, res) => {
@@ -146,8 +147,12 @@ router.post("/newReview", isLoggedIn, async (req, res) => {
 });
 
 //add topic
-router.post("/newTopic", async (req, res) => {
-  const { name, author, type, pic, content } = req.body;
+router.post("/newTopic", isLoggedIn, async (req, res) => {
+  const { name, type, pic, content } = req.body;
+  const author = {
+    _id: req.user._id,
+    username: req.user.username,
+  };
   try {
     var newTopic = new Topic({
       name: name,
@@ -161,6 +166,30 @@ router.post("/newTopic", async (req, res) => {
     await user.save();
     await newTopic.save();
     res.status(202).json(newTopic);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
+  }
+});
+
+//add topic comment
+router.post("/newComment", isLoggedIn, async (req, res) => {
+  const { content, topic } = req.body;
+  const author = { _id: req.user._id, username: req.user.username };
+  try {
+    var newComment = new Comment({
+      content: content,
+      topic: topic,
+      author: author,
+    });
+    const foundTopic = await Topic.findById(topic._id);
+    const foundUser = await User.findById(author._id);
+    foundTopic.commentList.push(newComment);
+    foundUser.commentList.push(newComment);
+    await newComment.save();
+    await foundTopic.save();
+    await foundUser.save();
+    res.sendStatus(202);
   } catch (error) {
     console.log(error);
     res.status(400).json(error);
