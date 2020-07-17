@@ -144,7 +144,9 @@
   display: inline-block;
   padding-right: 30px;
 }
-.review-block a{
+#see-do-main .link-login,
+#stay-main .link-login,
+#food-main .link-login {
   color: #24d8d8;
 }
 .review-title-num {
@@ -157,8 +159,8 @@
 }
 
 .review-create-block {
-  padding-top: 30px;
-  padding-bottom: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .review-create-block .review-notes {
   font-size: 20px;
@@ -257,6 +259,13 @@
   width: 100%;
   margin-bottom: 10px;
   border-radius: 20px;
+  outline: none;
+}
+.explore-rightside .book-block .book-block-btn:focus {
+  outline: none;
+  background-color: #24d8d8;
+  border-color: #24d8d8;
+  color: white;
 }
 .explore-rightside .book-block .book-block-note {
   color: #aaa;

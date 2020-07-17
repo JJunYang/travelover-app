@@ -136,28 +136,56 @@
 .explore-botton-cover-block .explore-hr {
   margin-top: 10px;
 }
-.explore-popular-blog {
+.explore-popular-topic {
   margin-top: -10px;
   background-color: #24d8d8;
   padding-bottom: 30px;
 }
-.explore-popular-blog .home-subtitle {
+.explore-popular-topic .home-subtitle {
   color: black;
   padding-top: 10px;
   text-align: center;
 }
-.explore-popular-blog .card {
+.explore-popular-topic .card {
   background-color: transparent;
 }
-.explore-popular-blog .blog-col,
-.explore-popular-blog .blog-col a {
+.explore-popular-topic .topic-col,
+.explore-popular-topic .topic-col a {
   color: white;
 }
-.explore-popular-blog .blog-col a:hover {
+.explore-popular-topic .topic-col a:hover {
   color: white;
   border-bottom: 1px solid white;
 }
 
+.explore-popular-topic .explore-topic .topic-col .topic-tag {
+  color: white;
+  transition: all 0.5s;
+}
+.explore-popular-topic .explore-topic .topic-col .topic-tag:hover {
+  color: white;
+}
+.explore-popular-topic .explore-topic .topic-col .topic-title a {
+  color: white;
+  text-decoration: none;
+  border: none;
+}
+.explore-popular-topic .explore-topic .topic-col .topic-title a:hover {
+  color: white;
+  text-decoration: none;
+}
+.explore-popular-topic .explore-btn {
+  text-align: center;
+  display: block;
+  margin-top: 30px;
+}
+.explore-popular-topic .explore-btn .explore-btn-view-more {
+  border: 1px solid white;
+  border-radius: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  outline: none;
+}
 .subpage-topblock {
   /* border: 2px solid black; */
   margin-top: 70px;

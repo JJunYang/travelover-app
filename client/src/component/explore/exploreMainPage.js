@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import "./explore.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import CityCard from "../shared/cityCard";
+import TopicCardReduced from "../shared/topicCardReduced";
 
 export default class ExploreMainPage extends Component {
   state = {
     placeNum: [],
     cityList: [],
+    topicList: [],
   };
   componentDidMount() {
     axios.get("/explore/place/getPlaceNumByCategory").then((res) => {
@@ -16,6 +18,9 @@ export default class ExploreMainPage extends Component {
     });
     axios.get("/explore/getAllCities").then((res) => {
       this.setState({ cityList: res.data });
+    });
+    axios.get("/topic/getThreeTopics").then((res) => {
+      this.setState({ topicList: res.data });
     });
   }
   render() {
@@ -64,79 +69,24 @@ export default class ExploreMainPage extends Component {
             </Row>
           </Container>
         </div>
-        <div className="explore-popular-blog">
+        <div className="explore-popular-topic">
           <div className="explore-botton-cover-block">
             <h2 className="home-subtitle">Travel Inspiration</h2>
             <hr className="explore-hr"></hr>
           </div>
-          <Container>
+          <Container className="explore-topic">
             <Row>
-              <Col className="blog-col col-md-4 col-6">
-                <Card style={{ border: "none" }}>
-                  <Card.Img
-                    className="home-card-img"
-                    src={`https://wp.getgolo.com/wp-content/uploads/2019/11/photo-1467444606224-8254b013a046.jpeg`}
-                  ></Card.Img>
-                  <Card.Body className="home-blog-cardbody">
-                    <ul className="taglist">
-                      <li>
-                        <a className="card-blog-tag" href="/">
-                          ROAD TRIPS
-                        </a>
-                      </li>
-                      <li>
-                        <a className="card-blog-tag" href="/">
-                          TIPS & TRICKS
-                        </a>
-                      </li>
-                    </ul>
-                    <Card.Text className="card-blog-title">
-                      Why You Should Visit Turkeys
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-              <Col className="blog-col col-md-4 col-6">
-                <Card style={{ border: "none" }}>
-                  <Card.Img
-                    className="home-card-img"
-                    src={`https://images.unsplash.com/photo-1468818438311-4bab781ab9b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
-                  ></Card.Img>
-                  <Card.Body className="home-blog-cardbody">
-                    <ul className="taglist">
-                      <li>
-                        <a className="card-blog-tag" href="/">
-                          TIPS & TRICKS
-                        </a>
-                      </li>
-                    </ul>
-                    <Card.Text className="card-blog-title">
-                      Start Your Trip in Nature
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-              <Col className="blog-col col-md-4 col-6">
-                <Card style={{ border: "none" }}>
-                  <Card.Img
-                    className="home-card-img"
-                    src={`https://images.unsplash.com/photo-1446160657592-4782fb76fb99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`}
-                  ></Card.Img>
-                  <Card.Body className="home-blog-cardbody">
-                    <ul className="taglist">
-                      <li>
-                        <a className="card-blog-tag" href="/">
-                          ROAD TRIPS
-                        </a>
-                      </li>
-                    </ul>
-                    <Card.Text className="card-blog-title">
-                      Seeking your Own Romance in France
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
+              {this.state.topicList.map((topic, i) => {
+                return (
+                  <Col className="topic-col col-md-4 col-6" key={i}>
+                    <TopicCardReduced item={topic} />
+                  </Col>
+                );
+              })}
             </Row>
+            <Link to={`/topic/all`} className="explore-btn">
+              <Button variant="primary" className="explore-btn-view-more">View More</Button>
+            </Link>
           </Container>
         </div>
         <hr></hr>

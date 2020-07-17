@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const mongoose = require("mongoose");
 const City = require("../models/city");
 const Place = require("../models/place");
 const Review = require("../models/review");
@@ -54,7 +55,47 @@ router.get("/city/:name&:_id", async (req, res) => {
 router.get("/place/getPlaceById/:_id", async (req, res) => {
   try {
     const foundPlace = await Place.findById(req.params._id);
-    res.status(200).json(foundPlace);
+    const pList = foundPlace.introducing.split("<br/>");
+    res.status(200).json({ place: foundPlace, pList: pList });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
+  }
+});
+
+//get similar four places
+router.get("/place/getSimilarPlaces", async (req, res) => {
+  try {
+    const place = await Place.findById(req.query._id);
+    const places = await Place.find({
+      category: place.category,
+      city: place.city,
+      _id: { $ne: place._id },
+    });
+    var fourSimilarPlaces = [];
+    var num = 4;
+    for (var i = 0; i < num && places.length > 0; i++) {
+      var ran = Math.floor(Math.random() * places.length);
+      fourSimilarPlaces.push(places.splice(ran, 1)[0]);
+    }
+    res.status(200).json(fourSimilarPlaces);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
+  }
+});
+
+//get  random four hotel
+router.get("/place/getFourHotels", async (req, res) => {
+  try {
+    const allHotel = await Place.find({ category: "stay" });
+    var fourRandomHotels = [];
+    var num = 4;
+    for (var i = 0; i < num && allHotel.length > 0; i++) {
+      var ran = Math.floor(Math.random() * allHotel.length);
+      fourRandomHotels.push(allHotel.splice(ran, 1)[0]);
+    }
+    res.status(200).json(fourRandomHotels);
   } catch (error) {
     console.log(error);
     res.status(400).json(error);

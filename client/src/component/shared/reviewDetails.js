@@ -12,9 +12,6 @@ export default class ReviewDetails extends Component {
       .get(`/explore/review/details/${this.props.review._id}`)
       .then((res) => {
         this.setState({ review: res.data.review, author: res.data.author });
-      })
-      .then(() => {
-        console.log(this.state);
       });
   }
   render() {

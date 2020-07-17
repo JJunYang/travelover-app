@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import "./details.css";
-import { Container,Form } from "react-bootstrap";
+import { Container, Form, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import ReviewDetails from "../shared/reviewDetails";
 import { Link } from "react-router-dom";
+import PlaceCard from "../shared/placeCard";
+
 
 export default class SeeDetails extends Component {
   state = {
@@ -24,6 +26,8 @@ export default class SeeDetails extends Component {
       pics: [],
       reviewList: [],
     },
+    pList: [],
+    similarPlaces: [],
     rating: "",
     content: "",
     message: "",
@@ -32,10 +36,19 @@ export default class SeeDetails extends Component {
     axios
       .get(`/explore/place/getPlaceById/${this.props.match.params._id}`)
       .then((res) => {
-        this.setState({ place: res.data });
+        this.setState({ place: res.data.place, pList: res.data.pList });
       })
       .then(() => {
         console.log(this.state);
+      });
+    axios
+      .get("/explore/place/getSimilarPlaces", {
+        params: { _id: this.props.match.params._id },
+      })
+      .then((res) => {
+        this.setState({
+          similarPlaces: res.data,
+        });
       });
   }
 
@@ -107,7 +120,9 @@ export default class SeeDetails extends Component {
           <hr></hr>
           <div className="item-hide" id="item-hide">
             <div className="inner-content">
-              <p>{this.state.place.introducing}</p>
+              {this.state.pList.map((p, i) => {
+                return <p key={i}>{p}</p>;
+              })}
             </div>
             <div className="show-more" onClick={this.showMore}>
               Show More
@@ -115,7 +130,9 @@ export default class SeeDetails extends Component {
           </div>
           <div className="item-show" id="item-show">
             <div className="inner-content">
-              <p>{this.state.place.introducing}</p>
+              {this.state.pList.map((p, i) => {
+                return <p key={i}>{p}</p>;
+              })}
             </div>
             <div className="hide-all" onClick={this.hideAll}>
               Hide All
@@ -182,6 +199,83 @@ export default class SeeDetails extends Component {
             </p>
           </div>
           <hr></hr>
+          {sessionStorage.getItem("userName") ? (
+            <div className="review-create-block">
+              <Form onSubmit={this.handleSubmitRateForm}>
+                <div className="review-notes">Create your review:</div>
+                <div className="review-rate">
+                  <div className="review-rate-title">Rating:</div>
+                  <div className="rating" onChange={this.handleChange}>
+                    <input
+                      type="radio"
+                      id="star5"
+                      name="rating"
+                      value="5"
+                      hidden
+                    />
+                    <label htmlFor="star5"></label>
+                    <input
+                      type="radio"
+                      id="star4"
+                      name="rating"
+                      value="4"
+                      hidden
+                    />
+                    <label htmlFor="star4"></label>
+                    <input
+                      type="radio"
+                      id="star3"
+                      name="rating"
+                      value="3"
+                      hidden
+                    />
+                    <label htmlFor="star3"></label>
+                    <input
+                      type="radio"
+                      id="star2"
+                      name="rating"
+                      value="2"
+                      hidden
+                    />
+                    <label htmlFor="star2"></label>
+                    <input
+                      type="radio"
+                      id="star1"
+                      name="rating"
+                      value="1"
+                      hidden
+                    />
+                    <label htmlFor="star1"></label>
+                  </div>
+                  <div className="review-rate-message">
+                    {this.state.message}
+                  </div>
+                </div>
+                <textarea
+                  id="review-content"
+                  name="content"
+                  cols="45"
+                  rows="7"
+                  required
+                  onChange={this.handleChange}
+                  placeholder="Enter your review Content now!"
+                ></textarea>
+                <input
+                  type="submit"
+                  value="Submit"
+                  className="btn btn-primary"
+                />
+              </Form>
+            </div>
+          ) : (
+            <p>
+              <Link to="/login" className="link-login">
+                Login
+              </Link>{" "}
+              to review
+            </p>
+          )}
+          <hr></hr>
           <div className="review-block">
             <div className="review-title">
               <h3>Review</h3>
@@ -195,81 +289,25 @@ export default class SeeDetails extends Component {
             {this.state.place.reviewList.map((item, i) => {
               return <ReviewDetails review={item} key={i} />;
             })}
-            {sessionStorage.getItem("userName") ? (
-                <div className="review-create-block">
-                  <Form onSubmit={this.handleSubmitRateForm}>
-                    <div className="review-notes">Create your review:</div>
-                    <div className="review-rate">
-                      <div className="review-rate-title">Rating:</div>
-                      <div className="rating" onChange={this.handleChange}>
-                        <input
-                          type="radio"
-                          id="star5"
-                          name="rating"
-                          value="5"
-                          hidden
-                        />
-                        <label htmlFor="star5"></label>
-                        <input
-                          type="radio"
-                          id="star4"
-                          name="rating"
-                          value="4"
-                          hidden
-                        />
-                        <label htmlFor="star4"></label>
-                        <input
-                          type="radio"
-                          id="star3"
-                          name="rating"
-                          value="3"
-                          hidden
-                        />
-                        <label htmlFor="star3"></label>
-                        <input
-                          type="radio"
-                          id="star2"
-                          name="rating"
-                          value="2"
-                          hidden
-                        />
-                        <label htmlFor="star2"></label>
-                        <input
-                          type="radio"
-                          id="star1"
-                          name="rating"
-                          value="1"
-                          hidden
-                        />
-                        <label htmlFor="star1"></label>
-                      </div>
-                      <div className="review-rate-message">
-                        {this.state.message}
-                      </div>
-                    </div>
-                    <textarea
-                      id="review-content"
-                      name="content"
-                      cols="45"
-                      rows="7"
-                      required
-                      onChange={this.handleChange}
-                      placeholder="Enter your review Content now!"
-                    ></textarea>
-                    <input
-                      type="submit"
-                      value="Submit"
-                      className="btn btn-primary"
-                    />
-                  </Form>
-                </div>
-              ) : (
-                <p>
-                  <Link to="/login">Login</Link> to review
-                </p>
-              )}
           </div>
         </Container>
+        <div className="similar-places">
+          <Container>
+            <h2 className="sub-block-name">Similar Places</h2>
+            <Row>
+              {this.state.similarPlaces.map((place, i) => {
+                return (
+                  <Col
+                    className="sub-block-col col-6 clo-md-4 col-lg-3"
+                    key={i}
+                  >
+                    <PlaceCard place={place}></PlaceCard>
+                  </Col>
+                );
+              })}
+            </Row>
+          </Container>
+        </div>
       </>
     );
   }

@@ -2,8 +2,23 @@ import React, { Component } from "react";
 import "./ticketPage.css";
 import { Link } from "react-router-dom";
 import { Card, Button, Row, Col, Container } from "react-bootstrap";
+import axios from "axios";
+import PlaceCard from "../shared/placeCard";
 
 export default class TicketPage extends Component {
+  state = {
+    hotelList: [],
+  };
+  componentDidMount() {
+    axios
+      .get("/explore/place/getFourHotels")
+      .then((res) => {
+        this.setState({ hotelList: res.data });
+      })
+      .then(() => {
+        console.log(this.state.hotelList);
+      });
+  }
   render() {
     return (
       <>
@@ -114,91 +129,19 @@ export default class TicketPage extends Component {
                 <h2>Hotel</h2>
               </Col>
               <Col className="item-col-btn-book">
-                <Link to={`/tickets/hotel`}>
+                <Link to={`/explore/place/placeList/stay`}>
                   <Button variant="primary">Search More</Button>
                 </Link>
               </Col>
             </Row>
             <Row>
-              <Col className="item-col col-6 col-md-4 col-lg-3">
-                <Card className="item-card">
-                  <div className="item-card-thumbnail">
-                    <Card.Img
-                      variant="top"
-                      className="item-hotel-img"
-                      src={`https://cf.bstatic.com/images/hotel/max1280x900/107/107458730.jpg`}
-                    />
-                  </div>
-                  <Card.Body>
-                    <Card.Text className="item-place-term">
-                      <span className="place-type">Hotel</span>
-                      <span className="place-city">Boston</span>
-                    </Card.Text>
-
-                    <Card.Title>Boston Marriott Copley Place</Card.Title>
-                    <Card.Text>8.7 (4 Reviews)</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-              <Col className="item-col col-6 col-md-4 col-lg-3">
-                <Card className="item-card">
-                  <div className="item-card-thumbnail">
-                    <Card.Img
-                      variant="top"
-                      className="item-hotel-img"
-                      src={`https://cf.bstatic.com/images/hotel/max1280x900/173/173745332.jpg`}
-                    />
-                  </div>
-                  <Card.Body>
-                    <Card.Text className="item-place-term">
-                      <span className="place-type">Hotel</span>
-                      <span className="place-city">Boston</span>
-                    </Card.Text>
-                    <Card.Title>YOTEL Boston</Card.Title>
-                    <Card.Text>4.0 (3 Reviews)</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-              <Col className="item-col col-6 col-md-4 col-lg-3">
-                <Card className="item-card">
-                  <div className="item-card-thumbnail">
-                    <Card.Img
-                      variant="top"
-                      className="item-hotel-img"
-                      src={`https://cf.bstatic.com/images/hotel/max1280x900/155/155685471.jpg`}
-                    />
-                  </div>
-                  <Card.Body>
-                    <Card.Text className="item-place-term">
-                      <span className="place-type">Apartments</span>
-                      <span className="place-city">Boston</span>
-                    </Card.Text>
-                    <Card.Title>
-                      Global Luxury Suites Downtown Boston
-                    </Card.Title>
-                    <Card.Text>4.0 (3 Reviews)</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-              <Col className="item-col col-6 col-md-4 col-lg-3">
-                <Card className="item-card">
-                  <div className="item-card-thumbnail">
-                    <Card.Img
-                      variant="top"
-                      className="item-hotel-img"
-                      src={`https://cf.bstatic.com/images/hotel/max1024x768/395/39532183.jpg`}
-                    />
-                  </div>
-                  <Card.Body>
-                    <Card.Text className="item-place-term">
-                      <span className="place-type">Hotel</span>
-                      <span className="place-city">Los Angeles</span>
-                    </Card.Text>
-                    <Card.Title>Titta Inn</Card.Title>
-                    <Card.Text>4.0 (3 Reviews)</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
+              {this.state.hotelList.map((hotel, i) => {
+                return (
+                  <Col className="item-col col-6 col-md-4 col-lg-3" key={i}>
+                    <PlaceCard place={hotel}></PlaceCard>
+                  </Col>
+                );
+              })}
             </Row>
           </div>
         </Container>
