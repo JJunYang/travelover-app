@@ -15,7 +15,7 @@ const FoodBlock = ({ placeList,cityName,cityId }) => (
       </Link>
     </div>
     <Row className="sub-block-row">
-      {placeList.map((item, i) => {
+      {placeList.slice(0,4).map((item, i) => {
         return (
           <Col key={i} className="sub-block-col col-6 clo-md-4 col-lg-3">
             <PlaceCard place={item} />

@@ -80,7 +80,7 @@ export default class StayDetails extends Component {
   render() {
     return (
       <>
-        <Carousel slidesPerPage={2} arrows infinite centered>
+        <Carousel slidesPerPage={2} arrows infinite centered className="place-details-carousel">
           {this.state.place.pics.map((item, i) => {
             return (
               <img key={i} className="carousel-img" src={item} alt="pic" />
