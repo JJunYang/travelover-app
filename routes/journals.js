@@ -88,4 +88,21 @@ router.put("/addViewNum", async (req, res) => {
   }
 });
 
+//get three random journals
+router.get("/getThreeJournals", async (req, res) => {
+  try {
+    const journals = await Journal.find();
+    const result = [];
+    var num = 4;
+    for (var i = 0; i < num && journals.length > 0; i++) {
+      var ran = Math.floor(Math.random() * journals.length);
+      var journal=journals.splice(ran, 1)[0];
+      result.push(journal);
+    }
+    res.json(result);
+  } catch (error) {
+    res.status(401).json({ code: 401, err: error });
+  }
+});
+
 module.exports = router;

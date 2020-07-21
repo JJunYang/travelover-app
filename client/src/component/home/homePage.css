@@ -16,26 +16,12 @@
 
 #home-middle {
   height: 340px;
-  background-image: url(https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);
+  background-image: url(https://b1-q.mafengwo.net/s16/M00/B7/FC/CoUBUl8UYc-AEJAOACIVQ7cOmaI569.png?imageMogr2%2Finterlace%2F1);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  /* object-fit: cover; */
   padding: 0;
-}
-#home-middle-left {
-  float: left;
-  height: 100%;
-  width: 50%;
-  border-radius: 0 5px 100% 0;
-  box-shadow: 2px;
-  background-color: #24d8d8;
-}
-#home-middle-word {
-  display: block;
-  margin-left: 15%;
-  margin-top: 10%;
-  font-size: 2em;
-  color: rgba(45, 46, 18, 0.644);
 }
 
 #home-topicBlock {

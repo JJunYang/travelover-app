@@ -3,6 +3,8 @@ import axios from "axios";
 import { Container, Carousel, Card, Nav } from "react-bootstrap";
 import "./journal.css";
 import JournalCard from "../shared/journalCard";
+import { Link } from "react-router-dom";
+import moment from "moment";
 
 export default class Journal extends Component {
   constructor(props) {
@@ -19,6 +21,9 @@ export default class Journal extends Component {
       })
       .then((data) => {
         this.setState({ journalList: data });
+      })
+      .then(() => {
+        console.log(this.state.journalList);
       });
   }
 
@@ -30,7 +35,6 @@ export default class Journal extends Component {
       })
       .then((data) => {
         this.setState({ journalList: data });
-      }).then(()=>{console.log("home");
       });
   };
 
@@ -43,9 +47,6 @@ export default class Journal extends Component {
       .then(() => {
         console.log(this.state.journalList);
       });
-    // .then((data) => {
-    //   this.setState({ journalList: data });
-    // });
   };
 
   findNational = async () => {
@@ -57,7 +58,7 @@ export default class Journal extends Component {
       .then((data) => {
         this.setState({ journalList: data });
       })
-      .then(()=>{
+      .then(() => {
         console.log(this.state.journalList);
       });
   };
@@ -66,45 +67,26 @@ export default class Journal extends Component {
     return (
       <Container id="journal-page">
         <Carousel>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={`https://n1-q.mafengwo.net/s16/M00/DA/8C/CoUBUl6Nrw2Abm_KABePgtCWC8Y490.png?imageMogr2%2Finterlace%2F1`}
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h2>
-                <strong>10</strong>/Apr.2020
-              </h2>
-              <p>Starting love on the hot air balloon in Turkey.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={`https://p1-q.mafengwo.net/s16/M00/5D/BA/CoUBUl6MPGOAL51jACMCRcXZ18A154.png?imageMogr2%2Finterlace%2F1`}
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h2>
-                <strong>13</strong>/Apr.2020
-              </h2>
-              <p>Sublimate friendship in the desert.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={`https://b1-q.mafengwo.net/s16/M00/4C/F3/CoUBUl6ZwtCAeSbtAByAg-xTCag859.png?imageMogr2%2Finterlace%2F1`}
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h2>
-                <strong>16</strong>/Apr.2020
-              </h2>
-              <p>Beautiful North Africa, Meet Utopia after youth</p>
-            </Carousel.Caption>
-          </Carousel.Item>
+          {this.state.journalList.slice(0, 4).map((item, i) => {
+            return (
+              <Carousel.Item key={i}>
+                <Link to={`/journals/details/${item._id}`}>
+                  <img
+                    className="d-block w-100"
+                    src={item.pic}
+                    style={{ height: "400px" }}
+                    alt="First slide"
+                  />
+                </Link>
+                <Carousel.Caption>
+                  <h2>
+                    <strong>{moment(item.date).format("LL")}</strong>
+                  </h2>
+                  <p>{item.title}</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            );
+          })}
         </Carousel>
         <Card id="journal-list">
           <Card.Header>

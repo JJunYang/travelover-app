@@ -12,11 +12,7 @@ export default class Home extends Component {
       <>
         <CarouselBlock />
         <CityBlock />
-        <div id="home-middle" className="container-fluid">
-          <div id="home-middle-left">
-            <span id="home-middle-word">Explore The Beautiful World</span>
-          </div>
-        </div>
+        <div id="home-middle" className="container-fluid"></div>
         <TopicBlock />
         {/* <div className="test"></div> */}
       </>

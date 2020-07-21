@@ -1,6 +1,9 @@
 #journal-page {
   margin-top: 56px;
 }
+#journal-page .carousel-inner{
+  height: 400px;
+}
 #journal-list {
   border: none;
 }
