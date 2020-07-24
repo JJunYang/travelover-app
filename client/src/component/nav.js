@@ -34,7 +34,7 @@ export default class NavComponent extends Component {
             <Link to="/home" className="nav-link">
               Home
             </Link>
-            <Link to="/tickets" className="nav-link">
+            <Link to="/tickets/flight" className="nav-link">
               Ticket
             </Link>
             <Link to="/explore" className="nav-link">

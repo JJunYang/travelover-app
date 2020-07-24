@@ -58,14 +58,14 @@ class Paypal_Flight extends Component {
                   "Transaction completed by " + details.payer.name.given_name
                 );
                 fetch(
-                  `/tickets/flight/${localStorage.getItem("userID")}/${
+                  `/tickets/flight/${sessionStorage.getItem("userID")}/${
                     this.state.flight._id
                   }`,
                   {
                     method: "put",
                   }
                 ).then(() => {
-                  this.props.history.push("/tickets");
+                  this.props.history.push("/tickets/flight");
                 });
               }}
               options={{

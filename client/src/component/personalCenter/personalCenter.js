@@ -1,35 +1,27 @@
 import React, { Component } from "react";
-import { Nav, Tab, Col, Row, Table } from "react-bootstrap";
+import { Nav, Tab, Col, Row, Table, Container } from "react-bootstrap";
 import axios from "axios";
-import CenterGroupTourPane from "./centerGroupTourPane";
-import CenterHotelPane from "./centerHotelListPane";
-import CenterBusPane from "./centerBusPane";
+import "./center.css";
+import BasicPane from "./basicPane";
 import CenterFlightPane from "./centerFlightPane";
+import SavePane from "./savePane";
 
 export default class PersonalCenter extends Component {
   state = {
     email: "",
     name: "",
-    groupTourList: [],
     flightList: [],
-    busList: [],
-    hotelList: [],
-    newTopicContent: "",
-    newTopicName: "",
   };
 
   componentDidMount() {
-    const id = localStorage.getItem("userID");
+    const id = sessionStorage.getItem("userID");
     axios
       .get("/personalCenter/" + id)
       .then((res) => {
         this.setState({
           email: res.data.email,
           name: res.data.username,
-          groupTourList: res.data.groupTourList,
           flightList: res.data.flightList,
-          busList: res.data.busList,
-          hotelList: res.data.hotelList,
         });
       })
       .catch((error) => {
@@ -44,78 +36,48 @@ export default class PersonalCenter extends Component {
   };
   render() {
     return (
-      <Tab.Container id="left-tabs-example" defaultActiveKey="basic">
-        <Row>
-          <Col sm={3}>
-            <Nav variant="pills" className="flex-column">
-              <Nav.Item>
-                <Nav.Link eventKey="basic">Basic Info</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="grouptour">GroupTour</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="bus">BusTickets</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="flight">FlightsTickets</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="hotel">HotelList</Nav.Link>
-              </Nav.Item>
-            </Nav>
-          </Col>
-          <Col sm={9}>
-            <Tab.Content>
-              <Tab.Pane eventKey="basic">
-                <Table striped bordered hover>
-                  <tbody>
-                    <tr>
-                      <th>#</th>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th>userEmail:</th>
-                      <td>{this.state.email}</td>
-                    </tr>
-                    <tr>
-                      <th>userName:</th>
-                      <td>{this.state.name}</td>
-                    </tr>
-                  </tbody>
-                  <input
-                    name="newTopicName"
-                    onChange={this.handleChange}
-                  ></input>
-                  <div>
-                    <textarea
-                      name="newTopicContent"
-                      cols="45"
-                      rows="7"
-                      required
-                      onChange={this.handleChange}
-                      placeholder="Enter your review Content now!"
-                    ></textarea>
-                  </div>
-                </Table>
-              </Tab.Pane>
-              {/* <Tab.Pane eventKey="grouptour">
-                <CenterGroupTourPane
-                  groupTourList={this.state.groupTourList}
-                />
-              </Tab.Pane>
-              <Tab.Pane eventKey="bus">
-                <CenterBusPane busList={this.state.busList} />
-              </Tab.Pane>
-              <Tab.Pane eventKey="flight">
-                <CenterFlightPane flightList={this.state.flightList} />
-              </Tab.Pane>
-              <Tab.Pane eventKey="hotel">
-                <CenterHotelPane hotelList={this.state.hotelList} />
-              </Tab.Pane> */}
-            </Tab.Content>
-          </Col>
-        </Row>
+      <Tab.Container defaultActiveKey="basic">
+        <Container className="personal-center-block">
+          <h2>PersonalCenter</h2>
+          <hr></hr>
+          <Row>
+            <Col sm={3}>
+              <Nav variant="pills" className="flex-column">
+                <Nav.Item>
+                  <Nav.Link eventKey="basic">Basic Info</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="flight">Flight</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="journal">Journal</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="journal">Topic</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="love">Love</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="history">Comment History</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Col>
+            <Col sm={9}>
+              <Tab.Content>
+                <Tab.Pane eventKey="basic">
+                  <BasicPane email={this.state.email} name={this.state.name} />
+                </Tab.Pane>
+                <Tab.Pane eventKey="flight">
+                  <CenterFlightPane flightList={this.state.flightList} />
+                </Tab.Pane>
+                <Tab.Pane eventKey="love">
+                  <SavePane flightList={this.state.flightList} />
+                </Tab.Pane>
+              </Tab.Content>
+            </Col>
+          </Row>
+        </Container>
       </Tab.Container>
     );
   }

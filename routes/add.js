@@ -8,6 +8,7 @@ const User = require("../models/user");
 const Topic = require("../models/topic");
 const Journal = require("../models/journal");
 const Comment = require("../models/comment");
+const Flight = require("../models/flight");
 
 //add country
 router.post("/newCountry", async (req, res) => {
@@ -222,6 +223,24 @@ router.post("/newJournal", isLoggedIn, async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(400).json({ des: error });
+  }
+});
+
+//add new flight
+router.post("/newFlight", async (req, res) => {
+  const { flightId, from, to, date, price } = req.body;
+  try {
+    var newFlight = new Flight({
+      flightId: flightId,
+      from: from,
+      to: to,
+      date: date,
+      price: price,
+    });
+    await newFlight.save();
+    res.sendStatus(200);
+  } catch (error) {
+    res.status(400).json(error);
   }
 });
 

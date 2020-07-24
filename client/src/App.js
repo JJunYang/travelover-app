@@ -6,11 +6,8 @@ import Register from "./component/register";
 import Login from "./component/login";
 import NavComponent from "./component/nav";
 import Home from "./component/home/home";
-import TicketPage from "./component/ticket/ticketPage";
 import Flight from "./component/ticket/flight";
 import Paypal_Flight from "./component/paypal/paypal_flight";
-import Hotel from "./component/ticket/hotel";
-import Paypal_Hotel from "./component/paypal/paypal_hotel";
 import PersonalCenter from "./component/personalCenter/personalCenter";
 import Footer from "./component/footer";
 import CityMainPage from "./component/city/cityMainPage";
@@ -82,18 +79,11 @@ function App() {
               component={StayDetails}
             />
 
-            <Route path="/tickets" exact component={TicketPage} />
             <Route path="/tickets/flight" exact component={Flight} />
-            <Route path="/tickets/hotel" exact component={Hotel} />
             <Route
               path="/tickets/flight/paypal/:_id"
               exact
               component={Paypal_Flight}
-            />
-            <Route
-              path="/tickets/hotel/paypal/:_id"
-              exact
-              component={Paypal_Hotel}
             />
 
             <Route path="/journals" exact component={Journal} />
