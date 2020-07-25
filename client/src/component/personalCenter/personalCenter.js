@@ -1,16 +1,22 @@
 import React, { Component } from "react";
-import { Nav, Tab, Col, Row, Table, Container } from "react-bootstrap";
+import { Nav, Tab, Col, Row, Container } from "react-bootstrap";
 import axios from "axios";
 import "./center.css";
 import BasicPane from "./basicPane";
 import CenterFlightPane from "./centerFlightPane";
-import SavePane from "./savePane";
+import JournalPane from "./journalPane";
+import CommentPane from "./commentPane";
+import ReviewPane from "./reviewPane";
 
 export default class PersonalCenter extends Component {
   state = {
     email: "",
     name: "",
     flightList: [],
+    journalList: [],
+    topicList: [],
+    reviewList: [],
+    commentList: [],
   };
 
   componentDidMount() {
@@ -19,9 +25,12 @@ export default class PersonalCenter extends Component {
       .get("/personalCenter/" + id)
       .then((res) => {
         this.setState({
-          email: res.data.email,
-          name: res.data.username,
-          flightList: res.data.flightList,
+          email: res.data.user.email,
+          name: res.data.user.username,
+          flightList: res.data.user.flightList,
+          journalList: res.data.user.journalList,
+          reviewList: res.data.reviewList,
+          commentList: res.data.commentList,
         });
       })
       .catch((error) => {
@@ -50,16 +59,13 @@ export default class PersonalCenter extends Component {
                   <Nav.Link eventKey="flight">Flight</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="journal">Journal</Nav.Link>
+                  <Nav.Link eventKey="journal">Journal & Topic</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="journal">Topic</Nav.Link>
+                  <Nav.Link eventKey="review">Review History</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="love">Love</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="history">Comment History</Nav.Link>
+                  <Nav.Link eventKey="comment">Comment History</Nav.Link>
                 </Nav.Item>
               </Nav>
             </Col>
@@ -71,8 +77,17 @@ export default class PersonalCenter extends Component {
                 <Tab.Pane eventKey="flight">
                   <CenterFlightPane flightList={this.state.flightList} />
                 </Tab.Pane>
-                <Tab.Pane eventKey="love">
-                  <SavePane flightList={this.state.flightList} />
+                <Tab.Pane eventKey="journal">
+                  <JournalPane
+                    journalList={this.state.journalList}
+                    topicList={this.state.topicList}
+                  />
+                </Tab.Pane>
+                <Tab.Pane eventKey="review">
+                  <ReviewPane reviewList={this.state.reviewList} />
+                </Tab.Pane>
+                <Tab.Pane eventKey="comment">
+                  <CommentPane commentList={this.state.commentList} />
                 </Tab.Pane>
               </Tab.Content>
             </Col>

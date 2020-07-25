@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import "./explore.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -85,7 +85,9 @@ export default class ExploreMainPage extends Component {
               })}
             </Row>
             <Link to={`/topic/all`} className="explore-btn">
-              <Button variant="primary" className="explore-btn-view-more">View More</Button>
+              <Button variant="primary" className="explore-btn-view-more">
+                View More
+              </Button>
             </Link>
           </Container>
         </div>

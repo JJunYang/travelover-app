@@ -1,4 +1,34 @@
-.personal-center-block{
+.personal-center-block {
   margin-top: 80px;
   font-size: 16px;
+}
+.nav-pills .nav-link.active {
+  background-color: #24d8d8;
+}
+.personal-center-block a {
+  color: #2d2d2d;
+  transition: all 0.3s;
+}
+.personal-center-block a:hover {
+  color: #24d8d8;
+  text-decoration: none;
+}
+#journalPane li {
+  margin-top: 10px;
+}
+#journalPane li a {
+  font-size: 18px;
+}
+#commentPane .review-title,
+#reviewPane .review-title {
+  color: #24d8d8;
+  font-style: italic;
+}
+#commentPane .review-content,
+#reviewPane .review-content {
+  color: #5d5d5d;
+}
+#commentPane .review-date,
+#reviewPane .review-date {
+  font-style: italic;
 }

@@ -4,7 +4,7 @@ import moment from "moment";
 
 const CenterFlightPane = (props) => {
   return (
-    <>
+    <div id="ticketPane">
       <h2 align="center">Flight Tickets List</h2>
       <br></br>
       <Table striped bordered hover>
@@ -33,7 +33,7 @@ const CenterFlightPane = (props) => {
           })}
         </tbody>
       </Table>
-    </>
+    </div>
   );
 };
 

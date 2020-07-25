@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import "./details.css";
-import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import axios from "axios";
 import ReviewDetails from "../shared/reviewDetails";
 import { Link } from "react-router-dom";
@@ -94,7 +94,13 @@ export default class FoodDetails extends Component {
   render() {
     return (
       <>
-        <Carousel slidesPerPage={2} arrows infinite centered className="place-details-carousel">
+        <Carousel
+          slidesPerPage={2}
+          arrows
+          infinite
+          centered
+          className="place-details-carousel"
+        >
           {this.state.place.pics.map((item, i) => {
             return (
               <img key={i} className="carousel-img" src={item} alt="pic" />

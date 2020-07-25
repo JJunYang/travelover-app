@@ -33,26 +33,6 @@ router.get("/getCategoryNum", async (req, res) => {
       });
       result.push({ category: type[i], num: topics.length });
     }
-    // const beachtopics = await Topic.find({
-    //   type: { $elemMatch: { $eq: "beaches" } },
-    // });
-    // result.push({ category: "beaches", num: beachtopics.length });
-    // const staytopics = await Topic.find({
-    //   type: { $elemMatch: { $eq: "unique stay" } },
-    // });
-    // result.push({ category: "unique stay", num: staytopics.length });
-    // const tiptopics = await Topic.find({
-    //   type: { $elemMatch: { $eq: "tips & tricks" } },
-    // });
-    // result.push({ category: "tips & tricks", num: tiptopics.length });
-    // const breaktopics = await Topic.find({
-    //   type: { $elemMatch: { $eq: "take a break" } },
-    // });
-    // result.push({ category: "take a break", num: breaktopics.length });
-    // const roadtriptopics = await Topic.find({
-    //   type: { $elemMatch: { $eq: "road trips" } },
-    // });
-    // result.push({ category: "road trips", num: roadtriptopics.length });
     result.sort(function (a, b) {
       return b.num - a.num;
     });

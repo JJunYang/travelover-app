@@ -101,7 +101,6 @@ export default class TopicDetails extends Component {
                 );
               })}
               <hr></hr>
-              {/* {sessionStorage.getItem("userName") ? ( */}
               <div className="topic-comment-block">
                 <Form onSubmit={this.handleSubmitComment}>
                   <div className="topic-comment-note">
@@ -123,18 +122,10 @@ export default class TopicDetails extends Component {
                   />
                 </Form>
               </div>
-              {/* ) : (
-                <p>
-                  <Link to="/login" className="topic-comment-login">
-                    Login
-                  </Link>{" "}
-                  to review
-                </p>
-              )} */}
 
               <hr></hr>
               {this.state.topic.commentList.map((comment, i) => {
-                return <CommentDetail comment={comment} />;
+                return <CommentDetail comment={comment} key={i} />;
               })}
               <div className="topic-related-article">
                 <h3>Related Articles</h3>
