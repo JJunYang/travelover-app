@@ -32,7 +32,7 @@
   padding-bottom: 10px;
   padding-right: 30px;
 }
-.city-information .info-details .info-description {
+.city-information .info-details .info-introducing .info-description {
   margin-bottom: 0;
   font-weight: 400;
   color: #5d5d5d;
@@ -64,8 +64,8 @@
 }
 
 .city-information .info-details .detail-list .currency,
-.time,
-.language {
+.city-information .info-details .detail-list .time,
+.city-information .info-details .detail-list .language {
   color: #5d5d5d;
 }
 
@@ -104,30 +104,29 @@
   justify-content: space-between;
   display: flex;
   margin-top: 30px;
-  /* margin-bottom: 30px; */
 }
-.sub-block-col{
-  margin-top: 20px;
+.sub-block-title .sub-block-name {
+  align-self: flex-end;
+  margin-bottom: 0;
 }
-.sub-block-seeall {
+.sub-block-title .sub-block-seeall {
   align-self: flex-end;
   color: #24d8d8;
   font-size: 18px;
   font-weight: 600;
 }
-.sub-block-name{
-  align-self: flex-end;
-  margin-bottom: 0;
-}
-.sub-block-row{
+.sub-block-row {
   margin-bottom: 20px;
+}
+.sub-block-row .sub-block-col {
+  margin-top: 20px;
 }
 
 #exploreOtherCity {
   background-color: black;
   margin-top: 50px;
   margin-bottom: 5px;
-  padding: 20px;
+  padding: 30px;
 }
 #exploreOtherCity .explore-title {
   color: white;

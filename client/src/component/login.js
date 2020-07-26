@@ -18,18 +18,15 @@ export default class Login extends Component {
       },
     })
       .then((res) => {
-        // console.log(res);
-        // localStorage.setItem("user", res.data);
-        // localStorage.setItem("userName", res.data.username);
-        // localStorage.setItem("userID", res.data._id);
         sessionStorage.setItem("userName", res.data.username);
         sessionStorage.setItem("userID", res.data._id);
       })
-      .then((response) => {
+      .then(() => {
         this.props.history.push("/");
       })
       .catch((error) => {
-        console.log(error.response.data.message);
+        // console.log(error.response.data.message);
+        alert(error.response.data.message);
       });
   };
   handleChange = async (e) => {

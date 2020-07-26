@@ -23,11 +23,12 @@ export default class Register extends Component {
         localStorage.setItem("userName", res.data.username);
         localStorage.setItem("userID", res.data._id);
       })
-      .then((response) => {
+      .then(() => {
         this.props.history.push("/login");
       })
       .catch((error) => {
-        console.log(error.response.data.message);
+        // console.log(error.response.data.message);
+        alert(error.response.data.message);
       });
   };
   handleChange = async (e) => {
