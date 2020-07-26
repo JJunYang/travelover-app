@@ -9,6 +9,7 @@ const Topic = require("../models/topic");
 const Journal = require("../models/journal");
 const Comment = require("../models/comment");
 const Flight = require("../models/flight");
+const middleware = require("../middleware");
 
 //add country
 router.post("/newCountry", async (req, res) => {
@@ -111,7 +112,7 @@ router.post("/newPlace", async (req, res) => {
 });
 
 //add review
-router.post("/newReview", isLoggedIn, async (req, res) => {
+router.post("/newReview", middleware.isLoggedIn, async (req, res) => {
   const { content, star, place } = req.body;
   const author = { _id: req.user._id, username: req.user.username };
   try {
@@ -148,7 +149,7 @@ router.post("/newReview", isLoggedIn, async (req, res) => {
 });
 
 //add topic
-router.post("/newTopic", isLoggedIn, async (req, res) => {
+router.post("/newTopic", middleware.isLoggedIn, async (req, res) => {
   const { name, type, pic, content } = req.body;
   const author = {
     _id: req.user._id,
@@ -174,7 +175,7 @@ router.post("/newTopic", isLoggedIn, async (req, res) => {
 });
 
 //add topic comment
-router.post("/newComment", isLoggedIn, async (req, res) => {
+router.post("/newComment", middleware.isLoggedIn, async (req, res) => {
   const { content, topic } = req.body;
   const author = { _id: req.user._id, username: req.user.username };
   try {
@@ -198,7 +199,7 @@ router.post("/newComment", isLoggedIn, async (req, res) => {
 });
 
 //add journal
-router.post("/newJournal", isLoggedIn, async (req, res) => {
+router.post("/newJournal", middleware.isLoggedIn, async (req, res) => {
   const author = {
     _id: req.user._id,
     username: req.user.username,
@@ -244,10 +245,4 @@ router.post("/newFlight", async (req, res) => {
   }
 });
 
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  return res.json({ message: "loggin first" });
-}
 module.exports = router;

@@ -100,6 +100,11 @@ export default class Flight extends Component {
                 </Form.Group>
               </Col>
             </Row>
+            {sessionStorage.getItem("userName") ? (
+              ""
+            ) : (
+              <div className="text-center login-note">! Login to buy !</div>
+            )}
           </Form>
           <div id="flightTable">
             <Table responsive className="ticket-table">

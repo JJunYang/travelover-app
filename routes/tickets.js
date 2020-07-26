@@ -45,11 +45,4 @@ router.put("/flight/:userId/:flightId", async (req, res) => {
   }
 });
 
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  return res.json({ message: "loggin first" });
-}
-
 module.exports = router;
