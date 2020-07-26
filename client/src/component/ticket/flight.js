@@ -127,7 +127,7 @@ export default class Flight extends Component {
                           <Link to={`/tickets/flight/paypal/${result._id}`}>
                             <button
                               type="button"
-                              className="btn btn-info btn-sm"
+                              className="btn btn-primary btn-sm"
                               style={{ marginBottom: "20px" }}
                             >
                               Buy Ticket

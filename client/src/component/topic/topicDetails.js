@@ -101,27 +101,36 @@ export default class TopicDetails extends Component {
                 );
               })}
               <hr></hr>
-              <div className="topic-comment-block">
-                <Form onSubmit={this.handleSubmitComment}>
-                  <div className="topic-comment-note">
-                    Leave your comment here
-                  </div>
-                  <textarea
-                    id="topic-comment"
-                    name="newComment"
-                    cols="45"
-                    rows="7"
-                    required
-                    onChange={this.handleChange}
-                    placeholder="Comment"
-                  ></textarea>
-                  <input
-                    type="submit"
-                    value="Submit"
-                    className="btn btn-primary"
-                  />
-                </Form>
-              </div>
+              {sessionStorage.getItem("userName") ? (
+                <div className="topic-comment-block">
+                  <Form onSubmit={this.handleSubmitComment}>
+                    <div className="topic-comment-note">
+                      Leave your comment here
+                    </div>
+                    <textarea
+                      id="topic-comment"
+                      name="newComment"
+                      cols="45"
+                      rows="7"
+                      required
+                      onChange={this.handleChange}
+                      placeholder="Comment"
+                    ></textarea>
+                    <input
+                      type="submit"
+                      value="Submit"
+                      className="btn btn-primary"
+                    />
+                  </Form>
+                </div>
+              ) : (
+                <div>
+                  <Link to="/login" className="link-login">
+                    Login
+                  </Link>{" "}
+                  to review
+                </div>
+              )}
 
               <hr></hr>
               {this.state.topic.commentList.map((comment, i) => {
@@ -164,7 +173,6 @@ export default class TopicDetails extends Component {
             </Col>
           </Row>
         </Container>
-        <hr></hr>
       </>
     );
   }

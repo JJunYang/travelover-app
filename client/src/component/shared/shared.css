@@ -52,6 +52,12 @@
   border-radius: 13px;
   overflow: hidden;
 }
+.card-place .review-star-pic{
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
 .card-place-thumbnail {
   overflow: hidden;
 }

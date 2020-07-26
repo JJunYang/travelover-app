@@ -8,7 +8,6 @@ import ReviewDetails from "../shared/reviewDetails";
 import { Link } from "react-router-dom";
 import PlaceCard from "../shared/placeCard";
 
-
 export default class SeeDetails extends Component {
   state = {
     place: {
@@ -31,12 +30,17 @@ export default class SeeDetails extends Component {
     rating: "",
     content: "",
     message: "",
+    ratio: 0,
   };
   componentDidMount() {
     axios
       .get(`/explore/place/getPlaceById/${this.props.match.params._id}`)
       .then((res) => {
-        this.setState({ place: res.data.place, pList: res.data.pList });
+        this.setState({
+          place: res.data.place,
+          pList: res.data.pList,
+          ratio: (res.data.place.reviewStar / 5).toFixed(2) * 100,
+        });
       })
       .then(() => {
         console.log(this.state);
@@ -89,9 +93,18 @@ export default class SeeDetails extends Component {
       });
   };
   render() {
+    const width = {
+      width: `${this.state.ratio}%`,
+    };
     return (
       <>
-        <Carousel slidesPerPage={2} arrows infinite centered className="place-details-carousel">
+        <Carousel
+          slidesPerPage={2}
+          arrows
+          infinite
+          centered
+          className="place-details-carousel"
+        >
           {this.state.place.pics.map((item, i) => {
             return (
               <img key={i} className="carousel-img" src={item} alt="pic" />
@@ -111,9 +124,25 @@ export default class SeeDetails extends Component {
             </a>
           </div>
           <h2>{this.state.place.name}</h2>
-          <div>
-            <span className="item-star">{this.state.place.reviewStar}</span> (
-            {this.state.place.reviewNum} reviews)
+          <div style={{ display: "flex" }}>
+            <span className="item-star">{this.state.place.reviewStar}</span>
+            <span className="star-rating">
+              <div className="star-rating-top" style={width}>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div className="star-rating-bottom">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </span>
+            <span>({this.state.place.reviewNum} reviews)</span>
             <span className="item-cost">{this.state.place.cost}</span>
             <span className="item-place-type">{this.state.place.type}</span>
           </div>

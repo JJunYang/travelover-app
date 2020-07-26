@@ -91,7 +91,6 @@ export default class ExploreMainPage extends Component {
             </Link>
           </Container>
         </div>
-        <hr></hr>
       </>
     );
   }

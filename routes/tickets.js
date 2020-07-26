@@ -7,8 +7,6 @@ const User = require("../models/user");
 router.get("/flight", async (req, res) => {
   const from = req.query.from;
   const to = req.query.to;
-  console.log(from);
-  console.log(to);
   if (from === "" && to === "") {
     const data = await Flight.find();
     res.json(data);

@@ -155,17 +155,20 @@
   height: 240px;
   object-fit: cover;
 }
-.topic-details-leftside .topic-comment-login{
+.topic-details-leftside .topic-comment-login {
   text-decoration: none;
   color: #24d8d8;
 }
-.topic-details-leftside .topic-comment-block .topic-comment-note{
+.topic-details-leftside .topic-comment-block .topic-comment-note {
   font-size: 20px;
   margin-bottom: 15px;
   font-weight: 500;
 }
+.topic-details-leftside .link-login {
+  color: #24d8d8;
+}
 
-#topic-comment{
+#topic-comment {
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;

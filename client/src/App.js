@@ -98,8 +98,8 @@ function App() {
             <Route path="/personalcenter" exact component={PersonalCenter} />
           </Switch>
         </Router>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }

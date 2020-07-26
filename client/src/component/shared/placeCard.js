@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Image } from "react-bootstrap";
 import "./shared.css";
 import { Link } from "react-router-dom";
 
@@ -20,7 +20,12 @@ const PlaceCard = ({ place }) => (
         </Link>
       </Card.Title>
       <Card.Text>
-        {place.reviewStar} ({place.reviewNum} Reviews)
+        {place.reviewStar}
+        <Image
+          src={process.env.PUBLIC_URL + "/Icon/fullstar.png"}
+          className="review-star-pic"
+        />
+        ({place.reviewNum} Reviews)
       </Card.Text>
     </Card.Body>
   </Card>

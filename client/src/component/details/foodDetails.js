@@ -30,6 +30,7 @@ export default class FoodDetails extends Component {
     rating: "",
     content: "",
     message: "",
+    ratio: 0,
   };
   componentDidMount() {
     axios
@@ -38,10 +39,11 @@ export default class FoodDetails extends Component {
         this.setState({
           place: res.data.place,
           pList: res.data.pList,
+          ratio: (res.data.place.reviewStar / 5).toFixed(2) * 100,
         });
       })
       .then(() => {
-        console.log(this.state);
+        console.log(this.state.ratio);
       });
     axios
       .get("/explore/place/getSimilarPlaces", {
@@ -92,6 +94,9 @@ export default class FoodDetails extends Component {
       });
   };
   render() {
+    const width = {
+      width: `${this.state.ratio}%`,
+    };
     return (
       <>
         <Carousel
@@ -121,8 +126,24 @@ export default class FoodDetails extends Component {
               </a>
             </div>
             <h2>{this.state.place.name}</h2>
-            <div>
+            <div style={{ display: "flex" }}>
               <span className="item-star">{this.state.place.reviewStar}</span>
+              <span className="star-rating">
+                <div className="star-rating-top" style={width}>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div className="star-rating-bottom">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </span>
               <span> ({this.state.place.reviewNum} reviews)</span>
               <span className="item-cost">{this.state.place.cost}</span>
               <span className="item-place-type">{this.state.place.type}</span>
