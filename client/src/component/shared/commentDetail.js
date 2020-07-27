@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./shared.css";
 import axios from "axios";
 import moment from "moment";
 
@@ -12,9 +13,6 @@ export default class CommentDetail extends Component {
       .get(`/topic/getCommentDetails/${this.props.comment._id}`)
       .then((res) => {
         this.setState({ comment: res.data.comment, author: res.data.author });
-      })
-      .then(() => {
-        console.log(this.state);
       });
   }
   render() {

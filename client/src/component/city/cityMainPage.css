@@ -2,11 +2,13 @@
   position: relative;
   margin-top: 56px;
 }
+
 .city-title .city-title-pic {
   width: 100%;
   object-fit: cover;
   height: 400px;
 }
+
 .city-title .city-title-titleInfo {
   color: white;
   position: absolute;
@@ -16,9 +18,11 @@
   padding: 1.25rem;
   text-align: center;
 }
+
 .city-title .city-title-titleInfo .countryName {
   font-size: 20px;
 }
+
 .city-title .city-title-titleInfo .city-title-city {
   font-size: 80px;
 }
@@ -27,16 +31,19 @@
   background-color: #f9f9f9;
   padding: 20px;
 }
+
 .city-information .info-details .info-introducing {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right: 30px;
 }
+
 .city-information .info-details .info-introducing .info-description {
   margin-bottom: 0;
   font-weight: 400;
   color: #5d5d5d;
 }
+
 .city-information .info-details .detail-list {
   list-style: none;
   justify-content: space-between;
@@ -48,15 +55,18 @@
   line-height: 20px;
   padding-left: 0;
 }
+
 .city-information .info-details .detail-list li {
   border-left: 1px solid #ddd;
   flex: 1;
   padding: 13px 28px;
 }
+
 .city-information .info-details .detail-list li:first-child {
   padding-left: 0;
   border-left: 0;
 }
+
 .city-information .info-details .detail-list strong {
   display: block;
   margin-bottom: 10px;
@@ -74,6 +84,7 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 .city-nav .city-nav-link {
   color: black;
   margin-top: 15px;
@@ -89,10 +100,12 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+
 .city-nav .city-nav-link:hover {
   color: #24d8d8;
   border-bottom: 1px solid #24d8d8;
 }
+
 .city-nav .city-nav-link .city-icon {
   width: 18px;
   height: 18px;
@@ -105,19 +118,23 @@
   display: flex;
   margin-top: 30px;
 }
+
 .sub-block-title .sub-block-name {
   align-self: flex-end;
   margin-bottom: 0;
 }
+
 .sub-block-title .sub-block-seeall {
   align-self: flex-end;
   color: #24d8d8;
   font-size: 18px;
   font-weight: 600;
 }
+
 .sub-block-row {
   margin-bottom: 20px;
 }
+
 .sub-block-row .sub-block-col {
   margin-top: 20px;
 }
@@ -128,13 +145,16 @@
   margin-bottom: 5px;
   padding: 30px;
 }
+
 #exploreOtherCity .explore-title {
   color: white;
   margin-bottom: 20px;
 }
+
 #exploreOtherCity .explore-row {
   margin: 0;
 }
+
 #exploreOtherCity .explore-row .cardCity {
   border: none;
 }

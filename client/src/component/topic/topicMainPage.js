@@ -20,7 +20,6 @@ export default class TopicMainPage extends Component {
         },
       })
       .then((res) => {
-        // console.log(res.data);
         this.setState({ topicList: res.data });
       });
   }
@@ -55,7 +54,6 @@ export default class TopicMainPage extends Component {
               })}
             </ul>
           </div>
-          {/* <div className="topic-main-block"> */}
           <Row>
             {this.state.topicList.map((item, i) => {
               return (
@@ -65,7 +63,6 @@ export default class TopicMainPage extends Component {
               );
             })}
           </Row>
-          {/* </div> */}
         </Container>
       </>
     );

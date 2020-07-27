@@ -21,9 +21,6 @@ export default class Journal extends Component {
       })
       .then((data) => {
         this.setState({ journalList: data });
-      })
-      .then(() => {
-        console.log(this.state.journalList);
       });
   }
 
@@ -39,14 +36,9 @@ export default class Journal extends Component {
   };
 
   findNative = async () => {
-    await axios
-      .get("/journals/getNative")
-      .then((response) => {
-        this.setState({ journalList: response.data });
-      })
-      .then(() => {
-        console.log(this.state.journalList);
-      });
+    await axios.get("/journals/getNative").then((response) => {
+      this.setState({ journalList: response.data });
+    });
   };
 
   findNational = async () => {
@@ -57,9 +49,6 @@ export default class Journal extends Component {
       })
       .then((data) => {
         this.setState({ journalList: data });
-      })
-      .then(() => {
-        console.log(this.state.journalList);
       });
   };
 

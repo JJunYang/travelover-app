@@ -70,7 +70,6 @@ export default class NavComponent extends Component {
             sessionStorage.getItem("userName") === null ? (
               ""
             ) : (
-              // <Link to="/login">
               <Button
                 variant="dark"
                 onClick={this.logout}
@@ -82,7 +81,6 @@ export default class NavComponent extends Component {
               >
                 Logout
               </Button>
-              // </Link>
             )}
           </Navbar.Collapse>
         </Navbar.Collapse>

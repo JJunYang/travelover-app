@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./shared.css";
 import axios from "axios";
 import moment from "moment";
 

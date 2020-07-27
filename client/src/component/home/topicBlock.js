@@ -8,7 +8,6 @@ export default class TopicBlock extends Component {
   };
   componentDidMount() {
     axios.get("/topic/getThreeTopics").then((res) => {
-      // console.log(res.data);
       this.setState({ topicList: res.data });
     });
   }

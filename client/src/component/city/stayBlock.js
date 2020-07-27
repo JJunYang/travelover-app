@@ -3,7 +3,7 @@ import { Container, Col, Row } from "react-bootstrap";
 import PlaceCard from "../shared/placeCard";
 import { Link } from "react-router-dom";
 
-const StayBlock = ({ placeList,cityId,cityName }) => (
+const StayBlock = ({ placeList, cityId, cityName }) => (
   <Container>
     <div className="sub-block-title">
       <h2 className="sub-block-name">Stay</h2>
@@ -15,7 +15,7 @@ const StayBlock = ({ placeList,cityId,cityName }) => (
       </Link>
     </div>
     <Row className="sub-block-row">
-      {placeList.slice(0,4).map((item, i) => {
+      {placeList.slice(0, 4).map((item, i) => {
         return (
           <Col key={i} className="sub-block-col col-6 clo-md-4 col-lg-3">
             <PlaceCard place={item} />

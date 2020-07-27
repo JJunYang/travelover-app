@@ -1,12 +1,13 @@
-/* homePage cityBlock */
 #home-cityBlock {
   padding-top: 30px;
   padding-bottom: 35px;
 }
-.home-subtitle {
+
+#home-cityBlock .home-subtitle {
   margin-bottom: 0px;
 }
-.colCity {
+
+#home-cityBlock .colCity {
   color: white;
   max-height: 370px;
   max-width: 270px;
@@ -20,7 +21,6 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  /* object-fit: cover; */
   padding: 0;
 }
 
@@ -28,16 +28,13 @@
   padding-top: 30px;
   padding-bottom: 50px;
 }
-.topic-col {
+
+#home-topicBlock .topic-col {
   margin-top: 20px;
 }
 
 @media (max-width: 768px) {
   #home-middle {
     height: 200px;
-  }
-  #home-middle-word {
-    font-size: 1.4em;
-    margin-left: 15%;
   }
 }

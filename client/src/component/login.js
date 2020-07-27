@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default class Login extends Component {
   state = {
@@ -25,7 +27,6 @@ export default class Login extends Component {
         this.props.history.push("/");
       })
       .catch((error) => {
-        // console.log(error.response.data.message);
         alert(error.response.data.message);
       });
   };
@@ -37,45 +38,47 @@ export default class Login extends Component {
   };
   render() {
     return (
-      <div className="row mt-5">
-        <div className="col-md-6 m-auto">
-          <div className="card card-body">
-            <h1 className="text-center mb-3">
-              <i className="fas fa-sign-in-alt"></i> Login
-            </h1>
-            <form onSubmit={this.handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input
-                  type="text"
-                  id="email"
-                  name="email"
-                  className="form-control"
-                  placeholder="Enter Email"
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  className="form-control"
-                  placeholder="Enter Password"
-                  onChange={this.handleChange}
-                />
-              </div>
-              <button type="submit" className="btn btn-primary btn-block">
-                Login
-              </button>
-            </form>
-            <p className="lead mt-4">
-              No Account? <a href="/register">Register</a>
-            </p>
+      <Container className="login-block">
+        <div className="row mt-5">
+          <div className="col-md-6 m-auto">
+            <div className="card card-body">
+              <h1 className="text-center mb-3">
+                <i className="fas fa-sign-in-alt"></i> Login
+              </h1>
+              <form onSubmit={this.handleSubmit}>
+                <div className="form-group">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    className="form-control"
+                    placeholder="Enter Email"
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="password">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    className="form-control"
+                    placeholder="Enter Password"
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary btn-block">
+                  Login
+                </button>
+              </form>
+              <p className="lead mt-4">
+                No Account? <Link to="/register">Register</Link>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </Container>
     );
   }
 }

@@ -8,50 +8,61 @@
   width: 100%;
   padding: 100px 0px 100px 0px;
 }
+
 .explore-top-cover {
   margin-top: -40px;
 }
-.explore-top-cover-block {
+
+.explore-top-cover .explore-top-cover-block {
   height: 80px;
   border-radius: 100% 100% 0 0;
   background-color: white;
 }
+
 .explore-hr {
   margin-top: 0;
   padding: 0;
   width: 80px;
   border-color: #24d8d8;
 }
+
 .explore-category-block {
   text-align: center;
   margin-top: -60px;
   margin-bottom: 30px;
   z-index: 2;
 }
-.explore-category-title {
+
+.explore-category-block .explore-category-title {
   margin-top: 20px;
 }
-.explore-category-detail {
+
+.explore-category-block .explore-category-detail {
   text-align: center;
   display: flex;
   justify-content: center;
   height: 200px;
 }
-.explore-category-detail .category-content h3 {
+
+.explore-category-block .explore-category-detail .category-content h3 {
   text-transform: uppercase;
   font-weight: 600;
 }
-.explore-category-detail .category-content p {
+
+.explore-category-block .explore-category-detail .category-content p {
   font-size: 16px;
   font-weight: 500;
 }
-.explore-category-detail a:hover {
+
+.explore-category-block .explore-category-detail a:hover {
   text-decoration: none;
 }
-.explore-category-detail a:hover .category-content {
+
+.explore-category-block .explore-category-detail a:hover .category-content {
   color: #24d8d8;
   transition: all 1s;
 }
+
 .detail-block-stay {
   background-image: url(https://wp.getgolo.com/wp-content/uploads/2020/01/cat-1-400x250.png);
   background-position: center;
@@ -61,6 +72,7 @@
   overflow: hidden;
   width: 100%;
 }
+
 .detail-block-see {
   background-image: url(https://wp.getgolo.com/wp-content/uploads/2020/01/cat-1-400x250.png);
   background-position: center;
@@ -70,6 +82,7 @@
   overflow: hidden;
   width: 100%;
 }
+
 .detail-block-food {
   background-image: url(https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);
   background-position: center;
@@ -79,6 +92,7 @@
   overflow: hidden;
   width: 100%;
 }
+
 .detail-block-food .category-content {
   background-color: rgba(62, 200, 235, 0.8);
   width: 100%;
@@ -102,18 +116,21 @@
   padding-top: 65px;
   background-color: rgba(84, 147, 249, 0.8);
 }
+
 .explore-middle {
   border-radius: 50%;
   overflow: hidden;
   height: 200px;
   position: relative;
 }
-.explore-middle-block {
+
+.explore-middle .explore-middle-block {
   background-image: url(http://n1-q.mafengwo.net/s15/M00/3D/C3/CoUBGV3JaSeABWU9ABe5Q0dNFjQ10.jpeg?imageMogr2%2Fstrip);
   background-size: cover;
   height: 300px;
   position: relative;
 }
+
 .explore-popular-city {
   background-color: black;
   padding-bottom: 20px;
@@ -127,32 +144,39 @@
   color: white;
   text-align: center;
 }
-.explore-botton-cover-block {
-  height: 80px;
-  margin-bottom: 25px;
-  border-radius: 0 0 100% 100%;
-  background-color: white;
-}
-.explore-botton-cover-block .explore-hr {
-  margin-top: 10px;
-}
+
 .explore-popular-topic {
   margin-top: -10px;
   background-color: #24d8d8;
   padding-bottom: 30px;
 }
+
+.explore-popular-topic .explore-botton-cover-block {
+  height: 80px;
+  margin-bottom: 25px;
+  border-radius: 0 0 100% 100%;
+  background-color: white;
+}
+
+.explore-popular-topic .explore-botton-cover-block .explore-hr {
+  margin-top: 10px;
+}
+
 .explore-popular-topic .home-subtitle {
   color: black;
   padding-top: 10px;
   text-align: center;
 }
+
 .explore-popular-topic .card {
   background-color: transparent;
 }
+
 .explore-popular-topic .topic-col,
 .explore-popular-topic .topic-col a {
   color: white;
 }
+
 .explore-popular-topic .topic-col a:hover {
   color: white;
   border-bottom: 1px solid white;
@@ -162,23 +186,28 @@
   color: white;
   transition: all 0.5s;
 }
+
 .explore-popular-topic .explore-topic .topic-col .topic-tag:hover {
   color: white;
 }
+
 .explore-popular-topic .explore-topic .topic-col .topic-title a {
   color: white;
   text-decoration: none;
   border: none;
 }
+
 .explore-popular-topic .explore-topic .topic-col .topic-title a:hover {
   color: white;
   text-decoration: none;
 }
+
 .explore-popular-topic .explore-btn {
   text-align: center;
   display: block;
   margin-top: 30px;
 }
+
 .explore-popular-topic .explore-btn .explore-btn-view-more {
   border: 1px solid white;
   border-radius: 50px;
@@ -186,22 +215,25 @@
   padding-right: 20px;
   outline: none;
 }
+
 .subpage-topblock {
-  /* border: 2px solid black; */
   margin-top: 70px;
 }
-.subpage-topblock-container {
+
+.subpage-topblock .subpage-topblock-container {
   height: 180px;
   width: 100%;
   display: flex;
 }
-.subpage-topblock-left {
+
+.subpage-topblock .subpage-topblock-container .subpage-topblock-left {
   display: block;
   width: 100%;
   z-index: 1;
   background-color: #24d8d8;
 }
-.subpage-topblock-pic {
+
+.subpage-topblock .subpage-topblock-container .subpage-topblock-pic {
   position: absolute;
   right: 0;
   overflow: hidden;
@@ -211,12 +243,13 @@
   z-index: 2;
   object-fit: cover;
 }
+
 @media screen and (max-width: 767px) {
-  .subpage-topblock-pic {
+  .subpage-topblock .subpage-topblock-container .subpage-topblock-pic {
     height: 130px;
     width: 50%;
   }
-  .subpage-topblock-container {
+  .subpage-topblock .subpage-topblock-container {
     height: 130px;
   }
 }

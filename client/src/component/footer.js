@@ -5,7 +5,7 @@ export default class Footer extends Component {
   render() {
     return (
       <div id="footer">
-        <hr></hr>
+        <hr className="footer-top-hr"></hr>
         <div className="container">
           <div className="row">
             <div className="col-6 col-md">
@@ -100,6 +100,5 @@ export default class Footer extends Component {
         </div>
       </div>
     );
-    // <footer id="footer">COPYRIGHT &copy; 2020 Jun Yang</footer>;
   }
 }

@@ -22,7 +22,6 @@ class Paypal_Flight extends Component {
     }).then((res) => {
       this.setState({ flight: res.data });
     });
-    console.log(this.state.flight);
   };
 
   render() {

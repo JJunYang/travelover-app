@@ -19,9 +19,6 @@ export default class CityFoodPage extends Component {
           city: res.data.city,
           foodList: res.data.foodList,
         });
-      })
-      .then(() => {
-        console.log(this.state.city);
       });
   }
   render() {
@@ -38,7 +35,6 @@ export default class CityFoodPage extends Component {
             <div className="city-title-city">{this.state.city.name}</div>
           </div>
         </div>
-
         <div className="city-information">
           <Container className="info-details">
             <Row>

@@ -27,7 +27,6 @@ export default class Register extends Component {
         this.props.history.push("/login");
       })
       .catch((error) => {
-        // console.log(error.response.data.message);
         alert(error.response.data.message);
       });
   };

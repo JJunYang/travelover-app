@@ -28,17 +28,10 @@ export default class TopicDetails extends Component {
           relatedTopics: res.data.relatedTopics,
           pList: res.data.pList,
         });
-      })
-      .then(() => {
-        console.log(this.state);
       });
     axios.get("/topic/getCategoryNum").then((res) => {
       this.setState({ categoryList: res.data });
     });
-    // var text=$(".topic-paragragh").text();
-    // var des=text.replace(/\r\n/g, '<br/>').replace(/\n/g, '<br/>').replace(/\s/g, ' ');
-    // $(".topic-paragragh").empty();
-    // $(".topic-paragragh").append(des);
   }
   handleSubmitComment = (e) => {
     e.preventDefault();

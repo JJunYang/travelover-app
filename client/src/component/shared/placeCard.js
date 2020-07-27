@@ -11,7 +11,9 @@ const PlaceCard = ({ place }) => (
     <Card.Body>
       <Card.Text className="card-place-term">
         <span className="place-type">{place.type}</span>
-        <span className="place-city">{place.city.name}</span>
+        <Link to={`/explore/city/${place.city.name}&${place.city._id}`}>
+          <span className="place-city">{place.city.name}</span>
+        </Link>
       </Card.Text>
 
       <Card.Title>

@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import "./details.css";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Image } from "react-bootstrap";
 import axios from "axios";
 import ReviewDetails from "../shared/reviewDetails";
 import { Link } from "react-router-dom";
 import PlaceCard from "../shared/placeCard";
+import ReviewStar from "../shared/reviewStar";
 
 export default class FoodDetails extends Component {
   state = {
@@ -94,9 +95,6 @@ export default class FoodDetails extends Component {
       });
   };
   render() {
-    const width = {
-      width: `${this.state.ratio}%`,
-    };
     return (
       <>
         <Carousel
@@ -121,29 +119,17 @@ export default class FoodDetails extends Component {
               >
                 {this.state.place.city.name}
               </Link>
-              <a href="/" className="item-link">
+              <Link
+                to={`/explore/city/${this.state.place.city.name}&${this.state.place.city._id}/food-drink`}
+                className="item-link"
+              >
                 {this.state.place.category}
-              </a>
+              </Link>
             </div>
             <h2>{this.state.place.name}</h2>
             <div style={{ display: "flex" }}>
               <span className="item-star">{this.state.place.reviewStar}</span>
-              <span className="star-rating">
-                <div className="star-rating-top" style={width}>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <div className="star-rating-bottom">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </span>
+              <ReviewStar percentage={this.state.ratio} />
               <span> ({this.state.place.reviewNum} reviews)</span>
               <span className="item-cost">{this.state.place.cost}</span>
               <span className="item-place-type">{this.state.place.type}</span>
@@ -170,15 +156,45 @@ export default class FoodDetails extends Component {
               </div>
             </div>
             <hr></hr>
-            <div>
-              <h3>Contact</h3>
-              <p>{this.state.place.contact.address}</p>
-              <p>{this.state.place.contact.phone}</p>
-              <p>{this.state.place.contact.website}</p>
+            <div className="contact-block">
+              <h3 className="sub-title-name">Contact</h3>
+              {this.state.place.contact.address ? (
+                <p>
+                  <Image
+                    src={process.env.PUBLIC_URL + "/Icon/address.png"}
+                    className="contact-icon"
+                  />
+                  {this.state.place.contact.address}
+                </p>
+              ) : (
+                ""
+              )}
+              {this.state.place.contact.phone ? (
+                <p>
+                  <Image
+                    src={process.env.PUBLIC_URL + "/Icon/phone.png"}
+                    className="contact-icon"
+                  />
+                  {this.state.place.contact.phone}
+                </p>
+              ) : (
+                ""
+              )}
+              {this.state.place.contact.website ? (
+                <p>
+                  <Image
+                    src={process.env.PUBLIC_URL + "/Icon/website.png"}
+                    className="contact-icon"
+                  />
+                  {this.state.place.contact.website}
+                </p>
+              ) : (
+                ""
+              )}
             </div>
             <hr></hr>
-            <div>
-              <h3>Opening Hours</h3>
+            <div className="openinghours-block">
+              <h3 className="sub-title-name">Opening Hours</h3>
               <p>
                 <span className="openhour-day">Monday:</span>
                 <span>
@@ -308,11 +324,12 @@ export default class FoodDetails extends Component {
             )}
             <hr></hr>
             <div className="review-block">
+              <h3 className="sub-title-name">Review</h3>
               <div className="review-title">
-                <h3>Review</h3>
                 <span className="review-star">
                   {this.state.place.reviewStar}{" "}
                 </span>
+                <ReviewStar percentage={this.state.ratio} />
                 <span className="review-title-num">
                   Base on {this.state.place.reviewNum} Reviews
                 </span>

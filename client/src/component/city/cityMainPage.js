@@ -31,9 +31,6 @@ export default class CityMainPage extends Component {
           seeList: res.data.seeList,
           stayList: res.data.stayList,
         });
-      })
-      .then(() => {
-        console.log(this.state);
       });
   }
   render() {
@@ -50,7 +47,6 @@ export default class CityMainPage extends Component {
             <div className="city-title-city">{this.state.city.name}</div>
           </div>
         </div>
-
         <div className="city-information">
           <Container className="info-details">
             <Row>

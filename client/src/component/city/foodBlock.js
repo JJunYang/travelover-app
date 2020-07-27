@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import PlaceCard from "../shared/placeCard";
 import { Link } from "react-router-dom";
 
-const FoodBlock = ({ placeList,cityName,cityId }) => (
+const FoodBlock = ({ placeList, cityName, cityId }) => (
   <Container>
     <div className="sub-block-title">
       <h2 className="sub-block-name">Food & Drink</h2>

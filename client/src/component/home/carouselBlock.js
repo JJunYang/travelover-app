@@ -27,7 +27,6 @@ export default class CarouselBlock extends Component {
                   style={{ height: "400px" }}
                 />
               </Link>
-
               <Carousel.Caption>
                 <h2>
                   <strong>{moment(item.date).format("LL")}</strong>
