@@ -1,6 +1,6 @@
 # Travelover Website
 
-A travel website is developed using MERN format(M=MongoDB, E=Express, R=React, N=Nodejs), where users can search different travel guides in destinations, and blog their comments and reviews to specific places or topics. The website also contains a mini ticket ordering system, where users can buy flight tickets. All travel places no matter what category is, are involved in a review ranking system and their reviews level will be shown.
+A travel website developed using MERN format(M=MongoDB, E=Express, R=React, N=Nodejs), where users can search different travel guides in destinations, and blog their comments and reviews to specific places or topics. The website also contains a mini ticket ordering system, where users can buy flight tickets. All travel places no matter what category is, are involved in a review ranking system and their reviews level will be shown.
 
 ## Functionality
 
@@ -27,6 +27,8 @@ A travel website is developed using MERN format(M=MongoDB, E=Express, R=React, N
 - Image: [Unsplash](https://unsplash.com/)
 - Data : [Tripadvisor](https://www.tripadvisor.com/), [Mafengwo](http://www.mafengwo.cn/)
 - Small components: [moment](https://gist.github.com/timrwood/e72f2eef320ed9e37c51#backwards-incompatible-changes)
+
+## Screenshots
 
 ## Getting Started
 
@@ -57,3 +59,7 @@ npm install
 ```
 DB_CONNECT=[YOUR MongDB Connection]
 ```
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
