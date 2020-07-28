@@ -22,8 +22,10 @@ A travel website is developed using MERN format(M=MongoDB, E=Express, R=React, N
 - Back end: Express, MongoDB
 - Front end: React
 - Http Request: [axios](https://github.com/axios/axios)
-- Web Style: [React-bootstrap](https://github.com/react-bootstrap/react-bootstrap), CSS3, Bootstrap, [react-carousel](https://github.com/brainhubeu/react-carousel)
+- Web Style: [react-bootstrap](https://github.com/react-bootstrap/react-bootstrap), CSS3, Bootstrap, [react-carousel](https://github.com/brainhubeu/react-carousel)
 - Icon and Logo: Iconfont, Google Fonts
+- Image: [Unsplash](https://unsplash.com/)
+- Data : [Tripadvisor](https://www.tripadvisor.com/), [Mafengwo](http://www.mafengwo.cn/)
 - Small components: [moment](https://gist.github.com/timrwood/e72f2eef320ed9e37c51#backwards-incompatible-changes)
 
 ## Getting Started
