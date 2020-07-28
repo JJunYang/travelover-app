@@ -93,12 +93,12 @@
   font-weight: 500;
 }
 
-.card-place .card-place-term a{
+.card-place .card-place-term a {
   text-decoration: none;
   color: #212529;
 }
 
-.card-place .card-place-term a:hover{
+.card-place .card-place-term a:hover {
   color: #24d8d8;
 }
 
@@ -155,6 +155,14 @@
 .review-detail .review-content {
   margin-top: 10px;
   color: #5d5d5d;
+}
+
+.review-detail .review-star-block {
+  display: flex;
+}
+
+.review-detail .review-star-block .author-name {
+  font-size: 17px;
 }
 
 .journal-card {
