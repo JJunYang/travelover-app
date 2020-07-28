@@ -3,6 +3,7 @@ import "./topic.css";
 import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import TopicCard from "../shared/topicCard";
+import { Link } from "react-router-dom";
 
 export default class TopicMainPage extends Component {
   state = {
@@ -46,9 +47,9 @@ export default class TopicMainPage extends Component {
               {this.state.categoryList.map((item, i) => {
                 return (
                   <li key={i}>
-                    <a href={`/topic/${item.category}`}>
+                    <Link to={`/topic/${item.category}`}>
                       {item.category}({item.num})
-                    </a>
+                    </Link>
                   </li>
                 );
               })}

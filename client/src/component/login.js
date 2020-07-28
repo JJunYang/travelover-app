@@ -73,7 +73,10 @@ export default class Login extends Component {
                 </button>
               </form>
               <p className="lead mt-4">
-                No Account? <Link to="/register">Register</Link>
+                No Account?
+                <Link to="/register" className="register-btn">
+                  Register
+                </Link>
               </p>
             </div>
           </div>

@@ -7,7 +7,7 @@
   background-color: hsla(180, 17%, 85%, 0.055);
 }
 
-.footer-top-hr{
+.footer-top-hr {
   margin-top: 0px;
   padding-top: 0px;
 }
@@ -72,9 +72,23 @@ body {
 
 .App .app-nav {
   transition: top 0.5s;
+  padding-left: 5%;
+  padding-right: 30px;
 }
 
-.login-block{
+.login-block,
+.register-block {
   margin-top: 120px;
   margin-bottom: 70px;
+}
+
+.login-block .lead,
+.register-block .lead {
+  font-weight: 400;
+}
+
+.login-block .register-btn,
+.register-block .login-btn {
+  color: #24d8d8;
+  margin-left: 10px;
 }

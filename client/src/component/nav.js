@@ -9,11 +9,16 @@ export default class NavComponent extends Component {
   logout = async (e) => {
     e.preventDefault();
     sessionStorage.clear();
+    console.log(window.location);
     await axios({
       url: "/logout",
       method: "GET",
     }).then((res) => {
-      window.location.reload();
+      if (window.location.pathname === "/personalcenter") {
+        window.location.pathname = "/login";
+      } else {
+        window.location.reload();
+      }
     });
   };
   render() {

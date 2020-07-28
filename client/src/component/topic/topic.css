@@ -46,6 +46,10 @@
   margin-bottom: 40px;
 }
 
+.topic-content-block .topic-col {
+  margin-top: 20px;
+}
+
 .topic-content-block .topic-nav-block {
   text-align: center;
   padding-bottom: 40px;
@@ -187,7 +191,10 @@
   color: #24d8d8;
 }
 
-.topic-details-main .topic-details-leftside .topic-comment-block .topic-comment-note {
+.topic-details-main
+  .topic-details-leftside
+  .topic-comment-block
+  .topic-comment-note {
   font-size: 20px;
   margin-bottom: 15px;
   font-weight: 500;

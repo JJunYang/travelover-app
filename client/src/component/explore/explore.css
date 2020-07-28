@@ -64,7 +64,7 @@
 }
 
 .detail-block-stay {
-  background-image: url(https://wp.getgolo.com/wp-content/uploads/2020/01/cat-1-400x250.png);
+  background-image: url(https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -74,7 +74,7 @@
 }
 
 .detail-block-see {
-  background-image: url(https://wp.getgolo.com/wp-content/uploads/2020/01/cat-1-400x250.png);
+  background-image: url(https://images.unsplash.com/photo-1526992430293-51554a151122?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -143,6 +143,14 @@
 .explore-popular-city .explore-city-title {
   color: white;
   text-align: center;
+}
+
+.explore-popular-city .colCity {
+  color: white;
+  max-height: 370px;
+  max-width: 270px;
+  overflow: hidden;
+  margin-top: 20px;
 }
 
 .explore-popular-topic {
