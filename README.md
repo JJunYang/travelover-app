@@ -30,6 +30,8 @@ A travel website developed using MERN format(M=MongoDB, E=Express, R=React, N=No
 
 ## Screenshots
 
+See `screenshots` for more information.
+
 ## Getting Started
 
 ### Prerequisites
