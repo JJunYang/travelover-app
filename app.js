@@ -7,7 +7,6 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 require("dotenv").config();
 const User = require("./models/user");
-const path = require("path");
 
 //Connect to Mongo
 mongoose
@@ -59,12 +58,6 @@ app.use("/journals", require("./routes/journals"));
 app.use("/personalCenter", require("./routes/personalCenter"));
 app.use("/topic", require("./routes/topic"));
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
 //Serve listen
 var PORT = process.env.PORT || 4000;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
