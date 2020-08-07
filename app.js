@@ -58,6 +58,9 @@ app.use("/journals", require("./routes/journals"));
 app.use("/personalCenter", require("./routes/personalCenter"));
 app.use("/topic", require("./routes/topic"));
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 //Serve listen
 var PORT = process.env.PORT | 4000;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
