@@ -62,5 +62,5 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 //Serve listen
-var PORT = process.env.PORT | 4000;
+var PORT = process.env.PORT || 4000;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
