@@ -252,6 +252,10 @@
   object-fit: cover;
 }
 
+.sub-block-col{
+  margin-top: 10px;
+}
+
 @media screen and (max-width: 767px) {
   .subpage-topblock .subpage-topblock-container .subpage-topblock-pic {
     height: 130px;

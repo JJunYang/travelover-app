@@ -13,9 +13,8 @@ router.get("/getAllCities", async (req, res) => {
 });
 
 //get city by id
-router.get("/city/:name&:_id", async (req, res) => {
+router.get("/getCityByID/:_id", async (req, res) => {
   try {
-    const city = req.params.name;
     const cityId = req.params._id;
     const foundCity = await City.findById(cityId);
     const foodList = await Place.find({

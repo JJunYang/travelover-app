@@ -13,12 +13,24 @@ export default class Flight extends Component {
   };
 
   componentDidMount() {
-    this.getFlight();
+    axios
+      .get("/tickets/getFlight", {
+        params: {
+          from: this.state.from,
+          to: this.state.to,
+        },
+      })
+      .then((res) => {
+        this.setState({ flightList: res.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   getFlight = async () => {
     axios
-      .get("/tickets/flight", {
+      .get("/tickets/getFlight", {
         params: {
           from: this.state.from,
           to: this.state.to,

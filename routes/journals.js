@@ -3,7 +3,7 @@ const router = express.Router();
 const Journal = require("../models/journal");
 
 //Get details by ID
-router.get("/details/:_id", async (req, res) => {
+router.get("/getdetails/:_id", async (req, res) => {
   try {
     const _id = req.params._id;
     const journal = await Journal.findById(_id);

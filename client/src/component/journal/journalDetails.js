@@ -20,7 +20,7 @@ export default class JournalDetails extends Component {
   };
   async componentDidMount() {
     await axios
-      .get(`/journals/details/${this.props.match.params._id}`)
+      .get(`/journals/getdetails/${this.props.match.params._id}`)
       .then((response) => {
         this.setState({
           _id: response.data._id,

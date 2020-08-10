@@ -11,9 +11,7 @@ export default class CityFoodPage extends Component {
   };
   componentDidMount() {
     axios
-      .get(
-        `/explore/city/${this.props.match.params.cityName}&${this.props.match.params._id}`
-      )
+      .get(`/explore/getCityByID/${this.props.match.params._id}`)
       .then((res) => {
         this.setState({
           city: res.data.city,

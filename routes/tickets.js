@@ -4,7 +4,7 @@ const Flight = require("../models/flight");
 const User = require("../models/user");
 
 //Find Flights
-router.get("/flight", async (req, res) => {
+router.get("/getFlight", async (req, res) => {
   const from = req.query.from;
   const to = req.query.to;
   if (from === "" && to === "") {
