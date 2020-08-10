@@ -7,6 +7,8 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 require("dotenv").config();
 const User = require("./models/user");
+const path = require("path");
+
 
 //Connect to Mongo
 mongoose
