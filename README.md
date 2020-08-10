@@ -56,12 +56,20 @@ https://github.com/jjyang1108/travelover-app.git
 
 ```
 npm install
+cd client
+npm install
 ```
 
 3. Create file `.env` in root and add:
 
 ```
 DB_CONNECT=[YOUR MongDB Connection]
+```
+
+4. In root repository:
+
+```
+npm run dev
 ```
 
 ## License
