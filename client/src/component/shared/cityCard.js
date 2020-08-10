@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Card } from "react-bootstrap";
 import "./shared.css";
 import { Link } from "react-router-dom";

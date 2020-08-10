@@ -58,6 +58,14 @@ app.use("/journals", require("./routes/journals"));
 app.use("/personalCenter", require("./routes/personalCenter"));
 app.use("/topic", require("./routes/topic"));
 
+// Serve static assets if in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendfile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
+
 //Serve listen
 var PORT = process.env.PORT || 4000;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
