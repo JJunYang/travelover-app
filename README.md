@@ -20,7 +20,7 @@ A travel website developed using MERN format(M=MongoDB, E=Express, R=React, N=No
 - JS Version: ECMAScript 6
 - Middleware: bodyParser, cors
 - Payment integration: Paypal sandbox SDK for Node [PayPal REST SDK](https://developer.paypal.com/docs/api/rest-sdks/#)
-- Registeration: [Passport](https://www.npmjs.com/package/passport)
+- Registration: [Passport](https://www.npmjs.com/package/passport)
 - Back end: Express, MongoDB
 - Front end: React
 - Http Request: [axios](https://github.com/axios/axios)
